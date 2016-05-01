@@ -75,8 +75,8 @@ public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> 
 
 // MARK: Evaluate Conditions
 
-struct OperationConditionEvaluator {
-    static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [NSError] -> Void) {
+public struct OperationConditionEvaluator {
+    public static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [NSError] -> Void) {
         // Check conditions.
         let conditionGroup = dispatch_group_create()
 

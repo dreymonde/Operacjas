@@ -14,8 +14,8 @@ import Foundation
     We use a singleton because mutual exclusivity must be enforced across the entire
     app, regardless of the `OperationQueue` on which an `Operation` was executed.
 */
-class ExclusivityController {
-    static let sharedExclusivityController = ExclusivityController()
+public class ExclusivityController {
+    public static let sharedExclusivityController = ExclusivityController()
     
     private let serialQueue = dispatch_queue_create("Operations.ExclusivityController", DISPATCH_QUEUE_SERIAL)
     private var operations: [String: [Operation]] = [:]
@@ -28,7 +28,7 @@ class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    func addOperation(operation: Operation, categories: [String]) {
+    public func addOperation(operation: Operation, categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
@@ -42,7 +42,7 @@ class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    func removeOperation(operation: Operation, categories: [String]) {
+    public func removeOperation(operation: Operation, categories: [String]) {
         dispatch_async(serialQueue) {
             for category in categories {
                 self.noqueue_removeOperation(operation, category: category)

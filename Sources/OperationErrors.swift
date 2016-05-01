@@ -16,16 +16,16 @@ public enum OperationErrorCode: Int {
 }
 
 extension NSError {
-    convenience init(code: OperationErrorCode, userInfo: [NSObject: AnyObject]? = nil) {
+    public convenience init(code: OperationErrorCode, userInfo: [NSObject: AnyObject]? = nil) {
         self.init(domain: OperationErrorDomain, code: code.rawValue, userInfo: userInfo)
     }
 }
 
 // This makes it easy to compare an `NSError.code` to an `OperationErrorCode`.
-func ==(lhs: Int, rhs: OperationErrorCode) -> Bool {
+public func ==(lhs: Int, rhs: OperationErrorCode) -> Bool {
     return lhs == rhs.rawValue
 }
 
-func ==(lhs: OperationErrorCode, rhs: Int) -> Bool {
+public func ==(lhs: OperationErrorCode, rhs: Int) -> Bool {
     return lhs.rawValue == rhs
 }
