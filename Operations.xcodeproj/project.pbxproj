@@ -10,6 +10,49 @@
 		BE17C43C1CD3CCD700708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE17C4431CD3CCD700708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4381CD3CCD600708FC5 /* Operations.framework */; };
 		BE17C4481CD3CCD700708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C4611CD3CD0200708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4571CD3CD0200708FC5 /* Operations.framework */; };
+		BE17C48A1CD3CD2000708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4801CD3CD2000708FC5 /* Operations.framework */; };
+		BE17C4991CD3CD4E00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49A1CD3CD4E00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49B1CD3CD4F00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C49F1CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A01CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A11CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A21CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A91CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AA1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AB1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AC1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AE1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +63,20 @@
 			remoteGlobalIDString = BE17C4371CD3CCD600708FC5;
 			remoteInfo = Operations;
 		};
+		BE17C4621CD3CD0200708FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE17C42F1CD3CCD600708FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE17C4561CD3CD0200708FC5;
+			remoteInfo = "Operations Mac";
+		};
+		BE17C48B1CD3CD2000708FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE17C42F1CD3CCD600708FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE17C47F1CD3CD2000708FC5;
+			remoteInfo = "Operations tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +86,20 @@
 		BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
 		BE17C4491CD3CCD700708FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE17C4571CD3CD0200708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4731CD3CD1100708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4801CD3CD2000708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C49E1CD3CEA300708FC5 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
+		BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
+		BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
+		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
+		BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
+		BEFD74D31CD630CD0066A71B /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
+		BEFD74D81CD633010066A71B /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
+		BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOperation+Operations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,14 +118,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE17C4531CD3CD0200708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45D1CD3CD0200708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4611CD3CD0200708FC5 /* Operations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C46F1CD3CD1100708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47C1CD3CD2000708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4861CD3CD2000708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C48A1CD3CD2000708FC5 /* Operations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BE17C42E1CD3CCD600708FC5 = {
 			isa = PBXGroup;
 			children = (
-				BE17C43A1CD3CCD700708FC5 /* Operations */,
-				BE17C4461CD3CCD700708FC5 /* OperationsTests */,
+				BE17C4981CD3CD3600708FC5 /* Sources */,
+				BE17C4461CD3CCD700708FC5 /* Tests */,
+				BE17C4971CD3CD3100708FC5 /* Resources */,
 				BE17C4391CD3CCD600708FC5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,26 +173,71 @@
 			children = (
 				BE17C4381CD3CCD600708FC5 /* Operations.framework */,
 				BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */,
+				BE17C4571CD3CD0200708FC5 /* Operations.framework */,
+				BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */,
+				BE17C4731CD3CD1100708FC5 /* Operations.framework */,
+				BE17C4801CD3CD2000708FC5 /* Operations.framework */,
+				BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BE17C43A1CD3CCD700708FC5 /* Operations */ = {
+		BE17C4461CD3CCD700708FC5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				BE17C43B1CD3CCD700708FC5 /* Operations.h */,
-				BE17C43D1CD3CCD700708FC5 /* Info.plist */,
+				BE17C4491CD3CCD700708FC5 /* Info.plist */,
+				BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */,
 			);
-			path = Operations;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		BE17C4461CD3CCD700708FC5 /* OperationsTests */ = {
+		BE17C4971CD3CD3100708FC5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */,
-				BE17C4491CD3CCD700708FC5 /* Info.plist */,
+				BE17C43D1CD3CCD700708FC5 /* Info.plist */,
+				BE17C43B1CD3CCD700708FC5 /* Operations.h */,
 			);
-			path = OperationsTests;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE17C4981CD3CD3600708FC5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74CB1CD630240066A71B /* Operations */,
+				BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */,
+				BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BEFD74CB1CD630240066A71B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74CD1CD630390066A71B /* OperationQueue */,
+				BEFD74CC1CD6302C0066A71B /* Operation */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
+		BEFD74CC1CD6302C0066A71B /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				BE17C49E1CD3CEA300708FC5 /* Operation.swift */,
+				BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */,
+				BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */,
+				BEFD74D81CD633010066A71B /* BlockObserver.swift */,
+				BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
+		BEFD74CD1CD630390066A71B /* OperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74D31CD630CD0066A71B /* OperationQueue.swift */,
+				BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */,
+			);
+			name = OperationQueue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,12 +251,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE17C4541CD3CD0200708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4991CD3CD4E00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4701CD3CD1100708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49A1CD3CD4E00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47D1CD3CD2000708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49B1CD3CD4F00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BE17C4371CD3CCD600708FC5 /* Operations */ = {
+		BE17C4371CD3CCD600708FC5 /* Operations iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations" */;
+			buildConfigurationList = BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOS" */;
 			buildPhases = (
 				BE17C4331CD3CCD600708FC5 /* Sources */,
 				BE17C4341CD3CCD600708FC5 /* Frameworks */,
@@ -113,14 +291,14 @@
 			);
 			dependencies = (
 			);
-			name = Operations;
+			name = "Operations iOS";
 			productName = Operations;
 			productReference = BE17C4381CD3CCD600708FC5 /* Operations.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BE17C4411CD3CCD700708FC5 /* OperationsTests */ = {
+		BE17C4411CD3CCD700708FC5 /* Operations iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "OperationsTests" */;
+			buildConfigurationList = BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOSTests" */;
 			buildPhases = (
 				BE17C43E1CD3CCD700708FC5 /* Sources */,
 				BE17C43F1CD3CCD700708FC5 /* Frameworks */,
@@ -131,9 +309,99 @@
 			dependencies = (
 				BE17C4451CD3CCD700708FC5 /* PBXTargetDependency */,
 			);
-			name = OperationsTests;
+			name = "Operations iOSTests";
 			productName = OperationsTests;
 			productReference = BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE17C4561CD3CD0200708FC5 /* Operations Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4681CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations Mac" */;
+			buildPhases = (
+				BE17C4521CD3CD0200708FC5 /* Sources */,
+				BE17C4531CD3CD0200708FC5 /* Frameworks */,
+				BE17C4541CD3CD0200708FC5 /* Headers */,
+				BE17C4551CD3CD0200708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations Mac";
+			productName = "Operations Mac";
+			productReference = BE17C4571CD3CD0200708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C45F1CD3CD0200708FC5 /* Operations MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C46B1CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations MacTests" */;
+			buildPhases = (
+				BE17C45C1CD3CD0200708FC5 /* Sources */,
+				BE17C45D1CD3CD0200708FC5 /* Frameworks */,
+				BE17C45E1CD3CD0200708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE17C4631CD3CD0200708FC5 /* PBXTargetDependency */,
+			);
+			name = "Operations MacTests";
+			productName = "Operations MacTests";
+			productReference = BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE17C4721CD3CD1100708FC5 /* Operations watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4781CD3CD1100708FC5 /* Build configuration list for PBXNativeTarget "Operations watchOS" */;
+			buildPhases = (
+				BE17C46E1CD3CD1100708FC5 /* Sources */,
+				BE17C46F1CD3CD1100708FC5 /* Frameworks */,
+				BE17C4701CD3CD1100708FC5 /* Headers */,
+				BE17C4711CD3CD1100708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations watchOS";
+			productName = "Operations watchOS";
+			productReference = BE17C4731CD3CD1100708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C47F1CD3CD2000708FC5 /* Operations tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4911CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOS" */;
+			buildPhases = (
+				BE17C47B1CD3CD2000708FC5 /* Sources */,
+				BE17C47C1CD3CD2000708FC5 /* Frameworks */,
+				BE17C47D1CD3CD2000708FC5 /* Headers */,
+				BE17C47E1CD3CD2000708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations tvOS";
+			productName = "Operations tvOS";
+			productReference = BE17C4801CD3CD2000708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C4881CD3CD2000708FC5 /* Operations tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4941CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOSTests" */;
+			buildPhases = (
+				BE17C4851CD3CD2000708FC5 /* Sources */,
+				BE17C4861CD3CD2000708FC5 /* Frameworks */,
+				BE17C4871CD3CD2000708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE17C48C1CD3CD2000708FC5 /* PBXTargetDependency */,
+			);
+			name = "Operations tvOSTests";
+			productName = "Operations tvOSTests";
+			productReference = BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -154,6 +422,24 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = WK35K3FV5Z;
 					};
+					BE17C4561CD3CD0200708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BE17C45F1CD3CD0200708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BE17C4721CD3CD1100708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C47F1CD3CD2000708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C4881CD3CD2000708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
 				};
 			};
 			buildConfigurationList = BE17C4321CD3CCD600708FC5 /* Build configuration list for PBXProject "Operations" */;
@@ -168,8 +454,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BE17C4371CD3CCD600708FC5 /* Operations */,
-				BE17C4411CD3CCD700708FC5 /* OperationsTests */,
+				BE17C4371CD3CCD600708FC5 /* Operations iOS */,
+				BE17C4411CD3CCD700708FC5 /* Operations iOSTests */,
+				BE17C4561CD3CD0200708FC5 /* Operations Mac */,
+				BE17C45F1CD3CD0200708FC5 /* Operations MacTests */,
+				BE17C4721CD3CD1100708FC5 /* Operations watchOS */,
+				BE17C47F1CD3CD2000708FC5 /* Operations tvOS */,
+				BE17C4881CD3CD2000708FC5 /* Operations tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +480,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE17C4551CD3CD0200708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45E1CD3CD0200708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4711CD3CD1100708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47E1CD3CD2000708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4871CD3CD2000708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -196,6 +522,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C49F1CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BE17C4A91CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4AE1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +542,87 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE17C4521CD3CD0200708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A01CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BE17C4AA1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45C1CD3CD0200708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C46E1CD3CD1100708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A11CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BE17C4AB1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47B1CD3CD2000708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A21CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BE17C4AC1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4851CD3CD2000708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		BE17C4451CD3CCD700708FC5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BE17C4371CD3CCD600708FC5 /* Operations */;
+			target = BE17C4371CD3CCD600708FC5 /* Operations iOS */;
 			targetProxy = BE17C4441CD3CCD700708FC5 /* PBXContainerItemProxy */;
+		};
+		BE17C4631CD3CD0200708FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE17C4561CD3CD0200708FC5 /* Operations Mac */;
+			targetProxy = BE17C4621CD3CD0200708FC5 /* PBXContainerItemProxy */;
+		};
+		BE17C48C1CD3CD2000708FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE17C47F1CD3CD2000708FC5 /* Operations tvOS */;
+			targetProxy = BE17C48B1CD3CD2000708FC5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -312,31 +721,34 @@
 		BE17C44D1CD3CCD700708FC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Operations/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Operations;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		BE17C44E1CD3CCD700708FC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Operations/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Operations;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -344,20 +756,201 @@
 		BE17C4501CD3CCD700708FC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = OperationsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OperationsTests;
 			};
 			name = Debug;
 		};
 		BE17C4511CD3CCD700708FC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = OperationsTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OperationsTests;
+			};
+			name = Release;
+		};
+		BE17C4691CD3CD0200708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE17C46A1CD3CD0200708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BE17C46C1CD3CD0200708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BE17C46D1CD3CD0200708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BE17C4791CD3CD1100708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Debug;
+		};
+		BE17C47A1CD3CD1100708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.2;
+			};
+			name = Release;
+		};
+		BE17C4921CD3CD2000708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		BE17C4931CD3CD2000708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		BE17C4951CD3CD2000708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		BE17C4961CD3CD2000708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
 		};
@@ -373,21 +966,68 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations" */ = {
+		BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE17C44D1CD3CCD700708FC5 /* Debug */,
 				BE17C44E1CD3CCD700708FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "OperationsTests" */ = {
+		BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE17C4501CD3CCD700708FC5 /* Debug */,
 				BE17C4511CD3CCD700708FC5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4681CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4691CD3CD0200708FC5 /* Debug */,
+				BE17C46A1CD3CD0200708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C46B1CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C46C1CD3CD0200708FC5 /* Debug */,
+				BE17C46D1CD3CD0200708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4781CD3CD1100708FC5 /* Build configuration list for PBXNativeTarget "Operations watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4791CD3CD1100708FC5 /* Debug */,
+				BE17C47A1CD3CD1100708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4911CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4921CD3CD2000708FC5 /* Debug */,
+				BE17C4931CD3CD2000708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4941CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4951CD3CD2000708FC5 /* Debug */,
+				BE17C4961CD3CD2000708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

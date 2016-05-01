@@ -6,7 +6,7 @@
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Operations.
 FOUNDATION_EXPORT double OperationsVersionNumber;
