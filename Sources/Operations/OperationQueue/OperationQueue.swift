@@ -18,9 +18,9 @@ import Foundation
     For example, `GroupOperation` is the delegate of its own internal
     `OperationQueue` and uses it to manage dependencies.
 */
-@objc public protocol OperationQueueDelegate: NSObjectProtocol {
-    optional func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
-    optional func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError])
+public protocol OperationQueueDelegate: class {
+    func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
+    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError])
 }
 
 /**
@@ -43,8 +43,8 @@ public class OperationQueue: NSOperationQueue {
                     self?.addOperation($1)
                 },
                 finishHandler: { [weak self] in
-                    if let q = self {
-                        q.delegate?.operationQueue?(q, operationDidFinish: $0, withErrors: $1)
+                    if let queue = self {
+                        queue.delegate?.operationQueue(queue, operationDidFinish: $0, withErrors: $1)
                     }
                 }
             )
@@ -95,11 +95,11 @@ public class OperationQueue: NSOperationQueue {
             */
             operation.addCompletionBlock { [weak self, weak operation] in
                 guard let queue = self, let operation = operation else { return }
-                queue.delegate?.operationQueue?(queue, operationDidFinish: operation, withErrors: [])
+                queue.delegate?.operationQueue(queue, operationDidFinish: operation, withErrors: [])
             }
         }
         
-        delegate?.operationQueue?(self, willAddOperation: operation)
+        delegate?.operationQueue(self, willAddOperation: operation)
         super.addOperation(operation)
     }
     
