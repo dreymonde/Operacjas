@@ -248,8 +248,8 @@ public class Operation: NSOperation {
         finish()
     }
     
-    private var _internalErrors = [NSError]()
-    public func cancelWithError(error: NSError? = nil) {
+    private var _internalErrors = [ErrorType]()
+    public func cancelWithError(error: ErrorType? = nil) {
         if let error = error {
             _internalErrors.append(error)
         }
@@ -273,7 +273,7 @@ public class Operation: NSOperation {
      for how an error from an `NSURLSession` is passed along via the
      `finishWithError()` method.
      */
-    public final func finishWithError(error: NSError?) {
+    public final func finishWithError(error: ErrorType?) {
         if let error = error {
             finish([error])
         }
@@ -287,7 +287,7 @@ public class Operation: NSOperation {
      operation has finished.
      */
     private var hasFinishedAlready = false
-    public final func finish(errors: [NSError] = []) {
+    public final func finish(errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
@@ -309,7 +309,7 @@ public class Operation: NSOperation {
      this method to potentially inform the user about an error when trying to
      bring up the Core Data stack.
      */
-    public func finished(errors: [NSError]) {
+    public func finished(errors: [ErrorType]) {
         // No op.
     }
     
