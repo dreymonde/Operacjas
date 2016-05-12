@@ -5,7 +5,7 @@
 
 ## Usage
 
-This section doesn't cover all the possibilites of **Operations**. For complete understanding of what's going on, please watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple and read the source code (it's well commented by Apple).
+This section covers only the creation of basic `Operation`. **Operations** is much more than that. For complete understanding of what's going on, please watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple and read the source code (it's well commented by Apple).
 
 #### Basic networking operation
 
