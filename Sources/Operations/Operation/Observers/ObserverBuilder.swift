@@ -54,10 +54,11 @@ private struct ObserverBuilderObserver: OperationObserver {
     }
     
     private func operationDidFinish(operation: Operation, errors: [ErrorType]) {
-        if !errors.isEmpty {
+        if errors.isEmpty {
+            builder.finishHandler?(operation)
+        } else {
             builder.errorHandler?(errors)
         }
-        builder.finishHandler?(operation)
     }
 }
 
