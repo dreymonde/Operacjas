@@ -75,15 +75,14 @@ public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> 
 
 // MARK: Evaluate Conditions
 
-public struct OperationConditionEvaluator {
-    public static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [ErrorType] -> Void) {
+extension CollectionType where Generator.Element == OperationCondition, Index.Distance == Int {
+    func evaluate(forOperation operation: Operation, completion: ([ErrorType]) -> Void) {
         // Check conditions.
         let conditionGroup = dispatch_group_create()
+        var results = [OperationConditionResult?](count: self.count, repeatedValue: nil)
 
-        var results = [OperationConditionResult?](count: conditions.count, repeatedValue: nil)
-        
         // Ask each condition to evaluate and store its result in the "results" array.
-        for (index, condition) in conditions.enumerate() {
+        for (index, condition) in self.enumerate() {
             dispatch_group_enter(conditionGroup)
             condition.evaluateForOperation(operation) { result in
                 results[index] = result
@@ -97,9 +96,9 @@ public struct OperationConditionEvaluator {
             var failures = results.flatMap { $0?.error }
             
             /*
-                If any of the conditions caused this operation to be cancelled,
-                check for that.
-            */
+             If any of the conditions caused this operation to be cancelled,
+             check for that.
+             */
             if operation.cancelled {
                 failures.append(OperationError.ConditionFailed)
             }

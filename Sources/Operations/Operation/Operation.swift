@@ -178,7 +178,7 @@ public class Operation: NSOperation {
         assert(state == .Pending && !cancelled, "evaluateConditions() was called out-of-order")
         
         state = .EvaluatingConditions
-        OperationConditionEvaluator.evaluate(conditions, operation: self) { failures in
+        conditions.evaluate(forOperation: self) { failures in
             self._internalErrors.appendContentsOf(failures)
             self.state = .Ready
         }
