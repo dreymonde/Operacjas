@@ -51,9 +51,9 @@ public protocol OperationCondition {
 */
 public enum OperationConditionResult: Equatable {
     case Satisfied
-    case Failed(NSError)
+    case Failed(error: ErrorType)
     
-    var error: NSError? {
+    var error: ErrorType? {
         if case .Failed(let error) = self {
             return error
         }
@@ -66,7 +66,7 @@ public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> 
     switch (lhs, rhs) {
         case (.Satisfied, .Satisfied):
             return true
-        case (.Failed(let lError), .Failed(let rError)) where lError == rError:
+        case (.Failed(let lError as NSError), .Failed(let rError as NSError)) where lError == rError:
             return true
         default:
             return false
@@ -76,7 +76,7 @@ public func ==(lhs: OperationConditionResult, rhs: OperationConditionResult) -> 
 // MARK: Evaluate Conditions
 
 public struct OperationConditionEvaluator {
-    public static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [NSError] -> Void) {
+    public static func evaluate(conditions: [OperationCondition], operation: Operation, completion: [ErrorType] -> Void) {
         // Check conditions.
         let conditionGroup = dispatch_group_create()
 
@@ -101,7 +101,7 @@ public struct OperationConditionEvaluator {
                 check for that.
             */
             if operation.cancelled {
-                failures.append(NSError(code: .ConditionFailed))
+                failures.append(OperationError.ConditionFailed)
             }
             
             completion(failures)

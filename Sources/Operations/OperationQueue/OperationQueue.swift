@@ -20,7 +20,7 @@ import Foundation
 */
 public protocol OperationQueueDelegate: class {
     func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
-    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [NSError])
+    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
 }
 
 /**
