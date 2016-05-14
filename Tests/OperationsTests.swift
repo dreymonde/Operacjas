@@ -11,6 +11,8 @@ import XCTest
 
 class OperationsTests: XCTestCase {
     
+    let queue = OperationQueue()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -31,6 +33,26 @@ class OperationsTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testBuilder() {
+        let expectation = expectationWithDescription("Operation waiting")
+        let operation = BlockOperation {
+            print("here")
+        }
+        operation.observe {
+            $0.didStart {
+                print($0)
+            }
+            $0.didFinish { operation in
+                expectation.fulfill()
+            }
+            $0.didFailed { errors in
+                print(errors)
+            }
+        }
+        queue.addOperation(operation)
+        waitForExpectationsWithTimeout(10.0, handler: nil)
     }
     
 }

@@ -1,2348 +1,1107 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>BE17C42E1CD3CCD600708FC5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE17C4981CD3CD3600708FC5</string>
-				<string>BE17C4461CD3CCD700708FC5</string>
-				<string>BE17C4971CD3CD3100708FC5</string>
-				<string>BE17C4391CD3CCD600708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C42F1CD3CCD600708FC5</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0730</string>
-				<key>LastUpgradeCheck</key>
-				<string>0730</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>AdvancedOperations</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>BE17C4371CD3CCD600708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>WK35K3FV5Z</string>
-					</dict>
-					<key>BE17C4411CD3CCD700708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>WK35K3FV5Z</string>
-					</dict>
-					<key>BE17C4561CD3CD0200708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-					</dict>
-					<key>BE17C45F1CD3CD0200708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-					</dict>
-					<key>BE17C4721CD3CD1100708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>WK35K3FV5Z</string>
-					</dict>
-					<key>BE17C47F1CD3CD2000708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>WK35K3FV5Z</string>
-					</dict>
-					<key>BE17C4881CD3CD2000708FC5</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.3</string>
-						<key>DevelopmentTeam</key>
-						<string>WK35K3FV5Z</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C4321CD3CCD600708FC5</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>BE17C42E1CD3CCD600708FC5</string>
-			<key>productRefGroup</key>
-			<string>BE17C4391CD3CCD600708FC5</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>BE17C4371CD3CCD600708FC5</string>
-				<string>BE17C4411CD3CCD700708FC5</string>
-				<string>BE17C4561CD3CD0200708FC5</string>
-				<string>BE17C45F1CD3CD0200708FC5</string>
-				<string>BE17C4721CD3CD1100708FC5</string>
-				<string>BE17C47F1CD3CD2000708FC5</string>
-				<string>BE17C4881CD3CD2000708FC5</string>
-			</array>
-		</dict>
-		<key>BE17C4321CD3CCD600708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C44A1CD3CCD700708FC5</string>
-				<string>BE17C44B1CD3CCD700708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4331CD3CCD600708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BEFD74DE1CD633130066A71B</string>
-				<string>BEFD75041CD64D400066A71B</string>
-				<string>BEFD74D41CD630CD0066A71B</string>
-				<string>BEFD74D91CD633010066A71B</string>
-				<string>BE17C49F1CD3CEA300708FC5</string>
-				<string>BEFD74CF1CD630BA0066A71B</string>
-				<string>BEFD74FF1CD64D3C0066A71B</string>
-				<string>BE17C4A41CD3CEFE00708FC5</string>
-				<string>BEFD74E51CD639000066A71B</string>
-				<string>BE17C4A91CD3CF0700708FC5</string>
-				<string>BE17C4B31CD3CF4200708FC5</string>
-				<string>BE17C4AE1CD3CF2300708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4341CD3CCD600708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4351CD3CCD600708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C43C1CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4361CD3CCD600708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4371CD3CCD600708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C44C1CD3CCD700708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C4331CD3CCD600708FC5</string>
-				<string>BE17C4341CD3CCD600708FC5</string>
-				<string>BE17C4351CD3CCD600708FC5</string>
-				<string>BE17C4361CD3CCD600708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations iOS</string>
-			<key>productName</key>
-			<string>Operations</string>
-			<key>productReference</key>
-			<string>BE17C4381CD3CCD600708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>BE17C4381CD3CCD600708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Operations.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C4391CD3CCD600708FC5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE17C4381CD3CCD600708FC5</string>
-				<string>BE17C4421CD3CCD700708FC5</string>
-				<string>BE17C4571CD3CD0200708FC5</string>
-				<string>BE17C4601CD3CD0200708FC5</string>
-				<string>BE17C4731CD3CD1100708FC5</string>
-				<string>BE17C4801CD3CD2000708FC5</string>
-				<string>BE17C4891CD3CD2000708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C43B1CD3CCD700708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Operations.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C43C1CD3CCD700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C43B1CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BE17C43D1CD3CCD700708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C43E1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C4481CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C43F1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C4431CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4401CD3CCD700708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4411CD3CCD700708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C44F1CD3CCD700708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C43E1CD3CCD700708FC5</string>
-				<string>BE17C43F1CD3CCD700708FC5</string>
-				<string>BE17C4401CD3CCD700708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>BE17C4451CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations iOSTests</string>
-			<key>productName</key>
-			<string>OperationsTests</string>
-			<key>productReference</key>
-			<string>BE17C4421CD3CCD700708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>BE17C4421CD3CCD700708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>OperationsTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C4431CD3CCD700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4381CD3CCD600708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4441CD3CCD700708FC5</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>BE17C42F1CD3CCD600708FC5</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE17C4371CD3CCD600708FC5</string>
-			<key>remoteInfo</key>
-			<string>Operations</string>
-		</dict>
-		<key>BE17C4451CD3CCD700708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>BE17C4371CD3CCD600708FC5</string>
-			<key>targetProxy</key>
-			<string>BE17C4441CD3CCD700708FC5</string>
-		</dict>
-		<key>BE17C4461CD3CCD700708FC5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE17C4491CD3CCD700708FC5</string>
-				<string>BE17C4471CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Tests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4471CD3CCD700708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OperationsTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4481CD3CCD700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4471CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4491CD3CCD700708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C44A1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C44B1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_ANALYZER_NONNULL</key>
-				<string>YES</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>CURRENT_PROJECT_VERSION</key>
-				<string>1</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.3</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-				<key>VERSIONING_SYSTEM</key>
-				<string>apple-generic</string>
-				<key>VERSION_INFO_PREFIX</key>
-				<string></string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C44C1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C44D1CD3CCD700708FC5</string>
-				<string>BE17C44E1CD3CCD700708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C44D1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C44E1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C44F1CD3CCD700708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C4501CD3CCD700708FC5</string>
-				<string>BE17C4511CD3CCD700708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4501CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C4511CD3CCD700708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C4521CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BEFD74DF1CD633130066A71B</string>
-				<string>BEFD75051CD64D400066A71B</string>
-				<string>BEFD74D51CD630CD0066A71B</string>
-				<string>BEFD74DA1CD633010066A71B</string>
-				<string>BE17C4A01CD3CEA300708FC5</string>
-				<string>BEFD74D01CD630BA0066A71B</string>
-				<string>BEFD75001CD64D3C0066A71B</string>
-				<string>BE17C4A51CD3CEFE00708FC5</string>
-				<string>BEFD74E61CD639000066A71B</string>
-				<string>BE17C4AA1CD3CF0700708FC5</string>
-				<string>BE17C4B41CD3CF4200708FC5</string>
-				<string>BE17C4AF1CD3CF2300708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4531CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4541CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C4991CD3CD4E00708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4551CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4561CD3CD0200708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C4681CD3CD0200708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C4521CD3CD0200708FC5</string>
-				<string>BE17C4531CD3CD0200708FC5</string>
-				<string>BE17C4541CD3CD0200708FC5</string>
-				<string>BE17C4551CD3CD0200708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations Mac</string>
-			<key>productName</key>
-			<string>Operations Mac</string>
-			<key>productReference</key>
-			<string>BE17C4571CD3CD0200708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>BE17C4571CD3CD0200708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Operations.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C45C1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C49C1CD3CE3D00708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C45D1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C4611CD3CD0200708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C45E1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C45F1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C46B1CD3CD0200708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C45C1CD3CD0200708FC5</string>
-				<string>BE17C45D1CD3CD0200708FC5</string>
-				<string>BE17C45E1CD3CD0200708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>BE17C4631CD3CD0200708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations MacTests</string>
-			<key>productName</key>
-			<string>Operations MacTests</string>
-			<key>productReference</key>
-			<string>BE17C4601CD3CD0200708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>BE17C4601CD3CD0200708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>OperationsTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C4611CD3CD0200708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4571CD3CD0200708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4621CD3CD0200708FC5</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>BE17C42F1CD3CCD600708FC5</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE17C4561CD3CD0200708FC5</string>
-			<key>remoteInfo</key>
-			<string>Operations Mac</string>
-		</dict>
-		<key>BE17C4631CD3CD0200708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>BE17C4561CD3CD0200708FC5</string>
-			<key>targetProxy</key>
-			<string>BE17C4621CD3CD0200708FC5</string>
-		</dict>
-		<key>BE17C4681CD3CD0200708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C4691CD3CD0200708FC5</string>
-				<string>BE17C46A1CD3CD0200708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4691CD3CD0200708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>FRAMEWORK_VERSION</key>
-				<string>A</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/Frameworks</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C46A1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>FRAMEWORK_VERSION</key>
-				<string>A</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/Frameworks</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C46B1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C46C1CD3CD0200708FC5</string>
-				<string>BE17C46D1CD3CD0200708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C46C1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C46D1CD3CD0200708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C46E1CD3CD1100708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BEFD74E01CD633130066A71B</string>
-				<string>BEFD75061CD64D400066A71B</string>
-				<string>BEFD74D61CD630CD0066A71B</string>
-				<string>BEFD74DB1CD633010066A71B</string>
-				<string>BE17C4A11CD3CEA300708FC5</string>
-				<string>BEFD74D11CD630BA0066A71B</string>
-				<string>BEFD75011CD64D3C0066A71B</string>
-				<string>BE17C4A61CD3CEFE00708FC5</string>
-				<string>BEFD74E71CD639000066A71B</string>
-				<string>BE17C4AB1CD3CF0700708FC5</string>
-				<string>BE17C4B51CD3CF4200708FC5</string>
-				<string>BE17C4B01CD3CF2300708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C46F1CD3CD1100708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4701CD3CD1100708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C49A1CD3CD4E00708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4711CD3CD1100708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4721CD3CD1100708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C4781CD3CD1100708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C46E1CD3CD1100708FC5</string>
-				<string>BE17C46F1CD3CD1100708FC5</string>
-				<string>BE17C4701CD3CD1100708FC5</string>
-				<string>BE17C4711CD3CD1100708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations watchOS</string>
-			<key>productName</key>
-			<string>Operations watchOS</string>
-			<key>productReference</key>
-			<string>BE17C4731CD3CD1100708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>BE17C4731CD3CD1100708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Operations.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C4781CD3CD1100708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C4791CD3CD1100708FC5</string>
-				<string>BE17C47A1CD3CD1100708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4791CD3CD1100708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>watchos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>4</string>
-				<key>WATCHOS_DEPLOYMENT_TARGET</key>
-				<string>2.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C47A1CD3CD1100708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>watchos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>4</string>
-				<key>WATCHOS_DEPLOYMENT_TARGET</key>
-				<string>2.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C47B1CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BEFD74E11CD633130066A71B</string>
-				<string>BEFD75071CD64D400066A71B</string>
-				<string>BEFD74D71CD630CD0066A71B</string>
-				<string>BEFD74DC1CD633010066A71B</string>
-				<string>BE17C4A21CD3CEA300708FC5</string>
-				<string>BEFD74D21CD630BA0066A71B</string>
-				<string>BEFD75021CD64D3C0066A71B</string>
-				<string>BE17C4A71CD3CEFE00708FC5</string>
-				<string>BEFD74E81CD639000066A71B</string>
-				<string>BE17C4AC1CD3CF0700708FC5</string>
-				<string>BE17C4B61CD3CF4200708FC5</string>
-				<string>BE17C4B11CD3CF2300708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C47C1CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C47D1CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C49B1CD3CD4F00708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C47E1CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C47F1CD3CD2000708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C4911CD3CD2000708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C47B1CD3CD2000708FC5</string>
-				<string>BE17C47C1CD3CD2000708FC5</string>
-				<string>BE17C47D1CD3CD2000708FC5</string>
-				<string>BE17C47E1CD3CD2000708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations tvOS</string>
-			<key>productName</key>
-			<string>Operations tvOS</string>
-			<key>productReference</key>
-			<string>BE17C4801CD3CD2000708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>BE17C4801CD3CD2000708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Operations.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C4851CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C49D1CD3CE3E00708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4861CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BE17C48A1CD3CD2000708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4871CD3CD2000708FC5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>BE17C4881CD3CD2000708FC5</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>BE17C4941CD3CD2000708FC5</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BE17C4851CD3CD2000708FC5</string>
-				<string>BE17C4861CD3CD2000708FC5</string>
-				<string>BE17C4871CD3CD2000708FC5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>BE17C48C1CD3CD2000708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Operations tvOSTests</string>
-			<key>productName</key>
-			<string>Operations tvOSTests</string>
-			<key>productReference</key>
-			<string>BE17C4891CD3CD2000708FC5</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>BE17C4891CD3CD2000708FC5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>OperationsTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>BE17C48A1CD3CD2000708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4801CD3CD2000708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C48B1CD3CD2000708FC5</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>BE17C42F1CD3CCD600708FC5</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>BE17C47F1CD3CD2000708FC5</string>
-			<key>remoteInfo</key>
-			<string>Operations tvOS</string>
-		</dict>
-		<key>BE17C48C1CD3CD2000708FC5</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>BE17C47F1CD3CD2000708FC5</string>
-			<key>targetProxy</key>
-			<string>BE17C48B1CD3CD2000708FC5</string>
-		</dict>
-		<key>BE17C4911CD3CD2000708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C4921CD3CD2000708FC5</string>
-				<string>BE17C4931CD3CD2000708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4921CD3CD2000708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>3</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C4931CD3CD2000708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>APPLICATION_EXTENSION_API_ONLY</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>DEFINES_MODULE</key>
-				<string>YES</string>
-				<key>DYLIB_COMPATIBILITY_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_CURRENT_VERSION</key>
-				<string>1</string>
-				<key>DYLIB_INSTALL_NAME_BASE</key>
-				<string>@rpath</string>
-				<key>INFOPLIST_FILE</key>
-				<string>Resources/Info.plist</string>
-				<key>INSTALL_PATH</key>
-				<string>$(LOCAL_LIBRARY_DIR)/Frameworks</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.Operations</string>
-				<key>PRODUCT_NAME</key>
-				<string>Operations</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>3</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C4941CD3CD2000708FC5</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>BE17C4951CD3CD2000708FC5</string>
-				<string>BE17C4961CD3CD2000708FC5</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>BE17C4951CD3CD2000708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>BE17C4961CD3CD2000708FC5</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>INFOPLIST_FILE</key>
-				<string>Tests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>com.advanced-operations.OperationsTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>OperationsTests</string>
-				<key>SDKROOT</key>
-				<string>appletvos</string>
-				<key>TVOS_DEPLOYMENT_TARGET</key>
-				<string>9.2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>BE17C4971CD3CD3100708FC5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE17C43D1CD3CCD700708FC5</string>
-				<string>BE17C43B1CD3CCD700708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4981CD3CD3600708FC5</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74CB1CD630240066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Sources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4991CD3CD4E00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C43B1CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BE17C49A1CD3CD4E00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C43B1CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BE17C49B1CD3CD4F00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C43B1CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BE17C49C1CD3CE3D00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4471CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C49D1CD3CE3E00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4471CD3CCD700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C49E1CD3CEA300708FC5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Operation.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C49F1CD3CEA300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C49E1CD3CEA300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A01CD3CEA300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C49E1CD3CEA300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A11CD3CEA300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C49E1CD3CEA300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A21CD3CEA300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C49E1CD3CEA300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A31CD3CEFE00708FC5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OperationCondition.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4A41CD3CEFE00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A31CD3CEFE00708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A51CD3CEFE00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A31CD3CEFE00708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A61CD3CEFE00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A31CD3CEFE00708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A71CD3CEFE00708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A31CD3CEFE00708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4A81CD3CF0700708FC5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OperationObserver.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4A91CD3CF0700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A81CD3CF0700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4AA1CD3CF0700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A81CD3CF0700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4AB1CD3CF0700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A81CD3CF0700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4AC1CD3CF0700708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4A81CD3CF0700708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4AD1CD3CF2300708FC5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSLock+Operations.swift</string>
-			<key>path</key>
-			<string>NSLock+Operations.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4AE1CD3CF2300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4AD1CD3CF2300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4AF1CD3CF2300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4AD1CD3CF2300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B01CD3CF2300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4AD1CD3CF2300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B11CD3CF2300708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4AD1CD3CF2300708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B21CD3CF4200708FC5</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OperationErrors.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BE17C4B31CD3CF4200708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4B21CD3CF4200708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B41CD3CF4200708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4B21CD3CF4200708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B51CD3CF4200708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4B21CD3CF4200708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE17C4B61CD3CF4200708FC5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BE17C4B21CD3CF4200708FC5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74CB1CD630240066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BE17C4AD1CD3CF2300708FC5</string>
-				<string>BEFD74DD1CD633130066A71B</string>
-				<string>BEFD74CD1CD630390066A71B</string>
-				<string>BEFD74CC1CD6302C0066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Operations</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74CC1CD6302C0066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74F31CD64C400066A71B</string>
-				<string>BEFD74E31CD638CC0066A71B</string>
-				<string>BEFD74E21CD638C10066A71B</string>
-				<string>BE17C49E1CD3CEA300708FC5</string>
-				<string>BE17C4A31CD3CEFE00708FC5</string>
-				<string>BE17C4A81CD3CF0700708FC5</string>
-				<string>BE17C4B21CD3CF4200708FC5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Operation</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74CD1CD630390066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74D31CD630CD0066A71B</string>
-				<string>BEFD74CE1CD630BA0066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>OperationQueue</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74CE1CD630BA0066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ExclusivityController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74CF1CD630BA0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74CE1CD630BA0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D01CD630BA0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74CE1CD630BA0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D11CD630BA0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74CE1CD630BA0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D21CD630BA0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74CE1CD630BA0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D31CD630CD0066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>OperationQueue.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74D41CD630CD0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D31CD630CD0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D51CD630CD0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D31CD630CD0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D61CD630CD0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D31CD630CD0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D71CD630CD0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D31CD630CD0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74D81CD633010066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>BlockObserver.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74D91CD633010066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D81CD633010066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74DA1CD633010066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D81CD633010066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74DB1CD633010066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D81CD633010066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74DC1CD633010066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74D81CD633010066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74DD1CD633130066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>NSOperation+Operations.swift</string>
-			<key>path</key>
-			<string>NSOperation+Operations.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74DE1CD633130066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74DD1CD633130066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74DF1CD633130066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74DD1CD633130066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E01CD633130066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74DD1CD633130066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E11CD633130066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74DD1CD633130066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E21CD638C10066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74D81CD633010066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Observers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74E31CD638CC0066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74E41CD639000066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Conditions</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74E41CD639000066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SilentCondition.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74E51CD639000066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74E41CD639000066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E61CD639000066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74E41CD639000066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E71CD639000066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74E41CD639000066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74E81CD639000066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74E41CD639000066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD74F31CD64C400066A71B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BEFD74FE1CD64D3C0066A71B</string>
-				<string>BEFD75031CD64D400066A71B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Operations</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74FE1CD64D3C0066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>BlockOperation.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD74FF1CD64D3C0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74FE1CD64D3C0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75001CD64D3C0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74FE1CD64D3C0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75011CD64D3C0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74FE1CD64D3C0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75021CD64D3C0066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD74FE1CD64D3C0066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75031CD64D400066A71B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>GroupOperation.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>BEFD75041CD64D400066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD75031CD64D400066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75051CD64D400066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD75031CD64D400066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75061CD64D400066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD75031CD64D400066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BEFD75071CD64D400066A71B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BEFD75031CD64D400066A71B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>BE17C42F1CD3CCD600708FC5</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE17C43C1CD3CCD700708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C4431CD3CCD700708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4381CD3CCD600708FC5 /* Operations.framework */; };
+		BE17C4481CD3CCD700708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C4611CD3CD0200708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4571CD3CD0200708FC5 /* Operations.framework */; };
+		BE17C48A1CD3CD2000708FC5 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE17C4801CD3CD2000708FC5 /* Operations.framework */; };
+		BE17C4991CD3CD4E00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49A1CD3CD4E00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49B1CD3CD4F00708FC5 /* Operations.h in Headers */ = {isa = PBXBuildFile; fileRef = BE17C43B1CD3CCD700708FC5 /* Operations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */; };
+		BE17C49F1CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A01CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A11CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A21CD3CEA300708FC5 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C49E1CD3CEA300708FC5 /* Operation.swift */; };
+		BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */; };
+		BE17C4A91CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AA1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AB1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AC1CD3CF0700708FC5 /* OperationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */; };
+		BE17C4AE1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
+		BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE47728E1CE71BEC00FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
+		BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
+		BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
+		BE4772911CE71E6700FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
+		BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
+		BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D31CD630CD0066A71B /* OperationQueue.swift */; };
+		BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74D81CD633010066A71B /* BlockObserver.swift */; };
+		BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */; };
+		BEFD74E51CD639000066A71B /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74E41CD639000066A71B /* SilentCondition.swift */; };
+		BEFD74E61CD639000066A71B /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74E41CD639000066A71B /* SilentCondition.swift */; };
+		BEFD74E71CD639000066A71B /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74E41CD639000066A71B /* SilentCondition.swift */; };
+		BEFD74E81CD639000066A71B /* SilentCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74E41CD639000066A71B /* SilentCondition.swift */; };
+		BEFD74FF1CD64D3C0066A71B /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */; };
+		BEFD75001CD64D3C0066A71B /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */; };
+		BEFD75011CD64D3C0066A71B /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */; };
+		BEFD75021CD64D3C0066A71B /* BlockOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */; };
+		BEFD75041CD64D400066A71B /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD75031CD64D400066A71B /* GroupOperation.swift */; };
+		BEFD75051CD64D400066A71B /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD75031CD64D400066A71B /* GroupOperation.swift */; };
+		BEFD75061CD64D400066A71B /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD75031CD64D400066A71B /* GroupOperation.swift */; };
+		BEFD75071CD64D400066A71B /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD75031CD64D400066A71B /* GroupOperation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE17C4441CD3CCD700708FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE17C42F1CD3CCD600708FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE17C4371CD3CCD600708FC5;
+			remoteInfo = Operations;
+		};
+		BE17C4621CD3CD0200708FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE17C42F1CD3CCD600708FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE17C4561CD3CD0200708FC5;
+			remoteInfo = "Operations Mac";
+		};
+		BE17C48B1CD3CD2000708FC5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE17C42F1CD3CCD600708FC5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE17C47F1CD3CD2000708FC5;
+			remoteInfo = "Operations tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BE17C4381CD3CCD600708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C43B1CD3CCD700708FC5 /* Operations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Operations.h; sourceTree = "<group>"; };
+		BE17C43D1CD3CCD700708FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsTests.swift; sourceTree = "<group>"; };
+		BE17C4491CD3CCD700708FC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE17C4571CD3CD0200708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4731CD3CD1100708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4801CD3CD2000708FC5 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE17C49E1CD3CEA300708FC5 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
+		BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
+		BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
+		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
+		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
+		BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
+		BEFD74D31CD630CD0066A71B /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
+		BEFD74D81CD633010066A71B /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
+		BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSOperation+Operations.swift"; sourceTree = "<group>"; };
+		BEFD74E41CD639000066A71B /* SilentCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentCondition.swift; sourceTree = "<group>"; };
+		BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockOperation.swift; sourceTree = "<group>"; };
+		BEFD75031CD64D400066A71B /* GroupOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE17C4341CD3CCD600708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C43F1CD3CCD700708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4431CD3CCD700708FC5 /* Operations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4531CD3CD0200708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45D1CD3CD0200708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4611CD3CD0200708FC5 /* Operations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C46F1CD3CD1100708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47C1CD3CD2000708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4861CD3CD2000708FC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C48A1CD3CD2000708FC5 /* Operations.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE17C42E1CD3CCD600708FC5 = {
+			isa = PBXGroup;
+			children = (
+				BE17C4981CD3CD3600708FC5 /* Sources */,
+				BE17C4461CD3CCD700708FC5 /* Tests */,
+				BE17C4971CD3CD3100708FC5 /* Resources */,
+				BE17C4391CD3CCD600708FC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE17C4391CD3CCD600708FC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE17C4381CD3CCD600708FC5 /* Operations.framework */,
+				BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */,
+				BE17C4571CD3CD0200708FC5 /* Operations.framework */,
+				BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */,
+				BE17C4731CD3CD1100708FC5 /* Operations.framework */,
+				BE17C4801CD3CD2000708FC5 /* Operations.framework */,
+				BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE17C4461CD3CCD700708FC5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BE17C4491CD3CCD700708FC5 /* Info.plist */,
+				BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BE17C4971CD3CD3100708FC5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE17C43D1CD3CCD700708FC5 /* Info.plist */,
+				BE17C43B1CD3CCD700708FC5 /* Operations.h */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BE17C4981CD3CD3600708FC5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74CB1CD630240066A71B /* Operations */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BEFD74CB1CD630240066A71B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */,
+				BEFD74DD1CD633130066A71B /* NSOperation+Operations.swift */,
+				BEFD74CD1CD630390066A71B /* OperationQueue */,
+				BEFD74CC1CD6302C0066A71B /* Operation */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		BEFD74CC1CD6302C0066A71B /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74F31CD64C400066A71B /* Operations */,
+				BEFD74E31CD638CC0066A71B /* Conditions */,
+				BEFD74E21CD638C10066A71B /* Observers */,
+				BE17C49E1CD3CEA300708FC5 /* Operation.swift */,
+				BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */,
+				BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */,
+				BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		BEFD74CD1CD630390066A71B /* OperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74D31CD630CD0066A71B /* OperationQueue.swift */,
+				BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */,
+			);
+			path = OperationQueue;
+			sourceTree = "<group>";
+		};
+		BEFD74E21CD638C10066A71B /* Observers */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74D81CD633010066A71B /* BlockObserver.swift */,
+				BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */,
+			);
+			path = Observers;
+			sourceTree = "<group>";
+		};
+		BEFD74E31CD638CC0066A71B /* Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74E41CD639000066A71B /* SilentCondition.swift */,
+			);
+			path = Conditions;
+			sourceTree = "<group>";
+		};
+		BEFD74F31CD64C400066A71B /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */,
+				BEFD75031CD64D400066A71B /* GroupOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BE17C4351CD3CCD600708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C43C1CD3CCD700708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4541CD3CD0200708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4991CD3CD4E00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4701CD3CD1100708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49A1CD3CD4E00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47D1CD3CD2000708FC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49B1CD3CD4F00708FC5 /* Operations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BE17C4371CD3CCD600708FC5 /* Operations iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOS" */;
+			buildPhases = (
+				BE17C4331CD3CCD600708FC5 /* Sources */,
+				BE17C4341CD3CCD600708FC5 /* Frameworks */,
+				BE17C4351CD3CCD600708FC5 /* Headers */,
+				BE17C4361CD3CCD600708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations iOS";
+			productName = Operations;
+			productReference = BE17C4381CD3CCD600708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C4411CD3CCD700708FC5 /* Operations iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOSTests" */;
+			buildPhases = (
+				BE17C43E1CD3CCD700708FC5 /* Sources */,
+				BE17C43F1CD3CCD700708FC5 /* Frameworks */,
+				BE17C4401CD3CCD700708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE17C4451CD3CCD700708FC5 /* PBXTargetDependency */,
+			);
+			name = "Operations iOSTests";
+			productName = OperationsTests;
+			productReference = BE17C4421CD3CCD700708FC5 /* OperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE17C4561CD3CD0200708FC5 /* Operations Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4681CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations Mac" */;
+			buildPhases = (
+				BE17C4521CD3CD0200708FC5 /* Sources */,
+				BE17C4531CD3CD0200708FC5 /* Frameworks */,
+				BE17C4541CD3CD0200708FC5 /* Headers */,
+				BE17C4551CD3CD0200708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations Mac";
+			productName = "Operations Mac";
+			productReference = BE17C4571CD3CD0200708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C45F1CD3CD0200708FC5 /* Operations MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C46B1CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations MacTests" */;
+			buildPhases = (
+				BE17C45C1CD3CD0200708FC5 /* Sources */,
+				BE17C45D1CD3CD0200708FC5 /* Frameworks */,
+				BE17C45E1CD3CD0200708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE17C4631CD3CD0200708FC5 /* PBXTargetDependency */,
+			);
+			name = "Operations MacTests";
+			productName = "Operations MacTests";
+			productReference = BE17C4601CD3CD0200708FC5 /* OperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE17C4721CD3CD1100708FC5 /* Operations watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4781CD3CD1100708FC5 /* Build configuration list for PBXNativeTarget "Operations watchOS" */;
+			buildPhases = (
+				BE17C46E1CD3CD1100708FC5 /* Sources */,
+				BE17C46F1CD3CD1100708FC5 /* Frameworks */,
+				BE17C4701CD3CD1100708FC5 /* Headers */,
+				BE17C4711CD3CD1100708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations watchOS";
+			productName = "Operations watchOS";
+			productReference = BE17C4731CD3CD1100708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C47F1CD3CD2000708FC5 /* Operations tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4911CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOS" */;
+			buildPhases = (
+				BE17C47B1CD3CD2000708FC5 /* Sources */,
+				BE17C47C1CD3CD2000708FC5 /* Frameworks */,
+				BE17C47D1CD3CD2000708FC5 /* Headers */,
+				BE17C47E1CD3CD2000708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Operations tvOS";
+			productName = "Operations tvOS";
+			productReference = BE17C4801CD3CD2000708FC5 /* Operations.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE17C4881CD3CD2000708FC5 /* Operations tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE17C4941CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOSTests" */;
+			buildPhases = (
+				BE17C4851CD3CD2000708FC5 /* Sources */,
+				BE17C4861CD3CD2000708FC5 /* Frameworks */,
+				BE17C4871CD3CD2000708FC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE17C48C1CD3CD2000708FC5 /* PBXTargetDependency */,
+			);
+			name = "Operations tvOSTests";
+			productName = "Operations tvOSTests";
+			productReference = BE17C4891CD3CD2000708FC5 /* OperationsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE17C42F1CD3CCD600708FC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = AdvancedOperations;
+				TargetAttributes = {
+					BE17C4371CD3CCD600708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C4411CD3CCD700708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C4561CD3CD0200708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BE17C45F1CD3CD0200708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					BE17C4721CD3CD1100708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C47F1CD3CD2000708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+					BE17C4881CD3CD2000708FC5 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WK35K3FV5Z;
+					};
+				};
+			};
+			buildConfigurationList = BE17C4321CD3CCD600708FC5 /* Build configuration list for PBXProject "Operations" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE17C42E1CD3CCD600708FC5;
+			productRefGroup = BE17C4391CD3CCD600708FC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE17C4371CD3CCD600708FC5 /* Operations iOS */,
+				BE17C4411CD3CCD700708FC5 /* Operations iOSTests */,
+				BE17C4561CD3CD0200708FC5 /* Operations Mac */,
+				BE17C45F1CD3CD0200708FC5 /* Operations MacTests */,
+				BE17C4721CD3CD1100708FC5 /* Operations watchOS */,
+				BE17C47F1CD3CD2000708FC5 /* Operations tvOS */,
+				BE17C4881CD3CD2000708FC5 /* Operations tvOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE17C4361CD3CCD600708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4401CD3CCD700708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4551CD3CD0200708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45E1CD3CD0200708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4711CD3CD1100708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47E1CD3CD2000708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4871CD3CD2000708FC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE17C4331CD3CCD600708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD75041CD64D400066A71B /* GroupOperation.swift in Sources */,
+				BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C49F1CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE47728E1CE71BEC00FF8DAC /* ObserverBuilder.swift in Sources */,
+				BEFD74FF1CD64D3C0066A71B /* BlockOperation.swift in Sources */,
+				BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BEFD74E51CD639000066A71B /* SilentCondition.swift in Sources */,
+				BE17C4A91CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4AE1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C43E1CD3CCD700708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C4481CD3CCD700708FC5 /* OperationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4521CD3CD0200708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD75051CD64D400066A71B /* GroupOperation.swift in Sources */,
+				BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A01CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */,
+				BEFD75001CD64D3C0066A71B /* BlockOperation.swift in Sources */,
+				BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BEFD74E61CD639000066A71B /* SilentCondition.swift in Sources */,
+				BE17C4AA1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C45C1CD3CD0200708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C46E1CD3CD1100708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD75061CD64D400066A71B /* GroupOperation.swift in Sources */,
+				BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A11CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */,
+				BEFD75011CD64D3C0066A71B /* BlockOperation.swift in Sources */,
+				BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BEFD74E71CD639000066A71B /* SilentCondition.swift in Sources */,
+				BE17C4AB1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C47B1CD3CD2000708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BEFD75071CD64D400066A71B /* GroupOperation.swift in Sources */,
+				BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */,
+				BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */,
+				BE17C4A21CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */,
+				BE4772911CE71E6700FF8DAC /* ObserverBuilder.swift in Sources */,
+				BEFD75021CD64D3C0066A71B /* BlockOperation.swift in Sources */,
+				BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
+				BEFD74E81CD639000066A71B /* SilentCondition.swift in Sources */,
+				BE17C4AC1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
+				BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
+				BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE17C4851CD3CD2000708FC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE17C4451CD3CCD700708FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE17C4371CD3CCD600708FC5 /* Operations iOS */;
+			targetProxy = BE17C4441CD3CCD700708FC5 /* PBXContainerItemProxy */;
+		};
+		BE17C4631CD3CD0200708FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE17C4561CD3CD0200708FC5 /* Operations Mac */;
+			targetProxy = BE17C4621CD3CD0200708FC5 /* PBXContainerItemProxy */;
+		};
+		BE17C48C1CD3CD2000708FC5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE17C47F1CD3CD2000708FC5 /* Operations tvOS */;
+			targetProxy = BE17C48B1CD3CD2000708FC5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BE17C44A1CD3CCD700708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BE17C44B1CD3CCD700708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BE17C44D1CD3CCD700708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE17C44E1CD3CCD700708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BE17C4501CD3CCD700708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+			};
+			name = Debug;
+		};
+		BE17C4511CD3CCD700708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+			};
+			name = Release;
+		};
+		BE17C4691CD3CD0200708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE17C46A1CD3CD0200708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		BE17C46C1CD3CD0200708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BE17C46D1CD3CD0200708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BE17C4791CD3CD1100708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BE17C47A1CD3CD1100708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		BE17C4921CD3CD2000708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		BE17C4931CD3CD2000708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Resources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operations";
+				PRODUCT_NAME = Operations;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
+		BE17C4951CD3CD2000708FC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		BE17C4961CD3CD2000708FC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
+				PRODUCT_NAME = OperationsTests;
+				SDKROOT = appletvos;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE17C4321CD3CCD600708FC5 /* Build configuration list for PBXProject "Operations" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C44A1CD3CCD700708FC5 /* Debug */,
+				BE17C44B1CD3CCD700708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C44C1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C44D1CD3CCD700708FC5 /* Debug */,
+				BE17C44E1CD3CCD700708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C44F1CD3CCD700708FC5 /* Build configuration list for PBXNativeTarget "Operations iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4501CD3CCD700708FC5 /* Debug */,
+				BE17C4511CD3CCD700708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4681CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4691CD3CD0200708FC5 /* Debug */,
+				BE17C46A1CD3CD0200708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C46B1CD3CD0200708FC5 /* Build configuration list for PBXNativeTarget "Operations MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C46C1CD3CD0200708FC5 /* Debug */,
+				BE17C46D1CD3CD0200708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4781CD3CD1100708FC5 /* Build configuration list for PBXNativeTarget "Operations watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4791CD3CD1100708FC5 /* Debug */,
+				BE17C47A1CD3CD1100708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4911CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4921CD3CD2000708FC5 /* Debug */,
+				BE17C4931CD3CD2000708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE17C4941CD3CD2000708FC5 /* Build configuration list for PBXNativeTarget "Operations tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE17C4951CD3CD2000708FC5 /* Debug */,
+				BE17C4961CD3CD2000708FC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE17C42F1CD3CCD600708FC5 /* Project object */;
+}
