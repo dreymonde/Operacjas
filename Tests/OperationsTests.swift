@@ -42,9 +42,9 @@ class OperationsTests: XCTestCase {
         }
         operation.observe {
             $0.didStart {
-                print($0)
+                print("Started")
             }
-            $0.didFinish { operation in
+            $0.didFinish {
                 expectation.fulfill()
             }
             $0.didFailed { errors in
