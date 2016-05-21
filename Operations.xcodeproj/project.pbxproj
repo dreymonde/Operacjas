@@ -45,6 +45,10 @@
 		BE6B109A1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
 		BE6B109B1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
 		BE6B109C1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
+		BE6B109E1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
+		BE6B109F1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
+		BE6B10A01CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
+		BE6B10A11CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
 		BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
@@ -118,6 +122,7 @@
 		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
 		BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
+		BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		BEFD74D31CD630CD0066A71B /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
 		BEFD74D81CD633010066A71B /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 			children = (
 				BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */,
 				BEFD74E41CD639000066A71B /* SilentCondition.swift */,
+				BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -582,6 +588,7 @@
 				BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */,
 				BE17C49F1CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BE6B109E1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE47728E1CE71BEC00FF8DAC /* ObserverBuilder.swift in Sources */,
 				BEFD74FF1CD64D3C0066A71B /* BlockOperation.swift in Sources */,
@@ -611,6 +618,7 @@
 				BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */,
 				BE17C4A01CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BE6B109F1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */,
 				BEFD75001CD64D3C0066A71B /* BlockOperation.swift in Sources */,
@@ -640,6 +648,7 @@
 				BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */,
 				BE17C4A11CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BE6B10A01CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */,
 				BEFD75011CD64D3C0066A71B /* BlockOperation.swift in Sources */,
@@ -661,6 +670,7 @@
 				BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */,
 				BE17C4A21CD3CEA300708FC5 /* Operation.swift in Sources */,
+				BE6B10A11CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE4772911CE71E6700FF8DAC /* ObserverBuilder.swift in Sources */,
 				BEFD75021CD64D3C0066A71B /* BlockOperation.swift in Sources */,
