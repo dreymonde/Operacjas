@@ -36,19 +36,18 @@ public class OperationQueue: NSOperationQueue {
     
     public override func addOperation(operation: NSOperation) {
         if let operation = operation as? Operation {
-            // Set up a `BlockObserver` to invoke the `OperationQueueDelegate` method.
-            let delegate = BlockObserver(
-                startHandler: nil,
-                produceHandler: { [weak self] in
-                    self?.addOperation($1)
-                },
-                finishHandler: { [weak self] in
+            
+            // Set up an observer to invoke the `OperationQueueDelegate` method.
+            operation.observe {
+                $0.didProduceAnotherOperation { [weak self] operation in
+                    self?.addOperation(operation)
+                }
+                $0.didFinishWithErrors { [weak self] errors in
                     if let queue = self {
-                        queue.delegate?.operationQueue(queue, operationDidFinish: $0, withErrors: $1)
+                        queue.delegate?.operationQueue(queue, operationDidFinish: operation, withErrors: errors)
                     }
                 }
-            )
-            operation.addObserver(delegate)
+            }
             
             // Extract any dependencies needed by this operation.
             let dependencies = operation.conditions.flatMap { $0.dependencyForOperation(operation) }
@@ -74,9 +73,11 @@ public class OperationQueue: NSOperationQueue {
 
                 exclusivityController.addOperation(operation, categories: concurrencyCategories)
                 
-                operation.addObserver(BlockObserver { operation, _ in
-                    exclusivityController.removeOperation(operation, categories: concurrencyCategories)
-                })
+                operation.observe {
+                    $0.didFinishWithErrors { _ in
+                        exclusivityController.removeOperation(operation, categories: concurrencyCategories)
+                    }
+                }
             }
             
             /*
