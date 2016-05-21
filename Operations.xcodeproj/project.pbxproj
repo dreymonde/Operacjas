@@ -41,6 +41,10 @@
 		BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
 		BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
 		BE4772911CE71E6700FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
+		BE6B10991CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
+		BE6B109A1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
+		BE6B109B1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
+		BE6B109C1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */; };
 		BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
@@ -113,6 +117,7 @@
 		BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
 		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
+		BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
 		BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		BEFD74D31CD630CD0066A71B /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
 		BEFD74D81CD633010066A71B /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
@@ -274,6 +279,7 @@
 		BEFD74E31CD638CC0066A71B /* Conditions */ = {
 			isa = PBXGroup;
 			children = (
+				BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */,
 				BEFD74E41CD639000066A71B /* SilentCondition.swift */,
 			);
 			path = Conditions;
@@ -571,6 +577,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BE6B10991CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
 				BEFD75041CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -599,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BE6B109A1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
 				BEFD75051CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -627,6 +635,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BE6B109B1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
 				BEFD75061CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -647,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */,
+				BE6B109C1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
 				BEFD75071CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */,
