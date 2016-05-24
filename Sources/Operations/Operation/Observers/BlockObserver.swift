@@ -11,6 +11,8 @@ import Foundation
 /**
     The `BlockObserver` is a way to attach arbitrary blocks to significant events
     in an `Operation`'s lifecycle.
+ 
+    - Note: Use `BlockObserver` only as a reusable object. For individual observing, use `operation.observe` instead.
 */
 public struct BlockObserver: OperationObserver {
     // MARK: Properties
