@@ -15,7 +15,7 @@
 
 ## Usage
 
-> *WARNING*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*. So use them, why not ¯\_(ツ)_/¯
+*DISCLAIMER*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*. So use them, why not ¯\_(ツ)_/¯
 
 Before reading the **Usage** section, please go watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple, it will help you to understand what's going on, especially if you're new to `NSOperation` and `NSOperationQueue`.
 
@@ -46,7 +46,7 @@ class LogOperation<T>: Operation {
 }
 ```
 
-> *TIP*: Better check `cancelled` property in a `guard` statement (not `if cancelled { ...`), because when the operation is `cancelled`, you need to *both* `finish()` and `return`, and sometimes that's easy to forget. `guard` guarantees that you're gonna return from the function.
+*TIP*: Better check `cancelled` property in a `guard` statement (not `if cancelled { ...`), because when the operation is `cancelled`, you need to *both* `finish()` and `return`, and sometimes that's easy to forget. `guard` guarantees that you're gonna return from the function.
 
 Then you just add your operation to the queue:
 
@@ -76,7 +76,7 @@ second.addDependency(first)
 
 That means that `second` operation will not start before `first` operation enters it's `finished` state. Dependencies are also queue-independent, i.e. operations from different queues can depend on each other.
 
-> *WARNING*: If the operation depends on itself, it's never gonna be executed, so don't do that. It may sound like an obvious thing, but seriously - always keep that in mind. If your operation queue is stalled, you've probably deadlocked yourself somewhere. Also, if some operation A depends on B, and B depends on A - your app is deadlocked again.
+*WARNING*: If the operation depends on itself, it's never gonna be executed, so don't do that. It may sound like an obvious thing, but seriously - always keep that in mind. If your operation queue is stalled, you've probably deadlocked yourself somewhere. Also, if some operation A depends on B, and B depends on A - your app is deadlocked again.
 
 ### Operation observing
 You can observe operation lifecycle by assigning one or more *observers* to it. *Observer* is an implementor of `OperationObserver` protocol:
@@ -188,6 +188,7 @@ requestOperation.addCondition(loggedIn)
 One important note here: `evaluateForOperation(_:completion:)` gets called *after* the generated operation is executed. Actually, operation returned from here is going to be added as a dependency for initial operation and assigned to an operation queue *before* initial operation, and initial operation is evaluating conditions only after all it's dependencies are executed.
 
 For example, let's take next situation. We have operation **A** to which we assign two conditions - **Bc** and **Cc**. These conditions generate one operation each - **Bo** and **Co**. So the workflow is going to look like this:
+
 > **Bo** execution -> **Co** execution -> **A** evaluates it's conditions (**Bc** and **Cc**) -> **A** execution
 
 Of course, there are situations when you don't need to generate dependencies. In this cases you can just return `nil` in `dependencyForOperation(_:)`. For example, this is how Apple's `PassbookCondition` looks:
