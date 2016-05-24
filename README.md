@@ -10,8 +10,8 @@
 
 `Operation` is an `NSOperation` subclass which adds some very powerful concepts to it and extends the definition of readiness.
 
-`0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
-`0.2.x` versions contains community improvements. We recommend you to use "community versions".
+- `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
+- `0.2.x` versions contains community improvements. We recommend you to use "community versions".
 
 ## Usage
 
