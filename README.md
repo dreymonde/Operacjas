@@ -78,7 +78,7 @@ That means that `second` operation will not start before `first` operation enter
 
 > *WARNING*: If the operation depends on itself, it's never gonna be executed, so don't do that. It may sound like an obvious thing, but seriously - always keep that in mind. If your operation queue is stalled, you've probably deadlocked yourself somewhere. Also, if some operation A depends on B, and B depends on A - your app is deadlocked again.
 
-##### Operation observing
+### Operation observing
 You can observe operation lifecycle by assigning one or more *observers* to it. *Observer* is an implementor of `OperationObserver` protocol:
 
 ```swift
@@ -134,7 +134,7 @@ That creates a new observer and automatically assigns it to `myOperation`.
 
 Instead of using `didSuccess` and `didFail`, you can also use `didFinishWithErrors`, which is gonna be notified when operation finishes, no matter successfuly or not. Also keep in mind that if you specify `didFinishWithErrors`, `didSuccess` and `didFail` will be ignored. In most cases, using `didSuccess` and `didFail` is the best option.
 
-##### Operation conditions
+### Operation conditions
 You can solve pretty complex problems with `NSOperation`s and dependencies, but `OperationCondition` takes that even further, allowing you to create very sophisticated workflows. You can create and assign any number of conditions to an `Operation` object. Conditions ensure you that some operation will be executed *only* if condition was satisfied. Take these situations as examples:
 
  - Download file only if server is reachable
@@ -236,7 +236,7 @@ So, for example:
 
 *Operation condition* is very powerful concept which extends a definition for "readiness" and allows you to seamlessly create complex and sophisticated workflows.
 
-##### Mutual exclusivity
+### Mutual exclusivity
 There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *depended* on another. **Operations** does it for you automatically. All you need to do is assign an `OperationCondition` with `isMutuallyExclusive` set to `true` to your operation, and if there are some other operations which has the "mutually exclusive" condition of the same type, they won't be executed simultaneously, you can be sure.
 
 The easiest way to do so is to assign `MutuallyExclusive<T>` condition, which is provided by **Operations**, to your operation:
@@ -266,7 +266,7 @@ basicAlert.addCondition(alertMutExcl)
 queue.addOperations([networkAlert, basicAlert])
 ```
 
-#### What's out of the box?
+### What's out of the box?
 **Operations** have some pretty useful stuff right out of the box:
 
 1. Silent condition (`SilentCondition<T>`) that causes another condition to not enqueue its dependency. If we take our `LoggedInCondition` example, making `SilentCondition<LoggedInCondition>` will only check if the user is already logged in, and if he's not, it will **not** generate `LoginOperation`.
