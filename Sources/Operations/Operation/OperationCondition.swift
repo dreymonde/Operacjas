@@ -45,6 +45,12 @@ public protocol OperationCondition {
     func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void)
 }
 
+extension OperationCondition {
+    static var name: String {
+        return String(Self)
+    }
+}
+
 /**
     An enum to indicate whether an `OperationCondition` was satisfied, or if it
     failed with an error.
