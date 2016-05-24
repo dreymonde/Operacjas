@@ -35,7 +35,7 @@ class OperationsTests: XCTestCase {
         }
     }
     
-    func testBuilder() {
+    func testRegularBuilder() {
         let expectation = expectationWithDescription("Operation waiting")
         let operation = BlockOperation {
             print("here")
@@ -44,11 +44,31 @@ class OperationsTests: XCTestCase {
             $0.didStart {
                 print("Started")
             }
-            $0.didFinish {
+            $0.didSuccess {
                 expectation.fulfill()
             }
-            $0.didFailed { errors in
+            $0.didFail { errors in
                 print(errors)
+            }
+        }
+        queue.addOperation(operation)
+        waitForExpectationsWithTimeout(10.0, handler: nil)
+    }
+    
+    func testBuilderWithFinished() {
+        let expectation = expectationWithDescription("Operation waiting")
+        let operation = BlockOperation {
+            print("here")
+        }
+        operation.observe {
+            $0.didFinishWithErrors { _ in
+                expectation.fulfill()
+            }
+            $0.didSuccess {
+                XCTFail()
+            }
+            $0.didFail { _ in
+                XCTFail()
             }
         }
         queue.addOperation(operation)
