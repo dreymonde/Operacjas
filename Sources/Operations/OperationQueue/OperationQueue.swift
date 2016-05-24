@@ -23,6 +23,10 @@ public protocol OperationQueueDelegate: class {
     func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
 }
 
+extension OperationQueueDelegate {
+    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+}
+
 /**
     `OperationQueue` is an `NSOperationQueue` subclass that implements a large
     number of "extra features" related to the `Operation` class:
