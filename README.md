@@ -1,6 +1,4 @@
 # Operations
-
-[![Join the chat at https://gitter.im/AdvancedOperations/Operations](https://badges.gitter.im/AdvancedOperations/Operations.svg)](https://gitter.im/AdvancedOperations/Operations?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 **Operations** is an open-source implementation of concepts from [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk.
 
 `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
