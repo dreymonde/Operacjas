@@ -8,7 +8,7 @@ This file defines the error codes and convenience functions for interacting with
 
 import Foundation
 
-public enum OperationError: Int, ErrorType {
-    case ConditionFailed = 1
-    case ExecutionFailed = 2
+public enum OperationError: ErrorType {
+    case ConditionFailed
+    case ExecutionFailed
 }

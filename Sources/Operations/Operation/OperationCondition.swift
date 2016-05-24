@@ -63,7 +63,6 @@ public enum OperationConditionResult: Equatable {
         if case .Failed(let error) = self {
             return error
         }
-        
         return nil
     }
 }
