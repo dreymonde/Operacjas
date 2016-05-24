@@ -10,24 +10,24 @@ import Foundation
 
 public final class ObserverBuilder {
     
-    private var startHandler: ((Operation) -> Void)?
-    private var produceHandler: ((Operation, NSOperation) -> Void)?
-    private var finishHandler: ((Operation) -> Void)?
+    private var startHandler: ((Void) -> Void)?
+    private var produceHandler: ((NSOperation) -> Void)?
+    private var finishHandler: ((Void) -> Void)?
     private var errorHandler: (([ErrorType]) -> Void)?
     
 }
 
 extension ObserverBuilder {
     
-    public func didStart(handler: (Operation -> Void)) {
+    public func didStart(handler: ((Void) -> Void)) {
         self.startHandler = handler
     }
     
-    public func didProduceAnotherOperation(handler: ((Operation, NSOperation) -> Void)) {
+    public func didProduceAnotherOperation(handler: ((NSOperation) -> Void)) {
         self.produceHandler = handler
     }
     
-    public func didFinish(handler: ((Operation) -> Void)) {
+    public func didFinish(handler: ((Void) -> Void)) {
         self.finishHandler = handler
     }
     
@@ -46,16 +46,16 @@ private struct ObserverBuilderObserver: OperationObserver {
     }
     
     private func operationDidStart(operation: Operation) {
-        builder.startHandler?(operation)
+        builder.startHandler?()
     }
     
     private func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
-        builder.produceHandler?(operation, newOperation)
+        builder.produceHandler?(newOperation)
     }
     
     private func operationDidFinish(operation: Operation, errors: [ErrorType]) {
         if errors.isEmpty {
-            builder.finishHandler?(operation)
+            builder.finishHandler?()
         } else {
             builder.errorHandler?(errors)
         }
