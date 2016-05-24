@@ -13,24 +13,20 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-struct NoCancelledDependencies: OperationCondition {
-    static let name = "NoCancelledDependencies"
-    static let cancelledDependenciesKey = "CancelledDependencies"
-    static let isMutuallyExclusive = false
+public struct NoCancelledDependencies: OperationCondition {
+    public static let isMutuallyExclusive = false
     
-    enum Error: ErrorType {
+    public enum Error: ErrorType {
         case DependenciesWereCancelled(cancelled: [NSOperation])
     }
     
-    init() {
-        // No op.
-    }
+    public init() { }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operation) -> NSOperation? {
         return nil
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         // Verify that all of the dependencies executed.
         let cancelled = operation.dependencies.filter { $0.cancelled }
 

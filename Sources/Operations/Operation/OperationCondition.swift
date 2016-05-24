@@ -46,7 +46,7 @@ public protocol OperationCondition {
 }
 
 extension OperationCondition {
-    static var name: String {
+    public static var name: String {
         return String(Self)
     }
 }
