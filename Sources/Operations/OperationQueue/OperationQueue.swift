@@ -24,7 +24,7 @@ public protocol OperationQueueDelegate: class {
 }
 
 extension OperationQueueDelegate {
-    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+    public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
 }
 
 /**
