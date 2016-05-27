@@ -49,6 +49,13 @@
 		BE6B109F1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
 		BE6B10A01CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
 		BE6B10A11CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */; };
+		BEB54F3F1CF897FC001F5B70 /* ReturningOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */; };
+		BEB54F411CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F401CF899C7001F5B70 /* ReturningOperationTests.swift */; };
+		BEB54F421CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F401CF899C7001F5B70 /* ReturningOperationTests.swift */; };
+		BEB54F431CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F401CF899C7001F5B70 /* ReturningOperationTests.swift */; };
+		BEB54F441CF89A45001F5B70 /* ReturningOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */; };
+		BEB54F451CF89A45001F5B70 /* ReturningOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */; };
+		BEB54F461CF89A46001F5B70 /* ReturningOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */; };
 		BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
 		BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */; };
@@ -123,6 +130,8 @@
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
 		BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
 		BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
+		BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturningOperation.swift; sourceTree = "<group>"; };
+		BEB54F401CF899C7001F5B70 /* ReturningOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturningOperationTests.swift; sourceTree = "<group>"; };
 		BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExclusivityController.swift; sourceTree = "<group>"; };
 		BEFD74D31CD630CD0066A71B /* OperationQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationQueue.swift; sourceTree = "<group>"; };
 		BEFD74D81CD633010066A71B /* BlockObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockObserver.swift; sourceTree = "<group>"; };
@@ -217,6 +226,7 @@
 			children = (
 				BE17C4491CD3CCD700708FC5 /* Info.plist */,
 				BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */,
+				BEB54F401CF899C7001F5B70 /* ReturningOperationTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -296,6 +306,7 @@
 			children = (
 				BEFD74FE1CD64D3C0066A71B /* BlockOperation.swift */,
 				BEFD75031CD64D400066A71B /* GroupOperation.swift */,
+				BEB54F3E1CF897FC001F5B70 /* ReturningOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -584,6 +595,7 @@
 			files = (
 				BEFD74DE1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
 				BE6B10991CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
+				BEB54F3F1CF897FC001F5B70 /* ReturningOperation.swift in Sources */,
 				BEFD75041CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D41CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74D91CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -604,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB54F411CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */,
 				BE17C4481CD3CCD700708FC5 /* OperationsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,6 +627,7 @@
 			files = (
 				BEFD74DF1CD633130066A71B /* NSOperation+Operations.swift in Sources */,
 				BE6B109A1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
+				BEB54F441CF89A45001F5B70 /* ReturningOperation.swift in Sources */,
 				BEFD75051CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D51CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DA1CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -634,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB54F421CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */,
 				BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +659,7 @@
 			files = (
 				BEFD74E01CD633130066A71B /* NSOperation+Operations.swift in Sources */,
 				BE6B109B1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
+				BEB54F451CF89A45001F5B70 /* ReturningOperation.swift in Sources */,
 				BEFD75061CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D61CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DB1CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -666,6 +682,7 @@
 			files = (
 				BEFD74E11CD633130066A71B /* NSOperation+Operations.swift in Sources */,
 				BE6B109C1CF0E66200616E32 /* MutuallyExclusive.swift in Sources */,
+				BEB54F461CF89A46001F5B70 /* ReturningOperation.swift in Sources */,
 				BEFD75071CD64D400066A71B /* GroupOperation.swift in Sources */,
 				BEFD74D71CD630CD0066A71B /* OperationQueue.swift in Sources */,
 				BEFD74DC1CD633010066A71B /* BlockObserver.swift in Sources */,
@@ -686,6 +703,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB54F431CF899C7001F5B70 /* ReturningOperationTests.swift in Sources */,
 				BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
