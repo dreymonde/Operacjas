@@ -65,6 +65,8 @@ let operation = BlockOperation {
 operationQueue.addOperation(operation)
 ```
 
+There are also other customisation points along with `execute()`. For example, you can override `finished(_:)` method that is called when your operation is going to finish. It's a good place to do any clean-up. Think of it as operation-level `defer`.
+
 ##### Dependencies
 Operations can depend on another operations. Adding dependencies is simple:
 
