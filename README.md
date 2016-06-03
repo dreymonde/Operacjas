@@ -223,7 +223,7 @@ struct PassbookCondition: OperationCondition {
             completion(.Satisfied)
         }
         else {
-            completion(.Failed(error: Error. PassLibraryIsNotAvailable))
+            completion(.Failed(error: Error.PassLibraryIsNotAvailable))
         }
     }
 }
