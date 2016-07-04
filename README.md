@@ -88,8 +88,21 @@ Vital operations are operations which execution is super important for its queue
 
 ```swift
 let important = ImportantOperation()
-important.vital = true
-queue.addOperation(important)
+queue.addOperation(important, vital: true)
+```
+
+Or, if you want to treat operation from the different queue as vital, you can actually do that too!
+
+```swift
+let superImportant = SuperImportantOperation()
+firstQueue.addOperation(superImportant)
+
+let other = SomeOperation()
+// Queue dependency! Whooo!
+secondQueue.addDependency(superImportant)
+secondQueue.addOperation(other)
+// `other` won't be executed until `superImportant` is finished.
+
 ```
 
 ### Operation observing
