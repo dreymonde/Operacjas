@@ -20,16 +20,16 @@ public final class ObserverBuilder {
 
 extension ObserverBuilder {
     
-    public func didStart(handler: ((Void) -> Void)) {
+    public func didStart(handler: (Void) -> Void) {
         self.startHandler = handler
     }
     
-    public func didProduceAnotherOperation(handler: ((NSOperation) -> Void)) {
+    public func didProduceAnotherOperation(handler: (produced: NSOperation) -> Void) {
         self.produceHandler = handler
     }
     
     // WARNING! Usage of this method will ignore didSuccess and didFailed calls. Use them instead in most cases.
-    public func didFinishWithErrors(handler: (([ErrorType]) -> Void)) {
+    public func didFinishWithErrors(handler: (errors: [ErrorType]) -> Void) {
         self.finishHandler = handler
     }
     
@@ -37,7 +37,7 @@ extension ObserverBuilder {
         self.successHandler = handler
     }
     
-    public func didFail(handler: (([ErrorType]) -> Void)) {
+    public func didFail(handler: (errors: [ErrorType]) -> Void) {
         self.errorHandler = handler
     }
         
@@ -74,9 +74,9 @@ private struct ObserverBuilderObserver: OperationObserver {
 
 extension Operation {
     
-    public func observe(build: (ObserverBuilder) -> Void) {
+    public func observe(build: (operation: ObserverBuilder) -> Void) {
         let builder = ObserverBuilder()
-        build(builder)
+        build(operation: builder)
         let observer = ObserverBuilderObserver(builder: builder)
         self.addObserver(observer)
     }
