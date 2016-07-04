@@ -11,11 +11,13 @@
 `Operation` is an `NSOperation` subclass which adds some very powerful concepts to it and extends the definition of readiness.
 
 - `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
-- `0.2.x` versions contains community improvements. We recommend you to use "community versions".
+- `0.2.x` versions contains community improvements.
+
+We recommend you to use the newest "community version" (`0.2.1` at the time).
 
 ## Usage
 
-*DISCLAIMER*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*. So use them, why not ¯\_(ツ)_/¯
+*DISCLAIMER*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*.
 
 Before reading the **Usage** section, please go watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple, it will help you to understand what's going on, especially if you're new to `NSOperation` and `NSOperationQueue`.
 
@@ -79,6 +81,16 @@ second.addDependency(first)
 That means that `second` operation will not start before `first` operation enters it's `finished` state. Dependencies are also queue-independent, i.e. operations from different queues can depend on each other.
 
 *WARNING*: If the operation depends on itself, it's never gonna be executed, so don't do that. It may sound like an obvious thing, but seriously - always keep that in mind. If your operation queue is stalled, you've probably deadlocked yourself somewhere. Also, if some operation A depends on B, and B depends on A - your app is deadlocked again.
+
+##### Vital operations
+
+Vital operations are operations which execution is super important for its queue. That means that vital operation **blocks** an execution of new operations until all vital operations are finished. You can make operation vital easily:
+
+```swift
+let important = ImportantOperation()
+important.vital = true
+queue.addOperation(important)
+```
 
 ### Operation observing
 You can observe operation lifecycle by assigning one or more *observers* to it. *Observer* is an implementor of `OperationObserver` protocol:
