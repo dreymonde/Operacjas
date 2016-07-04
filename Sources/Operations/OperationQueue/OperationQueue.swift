@@ -27,6 +27,9 @@ extension OperationQueueDelegate {
     public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
 }
 
+/// The block that is called when operation is enqueued.
+public typealias OperationQueueEnqueuingModule = (operation: Operation, queue: OperationQueue) -> Void
+
 /**
     `OperationQueue` is an `NSOperationQueue` subclass that implements a large
     number of "extra features" related to the `Operation` class:
@@ -84,6 +87,11 @@ public class OperationQueue: NSOperationQueue {
                 }
             }
             
+            // Connecting all user-defined modules. That's a fine alternative to delegates.
+            for module in modules {
+                module(operation: operation, queue: self)
+            }
+            
             /*
                 Indicate to the operation that we've finished our extra work on it
                 and it's now it a state where it can proceed with evaluating conditions,
@@ -123,4 +131,11 @@ public class OperationQueue: NSOperationQueue {
             }
         }
     }
+    
+    private var modules: [OperationQueueEnqueuingModule] = []
+    
+    public func addEnqueuingModule(module: OperationQueueEnqueuingModule) {
+        modules.append(module)
+    }
+    
 }
