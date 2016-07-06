@@ -3,6 +3,7 @@
 [![Swift][swift-badge]][swift-url]
 [![Build Status][travis-badge]][travis-url]
 [![Platform][platform-badge]][platform-url]
+![Latest0.3][version-0.3-badge]
 
 **Operations** is an open-source implementation of concepts from [Advanced NSOperations][anso-url] talk.
 
@@ -106,6 +107,7 @@ secondQueue.addOperation(other)
 ```
 
 ### Operation observing
+
 You can observe operation lifecycle by assigning one or more *observers* to it. *Observer* is an implementor of `OperationObserver` protocol:
 
 ```swift
@@ -372,3 +374,4 @@ See [#11](https://github.com/AdvancedOperations/Operations/issues/11)
 [anso-url]: https://developer.apple.com/videos/play/wwdc2015/226/
 [mvcn-url]: https://realm.io/news/slug-marcus-zarra-exploring-mvcn-swift/
 [carthage-url]: https://github.com/Carthage/Carthage
+[version-0.3-badge]: https://img.shields.io/badge/Operations-0.3-1D4980.svg
