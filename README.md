@@ -264,6 +264,40 @@ So, for example:
 
 *Operation condition* is very powerful concept which extends a definition for "readiness" and allows you to seamlessly create complex and sophisticated workflows.
 
+### Enqueuing modules
+
+`OperationQueueEnqueuingModule` is just a `typealias` for
+
+```swift
+(operation: Operation, queue: OperationQueue) -> Void
+```
+
+Basically, enqueuing module is a tool for adjusting your `OperationQueue`. Each module that you assign to queue will be called when `Operation` is being enqueued. The most obvious scenario here is logging: you can create some kind of `LogObserver` and assign it to every `Operation` on the queue:
+
+```swift
+let queue = OperationQueue()
+queue.addEnqueuingModule { operation, queue in
+    let logger = LogObserver(queueName: queue.name)
+    operation.addObserver(logger)
+}
+```
+
+Now your logger will automatically observe any `Operation` on the queue and you will get nice visualized operations flow in your console.
+
+Here is another example: you can create `NetworkObserver` which tracks operations and turns activity indicator on and off when appropriate (this is an example from [Advanced NSOperations][anso-url]). Then you can create `NetworkOperation` protocol, and do this to your queue:
+
+```swift
+queue.addEnqueuingModule { operation, _ in
+    if operation is NetworkOperation {
+        operation.addObserver(NetworkObserver())
+    }
+}
+```
+
+Now every `NetworkOperation` will be treated appropriately, again - automatically!
+
+There're actually a lot of cool things you can do using enqueuing modules - use your creativity! 
+
 ### Mutual exclusivity
 There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *depended* on another. **Operations** does it for you automatically. All you need to do is assign an `OperationCondition` with `isMutuallyExclusive` set to `true` to your operation, and if there are some other operations which has the "mutually exclusive" condition of the same type, they won't be executed simultaneously, you can be sure.
 
