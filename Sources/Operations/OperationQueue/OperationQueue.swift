@@ -138,4 +138,33 @@ public class OperationQueue: NSOperationQueue {
         modules.append(module)
     }
     
+    public func addOperation(operation: NSOperation, vital: Bool) {
+        addDependency(operation)
+        addOperation(operation)
+    }
+    
+    private let vitalAccessQueue = dispatch_queue_create("com.AdvancedOperations.VitalOperationsAccessQueue", DISPATCH_QUEUE_SERIAL)
+    private var vitalOperations: [NSOperation] = []
+    
+    private func dependOnVitals(operation: NSOperation) {
+        dispatch_sync(vitalAccessQueue) {
+            for vital in self.vitalOperations where vital !== operation {
+                operation.addDependency(vital)
+            }
+        }
+    }
+    
+    public func addDependency(operation: NSOperation) {
+        dispatch_sync(vitalAccessQueue) {
+            self.vitalOperations.append(operation)
+        }
+        operation.addCompletionBlock {
+            dispatch_sync(self.vitalAccessQueue) {
+                if let index = self.vitalOperations.indexOf(operation) {
+                    self.vitalOperations.removeAtIndex(index)
+                }
+            }
+        }
+    }
+    
 }
