@@ -37,6 +37,9 @@
 		BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
 		BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
 		BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
+		BE42EF4E1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
+		BE42EF4F1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
+		BE42EF501D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
 		BE47728E1CE71BEC00FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
 		BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
 		BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */; };
@@ -123,6 +126,7 @@
 		BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
 		BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
 		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
+		BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalOperationsTests.swift; sourceTree = "<group>"; };
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
 		BE6B10981CF0E66200616E32 /* MutuallyExclusive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutuallyExclusive.swift; sourceTree = "<group>"; };
 		BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				BE17C4491CD3CCD700708FC5 /* Info.plist */,
 				BE17C4471CD3CCD700708FC5 /* OperationsTests.swift */,
 				BE6CFCBE1D2AA9C50064041E /* QueueModuleTests.swift */,
+				BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE42EF4E1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */,
 				BE17C4481CD3CCD700708FC5 /* OperationsTests.swift in Sources */,
 				BE6CFCBF1D2AA9C50064041E /* QueueModuleTests.swift in Sources */,
 			);
@@ -640,6 +646,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE42EF4F1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */,
 				BE17C49C1CD3CE3D00708FC5 /* OperationsTests.swift in Sources */,
 				BE6CFCC01D2AA9C50064041E /* QueueModuleTests.swift in Sources */,
 			);
@@ -693,6 +700,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE42EF501D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */,
 				BE17C49D1CD3CE3E00708FC5 /* OperationsTests.swift in Sources */,
 				BE6CFCC11D2AA9C50064041E /* QueueModuleTests.swift in Sources */,
 			);

@@ -42,6 +42,7 @@ public class OperationQueue: NSOperationQueue {
     public weak var delegate: OperationQueueDelegate?
     
     public override func addOperation(operation: NSOperation) {
+        dependOnVitals(operation)
         if let operation = operation as? Operation {
             
             // Set up an observer to invoke the `OperationQueueDelegate` method.
