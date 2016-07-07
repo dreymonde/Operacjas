@@ -12,9 +12,9 @@
 `Operation` is an `NSOperation` subclass which adds some very powerful concepts to it and extends the definition of readiness.
 
 - `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
-- `0.2.x` versions contains community improvements.
+- `0.2.x` and later versions contains community improvements.
 
-We recommend you to use the newest "community version" (`0.2.1` at the time).
+We recommend you to use the newest "community version" (`0.3.0` at the time).
 
 ## Usage
 
@@ -344,7 +344,7 @@ queue.addOperations([networkAlert, basicAlert])
 **Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
 
 ```ruby
-github "AdvancedOperations/Operations" ~> 0.2.0
+github "AdvancedOperations/Operations" ~> 0.3.0
 ```
 
 ## Contributing
