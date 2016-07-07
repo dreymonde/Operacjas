@@ -28,13 +28,10 @@ public class GroupOperation: Operation {
 
     private var aggregatedErrors = [ErrorType]()
     
-    public convenience init(operations: NSOperation...) {
-        self.init(operations: operations)
-    }
-    
-    public init(operations: [NSOperation]) {
+    public init(operations: [NSOperation], configureQueue: ((OperationQueue) -> Void)? = nil) {
         super.init()
         
+        configureQueue?(internalQueue)
         internalQueue.suspended = true
         internalQueue.delegate = self
         internalQueue.addOperation(startingOperation)
@@ -70,6 +67,12 @@ public class GroupOperation: Operation {
     public func operationDidFinish(operation: NSOperation, withErrors errors: [ErrorType]) {
         // For use by subclassers.
     }
+    
+    /// This method is called right before GroupOperation finishes it's execution. Do not try to add any more operations at this point.
+    public func groupOperationWillFinish() {
+        // For use by subclassers
+    }
+    
 }
 
 extension GroupOperation: OperationQueueDelegate {
@@ -102,6 +105,7 @@ extension GroupOperation: OperationQueueDelegate {
         
         if operation === finishingOperation {
             internalQueue.suspended = true
+            groupOperationWillFinish()
             finish(aggregatedErrors)
         }
         else if operation !== startingOperation {
