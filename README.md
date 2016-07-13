@@ -339,6 +339,7 @@ queue.addOperations([networkAlert, basicAlert])
 ### Tips and tricks
 - If your operation is failed, simply call `finishWithError(error: ErrorType?)` method instead of just `finish()` (you can also call `finish(errors: [ErrorType])`), that will be indicate that even though your operation have entered the `finished` state, it failed to do it's job.
 - Of course, you can add dependencies, conditions and observers at initialization.
+- Make sure to call `super.willEnqueue` when overriding `willEnqueue()` method, or your `Operation` will never start.
 
 ## Installation
 **Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
