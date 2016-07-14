@@ -32,7 +32,7 @@ public class Operation: NSOperation {
     
     // MARK: State Management
     
-    private enum State: Int, Comparable {
+    public enum State: Int, Comparable {
         /// The initial state of an `Operation`.
         case Initialized
         
@@ -96,7 +96,7 @@ public class Operation: NSOperation {
     /// A lock to guard reads and writes to the `_state` property
     private let stateLock = NSLock()
     
-    private var state: State {
+    public private(set) var state: State {
         get {
             return stateLock.withCriticalScope {
                 _state
@@ -331,10 +331,10 @@ public class Operation: NSOperation {
 }
 
 // Simple operator functions to simplify the assertions used above.
-private func <(lhs: Operation.State, rhs: Operation.State) -> Bool {
+public func <(lhs: Operation.State, rhs: Operation.State) -> Bool {
     return lhs.rawValue < rhs.rawValue
 }
 
-private func ==(lhs: Operation.State, rhs: Operation.State) -> Bool {
+public func ==(lhs: Operation.State, rhs: Operation.State) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }
