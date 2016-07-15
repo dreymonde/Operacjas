@@ -16,7 +16,7 @@ import Foundation
 public struct NoCancelledDependencies: OperationCondition, Fallible {
     
     public enum Error: ErrorType {
-        case DependenciesWereCancelled(cancelled: [NSOperation])
+        case DependenciesWereCancelled([NSOperation])
     }
     
     public init() { }
@@ -27,11 +27,11 @@ public struct NoCancelledDependencies: OperationCondition, Fallible {
     
     public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         // Verify that all of the dependencies executed.
-        let cancelled = operation.dependencies.filter { $0.cancelled }
+        let cancelledDependencies = operation.dependencies.filter({ $0.cancelled })
 
-        if !cancelled.isEmpty {
+        if !cancelledDependencies.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            completion(failed(withError: .DependenciesWereCancelled(cancelled: cancelled)))
+            completion(failed(withError: .DependenciesWereCancelled(cancelledDependencies)))
         }
         else {
             completion(.Satisfied)
