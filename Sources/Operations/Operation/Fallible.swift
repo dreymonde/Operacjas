@@ -19,4 +19,11 @@ extension Fallible where Self: Operation {
         finish(with: [error])
     }
     
+    /// Marks an operation as `cancelled`.
+    ///
+    /// - Parameter error: A case of nested `Error` type.
+    public func cancel(withError error: Error) {
+        cancel(with: error)
+    }
+    
 }
