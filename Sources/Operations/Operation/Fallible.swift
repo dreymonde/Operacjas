@@ -10,14 +10,6 @@ public protocol Fallible {
     associatedtype Error: ErrorType
 }
 
-extension Fallible where Self: OperationCondition {
-    
-    public func failed(withError error: Error) -> OperationConditionResult {
-        return OperationConditionResult.Failed(with: error)
-    }
-    
-}
-
 extension Fallible where Self: Operation {
     
     public func finish(withError error: Error) {
