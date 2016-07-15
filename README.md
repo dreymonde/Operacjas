@@ -362,9 +362,8 @@ queue.addOperations(networkAlert, basicAlert)
 3. No failed dependencies condition (`NoFailedDependencies`) - kind of obvious one. Again, be careful - this will apply only to **failed** dependencies, not to the cancelled one. If you want that kind of behavior too, make sure to call `cancel(with: error)` instead of just `cancel()`.
 
 ### Tips and tricks
-- If your operation is failed, simply call `finishWithError(error: ErrorType?)` method instead of just `finish()` (you can also call `finish(errors: [ErrorType])`), that will be indicate that even though your operation have entered the `finished` state, it failed to do it's job.
+- If your operation failed, simply call `finish(with errors: [ErrorType])` method instead of just `finish()` (you can also call conform your `Operation` to `Fallible`, and use super-sweat convenience method `finish(withError:)`, more on this [here](https://github.com/AdvancedOperations/Operations/pull/24)), that will indicate that even though your operation have entered the `finished` state, it wasn't able to do it's job.
 - Of course, you can add dependencies, conditions and observers at initialization.
-- Make sure to call `super.willEnqueue` when overriding `willEnqueue()` method, or your `Operation` will never start.
 
 ## Installation
 **Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
