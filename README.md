@@ -172,7 +172,7 @@ Instead of using `didSuccess` and `didFail`, you can also use `didFinishWithErro
 ### Operation conditions
 You can solve pretty complex problems with `NSOperation`s and dependencies, but `OperationCondition` takes that even further, allowing you to create very sophisticated workflows. You can create and assign any number of conditions to an `Operation` object. Conditions ensure you that some operation will be executed *only* if condition was satisfied. Take these situations as examples:
 
- - Download file only if server is reachable
+ - ~~Download file only if server is reachable~~ (see below)
  - Perform request only if user is logged in
  - Try to get user's location only if permission to do so is granted
 
@@ -266,7 +266,9 @@ Think of it this way: you generate dependency in sutiations where you *can* infl
 
 So, for example:
 
-1. **Download file only if server is reachable** - no dependency generated, because if network is not reachable, there is possibly nothing we can do.
+1. **Download file only if server is reachable** - actually, don't do that. [According to Apple](https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/WhyNetworkingIsHard/WhyNetworkingIsHard.html#//apple_ref/doc/uid/TP40010220-CH13-SW2):
+> The SCNetworkReachability API is not intended for use as a preflight mechanism for determining network connectivity. You determine network connectivity by attempting to connect. If the connection fails, consult the SCNetworkReachability API to help diagnose the cause of the failure.
+
 2. **Perform request only if the user is logged in** - generate some "log in operation", which will try to log in user if he's not already.
 3. **Try to get the user's location only if permission to do so is granted** - generate some "location permission operation" which will ask user's permission for location if it's not already granted.
 
