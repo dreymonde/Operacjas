@@ -218,6 +218,13 @@ public class Operation: NSOperation {
         super.addDependency(operation)
     }
     
+    public func addDependency(operation: Operation, expectSuccess: Bool) {
+        addDependency(operation)
+        if expectSuccess {
+            addCondition(NoFailedDependency(dependency: operation))
+        }
+    }
+    
     // MARK: Execution and Cancellation
     
     public override final func start() {
@@ -265,8 +272,11 @@ public class Operation: NSOperation {
         if let error = error {
             _internalErrors.append(error)
         }
-        
         cancel()
+    }
+    
+    public var errors: [ErrorType]? {
+        return state == .Finished ? _combinedErrors : nil
     }
     
     public final func produceOperation(operation: NSOperation) {
@@ -299,16 +309,17 @@ public class Operation: NSOperation {
      operation has finished.
      */
     private var hasFinishedAlready = false
+    private var _combinedErrors = [ErrorType]()
     public final func finish(errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
             
-            let combinedErrors = _internalErrors + errors
-            finished(combinedErrors)
+            _combinedErrors = _internalErrors + errors
+            finished(_combinedErrors)
             
             for observer in observers {
-                observer.operationDidFinish(self, errors: combinedErrors)
+                observer.operationDidFinish(self, errors: _combinedErrors)
             }
             
             state = .Finished
