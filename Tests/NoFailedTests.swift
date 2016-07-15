@@ -14,12 +14,12 @@ class NoFailedTests: XCTestCase {
     
     let queue = OperationQueue()
     
-    class FailOperation: Operation {
+    class FailOperation: Operation, Fallible {
         enum Error: ErrorType {
             case JustGoAway
         }
         override func execute() {
-            finishWithError(Error.JustGoAway)
+            finish(withError: .JustGoAway)
         }
     }
     class NoFailOperation: Operation {

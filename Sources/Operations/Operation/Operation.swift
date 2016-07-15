@@ -288,7 +288,7 @@ public class Operation: NSOperation {
     // MARK: Finishing
     
     /**
-     Most operations may finish with a single error, if they have one at all.
+     This method is deprecated and probably will be removed in 0.5. Most operations may finish with a single error, if they have one at all.
      This is a convenience method to simplify calling the actual `finish()`
      method. This is also useful if you wish to finish with an error provided
      by the system frameworks. As an example, see `DownloadEarthquakesOperation`
@@ -297,7 +297,7 @@ public class Operation: NSOperation {
      */
     public final func finishWithError(error: ErrorType?) {
         if let error = error {
-            finish([error])
+            finish(errors: [error])
         }
         else {
             finish()
@@ -310,7 +310,8 @@ public class Operation: NSOperation {
      */
     private var hasFinishedAlready = false
     private var _combinedErrors = [ErrorType]()
-    public final func finish(errors: [ErrorType] = []) {
+
+    public final func finish(errors errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
