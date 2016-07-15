@@ -15,10 +15,8 @@ public let OperationConditionKey = "OperationCondition"
     operation to begin execution.
 */
 public protocol OperationCondition {
-    /**
-        The name of the condition. This is used in userInfo dictionaries of `.ConditionFailed`
-        errors as the value of the `OperationConditionKey` key.
-    */
+    
+    /// The name of the condition
     static var name: String { get }
         
     /**

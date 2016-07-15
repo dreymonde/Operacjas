@@ -8,6 +8,13 @@
 
 import Foundation
 
+/**
+ A condition that specifies that every dependency must have succeeded without an error.
+ If any dependency failed, the target operation will be cancelled.
+ 
+ - Warning: Be careful. This does not apply to cancelled operation as well. If you want
+ this kind of behavior, make sure to call `cancelWithError(_:)` instead of just `cancel()`.
+ */
 public struct NoFailedDependencies: OperationCondition {
     
     public enum Error: ErrorType {

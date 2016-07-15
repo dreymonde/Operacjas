@@ -32,7 +32,9 @@ public class Operation: NSOperation {
     
     // MARK: State Management
     
+    /// The state of Operation
     public enum State: Int, Comparable {
+        
         /// The initial state of an `Operation`.
         case Initialized
         
@@ -60,6 +62,7 @@ public class Operation: NSOperation {
         /// The `Operation` has finished executing.
         case Finished
         
+        /// Return `true` if `self` can transition to `target` state.
         func canTransitionToState(target: State) -> Bool {
             switch (self, target) {
             case (.Initialized, .Pending):
@@ -87,10 +90,7 @@ public class Operation: NSOperation {
         willEnqueue()
     }
     
-    /**
-     Indicates that the Operation can now begin to evaluate readiness conditions,
-     if appropriate.
-     */
+    /// Called when the operation is about to enqueue in `OperationQueue`
     public func willEnqueue() {
         
     }
@@ -101,6 +101,7 @@ public class Operation: NSOperation {
     /// A lock to guard reads and writes to the `_state` property
     private let stateLock = NSLock()
     
+    /// Current state of the operation. (read-only)
     public private(set) var state: State {
         get {
             return stateLock.withCriticalScope {
@@ -161,6 +162,7 @@ public class Operation: NSOperation {
         }
     }
     
+    /// If `true`, the operation is given "User Initiated" Quality of Class.
     public var userInitiated: Bool {
         get {
             return qualityOfService == .UserInitiated
@@ -191,6 +193,9 @@ public class Operation: NSOperation {
     
     internal var exclusivityCategories: [MutualExclusivityCategory] = []
     
+    /// Sets an operation as being mutually exclusive in `category`.
+    ///
+    /// - Warning: This method needs to be called before enqueuing.
     public final func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
         assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
         exclusivityCategories.append(category)
@@ -200,6 +205,9 @@ public class Operation: NSOperation {
     
     private(set) var conditions = [OperationCondition]()
     
+    /// Makes `self` dependent on the evalution of `condition`.
+    ///
+    /// - Warning: This method needs to be called before enqueuing.
     public func addCondition(condition: OperationCondition) {
         assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
         
@@ -208,6 +216,9 @@ public class Operation: NSOperation {
     
     private(set) var observers = [OperationObserver]()
     
+    /// Assigns an `observer` to `self`
+    ///
+    /// - Warning: This method needs to be called before enqueuing.
     public func addObserver(observer: OperationObserver) {
         assert(state < .Executing, "Cannot modify observers after execution has begun.")
         observers.append(observer)
@@ -218,6 +229,9 @@ public class Operation: NSOperation {
         super.addDependency(operation)
     }
     
+    /// Makes the receiver dependent on the completion of the specified operation.
+    ///
+    /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
     public func addDependency(operation: Operation, expectSuccess: Bool) {
         addDependency(operation)
         if expectSuccess {
@@ -253,6 +267,8 @@ public class Operation: NSOperation {
     }
     
     /**
+     Begins the execution of the `Operation`.
+     
      `execute()` is the entry point of execution for all `Operation` subclasses.
      If you subclass `Operation` and wish to customize its execution, you would
      do so by overriding the `execute()` method.
@@ -268,15 +284,23 @@ public class Operation: NSOperation {
     }
     
     private var _internalErrors = [ErrorType]()
+    
+    /// Cancels operation with `error`.
     public func cancel(with error: ErrorType) {
         _internalErrors.append(error)
         cancel()
     }
     
+    /// An array of errors reported by the operation during it's execution. (read-only)
+    ///
+    /// - Returns: `nil` if `Operation` is not finished yet. Empty array if `Operation` was finished successfully.
+    ///
+    /// - Warning: You can't access this property inside the observers (you'll receive `nil`), because they are called slightly *before* finishing.
     public final var errors: [ErrorType]? {
         return state == .Finished ? _combinedErrors : nil
     }
     
+    /// Adds an `operation` to the queue on which `self` is executing.
     public final func produceOperation(operation: NSOperation) {
         for observer in observers {
             observer.operation(self, didProduceOperation: operation)
@@ -308,7 +332,10 @@ public class Operation: NSOperation {
      */
     private var hasFinishedAlready = false
     private var _combinedErrors = [ErrorType]()
-
+    
+    /// Puts `self` in `finished` state.
+    ///
+    /// - Parameter errors: Reported errors
     public final func finish(with errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
@@ -325,12 +352,7 @@ public class Operation: NSOperation {
         }
     }
     
-    /**
-     Subclasses may override `finished(_:)` if they wish to react to the operation
-     finishing with errors. For example, the `LoadModelOperation` implements
-     this method to potentially inform the user about an error when trying to
-     bring up the Core Data stack.
-     */
+    /// Called when `self` is about to enter it's `finished` state. For use by subclassers.
     public func finished(errors: [ErrorType]) {
         // No op.
     }

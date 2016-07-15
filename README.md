@@ -3,7 +3,7 @@
 [![Swift][swift-badge]][swift-url]
 [![Build Status][travis-badge]][travis-url]
 [![Platform][platform-badge]][platform-url]
-![Latest0.3][version-0.3-badge]
+[![Latest0.4][version-0.4-badge]][releases-url]
 
 **Operations** is an open-source implementation of concepts from [Advanced NSOperations][anso-url] talk.
 
@@ -14,7 +14,7 @@
 - `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
 - `0.2.x` and later versions contains community improvements.
 
-We recommend you to use the newest "community version" (`0.3.0` at the time).
+We recommend you to use the newest "community version" (`0.4.0` at the time).
 
 #### Note
 
@@ -87,6 +87,16 @@ second.addDependency(first)
 
 That means that `second` operation will not start before `first` operation enters it's `finished` state. Dependencies are also queue-independent, i.e. operations from different queues can depend on each other.
 
+If your operation is depending on `Operation` (not just `NSOperation`), you can also make this:
+
+```swift
+let first = OperationA()
+let second = OperationB()
+second.addDependency(first, expectSuccess: true)
+```
+
+That just means that `second` will be cancelled if `first` will finish with errors. In some cases that might be useful.
+
 *WARNING*: If the operation depends on itself, it's never gonna be executed, so don't do that. It may sound like an obvious thing, but seriously - always keep that in mind. If your operation queue is stalled, you've probably deadlocked yourself somewhere. Also, if some operation A depends on B, and B depends on A - your app is deadlocked again.
 
 ##### Vital operations
@@ -154,7 +164,7 @@ myOperation.observe {
     $0.didStart {
         // operation did start
     }
-    $0.didProduceAnotherOperation { operation in
+    $0.didProduceAnotherOperation { produced in
         // operation did produce another operation
     }
     $0.didSuccess {
@@ -182,9 +192,6 @@ For example, some `LoggedInCondition` can generate `LoginOperation` which will p
 
 ```swift
 struct LoggedInCondition: OperationCondition {
-
-    // we'll talk about that later
-    static var isMutuallyExclusive: Bool = false
     
     // let's assume that we have some `LoginController` that controls the current login status
     let loginController: LoginController
@@ -309,33 +316,42 @@ Now every `NetworkOperation` will be treated appropriately, again - automaticall
 There're actually a lot of cool things you can do using enqueuing modules - use your creativity! 
 
 ### Mutual exclusivity
-There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *depended* on another. **Operations** does it for you automatically. All you need to do is assign an `OperationCondition` with `isMutuallyExclusive` set to `true` to your operation, and if there are some other operations which has the "mutually exclusive" condition of the same type, they won't be executed simultaneously, you can be sure.
-
-The easiest way to do so is to assign `MutuallyExclusive<T>` condition, which is provided by **Operations**, to your operation:
+There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *dependent* on another. **Operations** does it for you automatically. All you need to do is simply mark your `Operation` as being mutually exclusive in some `MutualExclusivityCategory`, which is a simple protocol:
 
 ```swift
-let loadModel = LoadModelOperation()
-loadModel.addCondition(MutuallyExclusive<LoadModelOperation>())
+public protocol MutualExclusivityCategory {
+    var categoryIdentifier: String { get }    
+}
+```
+
+Make sure that your `categoryIdentifier` is *really* unique. And all `enum`s with `String` as a raw value are given automatic conformance to this! So, you just need to:
+
+```swift
+enum CoreData: String, MutualExclusivityCategory {
+    case LoadStack
+}
+
+let loadStackOperation = Operation()
+loadStackOperation.setMutuallyExclusive(inCategory: CoreData.LoadStack)
+// Make sure to set exclusivity before enqueueing!
+queue.addOperation(loadStackOperation)
 ```
 
 ```swift
-// more interesting example:
+// More interesting example:
 
-/**
-    The purpose of this enum is to simply provide a non-constructible
-    type to be used with `MutuallyExclusive<T>`.
-*/
-enum Alert { }
+enum UI {
+    case Alert
+}
 
 let networkAlert = NetworkUnreachableAlertOperation()
 let basicAlert = BasicAlertOperation()
 
-let alertMutExcl = MutuallyExclusive<Alert>()
-networkAlert.addCondition(alertMutExcl)
-basicAlert.addCondition(alertMutExcl)
+networkAlert.setMutuallyExclusive(inCategory: UI.Alert)
+basicAlert.setMutuallyExclusive(inCategory: UI.Alert)
 
 // will be executed one-by-one
-queue.addOperations([networkAlert, basicAlert])
+queue.addOperations(networkAlert, basicAlert)
 ```
 
 ### What's out of the box?
@@ -343,6 +359,7 @@ queue.addOperations([networkAlert, basicAlert])
 
 1. Silent condition (`SilentCondition<T>`) that causes another condition to not enqueue its dependency. If we take our `LoggedInCondition` example, making `SilentCondition<LoggedInCondition>` will only check if the user is already logged in, and if he's not, it will **not** generate `LoginOperation`.
 2. No cancelled dependencies condition (`NoCancelledDependencies`) specifies that every operation dependency must have succeeded without cancelling. If any dependency was cancelled, the target operation will be cancelled. Be careful, this will apply only to **cancelled** dependencies, not to the failed ones.
+3. No failed dependencies condition (`NoFailedDependencies`) - kind of obvious one. Again, be careful - this will apply only to **failed** dependencies, not to the cancelled one. If you want that kind of behavior too, make sure to call `cancel(with: error)` instead of just `cancel()`.
 
 ### Tips and tricks
 - If your operation is failed, simply call `finishWithError(error: ErrorType?)` method instead of just `finish()` (you can also call `finish(errors: [ErrorType])`), that will be indicate that even though your operation have entered the `finished` state, it failed to do it's job.
@@ -353,7 +370,7 @@ queue.addOperations([networkAlert, basicAlert])
 **Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
 
 ```ruby
-github "AdvancedOperations/Operations" ~> 0.3.0
+github "AdvancedOperations/Operations" ~> 0.4.0
 ```
 
 ## Contributing
@@ -383,5 +400,6 @@ See [#11](https://github.com/AdvancedOperations/Operations/issues/11)
 [anso-url]: https://developer.apple.com/videos/play/wwdc2015/226/
 [mvcn-url]: https://realm.io/news/slug-marcus-zarra-exploring-mvcn-swift/
 [carthage-url]: https://github.com/Carthage/Carthage
-[version-0.3-badge]: https://img.shields.io/badge/Operations-0.3-1D4980.svg
+[version-0.4-badge]: https://img.shields.io/badge/Operations-0.4-1D4980.svg
 [danthorpe/Operations]: https://github.com/danthorpe/Operations
+[releases-url]: https://github.com/AdvancedOperations/Operations/releases

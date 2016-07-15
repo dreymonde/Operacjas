@@ -39,6 +39,9 @@ public typealias OperationQueueEnqueuingModule = (operation: Operation, queue: O
     - Setting up dependencies to enforce mutual exclusivity
 */
 public class OperationQueue: NSOperationQueue {
+    
+    /// - Note: Consider not to use `delegate` with your queues.
+    /// There are better approaches, for example, enqueueing modules and operation observers.
     public weak var delegate: OperationQueueDelegate?
     
     public override func addOperation(operation: NSOperation) {
@@ -131,10 +134,14 @@ public class OperationQueue: NSOperationQueue {
     
     private var modules: [OperationQueueEnqueuingModule] = []
     
+    /// Assigns a `module` which will be called when new `Operation`s are added to the queue.
     public func addEnqueuingModule(module: OperationQueueEnqueuingModule) {
         modules.append(module)
     }
     
+    /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
+    ///
+    /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
     public func addOperation(operation: NSOperation, vital: Bool) {
         addDependency(operation)
         addOperation(operation)
@@ -155,6 +162,7 @@ public class OperationQueue: NSOperationQueue {
         }
     }
     
+    /// Makes any newly added operation to the queue dependent on `operation`
     public func addDependency(operation: NSOperation) {
         dispatch_sync(vitalAccessQueue) {
             self.vitalOperations.append(operation)
