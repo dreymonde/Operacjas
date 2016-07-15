@@ -19,7 +19,7 @@ public protocol Fallible {
 
 extension Fallible where Self: OperationCondition {
     
-    func failed(withError error: Error) -> OperationConditionResult {
+    public func failed(withError error: Error) -> OperationConditionResult {
         return OperationConditionResult.Failed(error: error)
     }
     
@@ -27,7 +27,7 @@ extension Fallible where Self: OperationCondition {
 
 extension Fallible where Self: Operation {
     
-    func finish(withError error: Error) {
+    public func finish(withError error: Error) {
         finishWithError(error)
     }
     
