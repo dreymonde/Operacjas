@@ -16,6 +16,12 @@
 
 We recommend you to use the newest "community version" (`0.3.0` at the time).
 
+#### Note
+
+There are aslo other implementations of "Advanced NSOperations". You can also see [danthorpe/Operations][danthorpe/Operations], which soon will become **ProcedureKit** (danthorpe/Operations#343). It has a lot more possibilities, and many predefined operations, conditions, observers and so on. However, we have different goals. **AdvancedOperations/Operations** aims to have a pretty small codebase which will perform as a ground for your own projects, features and new cool ideas, wherever **ProcedureKit** is mostly all-in-one solution. Also, **Operations** is still in the "flow state" and things are moving fast, and **ProcedureKit** already has stable releases. So, basically, use the project which is closer to you (you can also consider using so-called "Apple versions" of **Operations**).
+
+Also take a look [PSOperations](https://github.com/pluralsight/PSOperations).
+
 ## Usage
 
 *DISCLAIMER*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*.
@@ -376,3 +382,4 @@ See [#11](https://github.com/AdvancedOperations/Operations/issues/11)
 [mvcn-url]: https://realm.io/news/slug-marcus-zarra-exploring-mvcn-swift/
 [carthage-url]: https://github.com/Carthage/Carthage
 [version-0.3-badge]: https://img.shields.io/badge/Operations-0.3-1D4980.svg
+[danthorpe/Operations]: https://github.com/danthorpe/Operations
