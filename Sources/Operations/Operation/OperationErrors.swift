@@ -28,7 +28,7 @@ extension Fallible where Self: OperationCondition {
 extension Fallible where Self: Operation {
     
     public func finish(withError error: Error) {
-        finishWithError(error)
+        finish([error])
     }
     
 }

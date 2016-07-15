@@ -266,7 +266,7 @@ public class Operation: NSOperation {
     // MARK: Finishing
     
     /**
-     Most operations may finish with a single error, if they have one at all.
+     This method is deprecated and probably will be removed in 0.5. Most operations may finish with a single error, if they have one at all.
      This is a convenience method to simplify calling the actual `finish()`
      method. This is also useful if you wish to finish with an error provided
      by the system frameworks. As an example, see `DownloadEarthquakesOperation`
