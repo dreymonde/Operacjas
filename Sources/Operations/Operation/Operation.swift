@@ -275,7 +275,7 @@ public class Operation: NSOperation {
      */
     public final func finishWithError(error: ErrorType?) {
         if let error = error {
-            finish([error])
+            finish(errors: [error])
         }
         else {
             finish()
@@ -287,7 +287,7 @@ public class Operation: NSOperation {
      operation has finished.
      */
     private var hasFinishedAlready = false
-    public final func finish(errors: [ErrorType] = []) {
+    public final func finish(errors errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
