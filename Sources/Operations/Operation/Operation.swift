@@ -82,12 +82,17 @@ public class Operation: NSOperation {
         }
     }
     
+    internal func _willEnqueue() {
+        state = .Pending
+        willEnqueue()
+    }
+    
     /**
      Indicates that the Operation can now begin to evaluate readiness conditions,
      if appropriate.
      */
     public func willEnqueue() {
-        state = .Pending
+        
     }
     
     /// Private storage for the `state` property that will be KVO observed.
@@ -184,6 +189,13 @@ public class Operation: NSOperation {
         }
     }
     
+    internal var exclusivityCategories: [MutualExclusivityCategory] = []
+    
+    public func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
+        assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
+        exclusivityCategories.append(category)
+    }
+    
     // MARK: Observers and Conditions
     
     private(set) var conditions = [OperationCondition]()
@@ -204,6 +216,13 @@ public class Operation: NSOperation {
     public override func addDependency(operation: NSOperation) {
         assert(state < .Executing, "Dependencies cannot be modified after execution has begun.")
         super.addDependency(operation)
+    }
+    
+    public func addDependency(operation: Operation, expectSuccess: Bool) {
+        addDependency(operation)
+        if expectSuccess {
+            addCondition(NoFailedDependency(dependency: operation))
+        }
     }
     
     // MARK: Execution and Cancellation
@@ -253,8 +272,11 @@ public class Operation: NSOperation {
         if let error = error {
             _internalErrors.append(error)
         }
-        
         cancel()
+    }
+    
+    public var errors: [ErrorType]? {
+        return state == .Finished ? _combinedErrors : nil
     }
     
     public final func produceOperation(operation: NSOperation) {
@@ -287,16 +309,18 @@ public class Operation: NSOperation {
      operation has finished.
      */
     private var hasFinishedAlready = false
+    private var _combinedErrors = [ErrorType]()
+
     public final func finish(errors errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
             
-            let combinedErrors = _internalErrors + errors
-            finished(combinedErrors)
+            _combinedErrors = _internalErrors + errors
+            finished(_combinedErrors)
             
             for observer in observers {
-                observer.operationDidFinish(self, errors: combinedErrors)
+                observer.operationDidFinish(self, errors: _combinedErrors)
             }
             
             state = .Finished
