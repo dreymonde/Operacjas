@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct NoFailedDependencies: OperationCondition, Fallible {
+public struct NoFailedDependencies: OperationCondition {
     
     public enum Error: ErrorType {
         case DependenciesFailed([(Operation, [ErrorType])])
@@ -30,8 +30,7 @@ public struct NoFailedDependencies: OperationCondition, Fallible {
         })
         if !failedOperations.isEmpty {
             let operationsAndErrors = failedOperations.map({ return ($0, $0.errors!) })
-            let fail = failed(withError: .DependenciesFailed(operationsAndErrors))
-            completion(fail)
+            completion(.Failed(with: Error.DependenciesFailed(operationsAndErrors)))
         } else {
             completion(.Satisfied)
         }
@@ -39,7 +38,7 @@ public struct NoFailedDependencies: OperationCondition, Fallible {
     
 }
 
-internal struct NoFailedDependency: OperationCondition, Fallible {
+internal struct NoFailedDependency: OperationCondition {
     
     internal enum Error: ErrorType {
         case DependencyFailed((Operation, [ErrorType]))
@@ -58,11 +57,11 @@ internal struct NoFailedDependency: OperationCondition, Fallible {
     
     func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
         guard let errors = dependency.errors else {
-            completion(failed(withError: .DependencyErrorsNil))
+            completion(.Failed(with: Error.DependencyErrorsNil))
             return
         }
         if !errors.isEmpty {
-            completion(failed(withError: .DependencyFailed((operation, errors))))
+            completion(.Failed(with: Error.DependencyFailed((operation, errors))))
         } else {
             completion(.Satisfied)
         }

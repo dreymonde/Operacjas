@@ -13,7 +13,7 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-public struct NoCancelledDependencies: OperationCondition, Fallible {
+public struct NoCancelledDependencies: OperationCondition {
     
     public enum Error: ErrorType {
         case DependenciesWereCancelled([NSOperation])
@@ -31,7 +31,7 @@ public struct NoCancelledDependencies: OperationCondition, Fallible {
 
         if !cancelledDependencies.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            completion(failed(withError: .DependenciesWereCancelled(cancelledDependencies)))
+            completion(.Failed(with: Error.DependenciesWereCancelled(cancelledDependencies)))
         }
         else {
             completion(.Satisfied)
