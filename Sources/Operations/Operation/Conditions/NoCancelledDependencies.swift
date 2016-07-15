@@ -13,7 +13,7 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-public struct NoCancelledDependencies: OperationCondition {
+public struct NoCancelledDependencies: OperationCondition, Fallible {
     public static let isMutuallyExclusive = false
     
     public enum Error: ErrorType {
@@ -32,7 +32,7 @@ public struct NoCancelledDependencies: OperationCondition {
 
         if !cancelled.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            completion(.Failed(error: Error.DependenciesWereCancelled(cancelled: cancelled)))
+            completion(failed(withError: .DependenciesWereCancelled(cancelled: cancelled)))
         }
         else {
             completion(.Satisfied)

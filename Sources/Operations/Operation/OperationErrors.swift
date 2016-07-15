@@ -12,3 +12,23 @@ public enum OperationError: ErrorType {
     case ConditionFailed
     case ExecutionFailed
 }
+
+public protocol Fallible {
+    associatedtype Error: ErrorType
+}
+
+extension Fallible where Self: OperationCondition {
+    
+    func failed(withError error: Error) -> OperationConditionResult {
+        return OperationConditionResult.Failed(error: error)
+    }
+    
+}
+
+extension Fallible where Self: Operation {
+    
+    func finish(withError error: Error) {
+        finishWithError(error)
+    }
+    
+}
