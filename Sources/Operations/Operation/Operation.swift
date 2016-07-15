@@ -268,10 +268,8 @@ public class Operation: NSOperation {
     }
     
     private var _internalErrors = [ErrorType]()
-    public func cancelWithError(error: ErrorType? = nil) {
-        if let error = error {
-            _internalErrors.append(error)
-        }
+    public func cancel(with error: ErrorType) {
+        _internalErrors.append(error)
         cancel()
     }
     
