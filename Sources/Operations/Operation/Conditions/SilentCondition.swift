@@ -20,11 +20,7 @@ public struct SilentCondition<T: OperationCondition>: OperationCondition {
     public static var name: String {
         return "Silent<\(T.name)>"
     }
-    
-    public static var isMutuallyExclusive: Bool {
-        return T.isMutuallyExclusive
-    }
-    
+        
     public init(condition: T) {
         self.condition = condition
     }

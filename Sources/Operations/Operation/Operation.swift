@@ -189,6 +189,13 @@ public class Operation: NSOperation {
         }
     }
     
+    internal var exclusivityCategories: [MutualExclusivityCategory] = []
+    
+    public func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
+        assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
+        exclusivityCategories.append(category)
+    }
+    
     // MARK: Observers and Conditions
     
     private(set) var conditions = [OperationCondition]()

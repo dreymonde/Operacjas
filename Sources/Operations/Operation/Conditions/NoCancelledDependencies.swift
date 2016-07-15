@@ -14,7 +14,6 @@ import Foundation
     well.
 */
 public struct NoCancelledDependencies: OperationCondition {
-    public static let isMutuallyExclusive = false
     
     public enum Error: ErrorType {
         case DependenciesWereCancelled(cancelled: [NSOperation])

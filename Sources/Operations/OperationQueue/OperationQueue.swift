@@ -69,11 +69,7 @@ public class OperationQueue: NSOperationQueue {
                 With condition dependencies added, we can now see if this needs
                 dependencies to enforce mutual exclusivity.
             */
-            let concurrencyCategories: [String] = operation.conditions.flatMap { condition in
-                if !condition.dynamicType.isMutuallyExclusive { return nil }
-                
-                return "\(condition.dynamicType)"
-            }
+            let concurrencyCategories: [String] = operation.exclusivityCategories.map({ $0.categoryIdentifier })
 
             if !concurrencyCategories.isEmpty {
                 // Set up the mutual exclusivity dependencies.
