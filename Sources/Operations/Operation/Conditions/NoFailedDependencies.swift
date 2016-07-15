@@ -11,7 +11,7 @@ import Foundation
 public struct NoFailedDependencies: OperationCondition, Fallible {
     
     public enum Error: ErrorType {
-        case DependenciesFailed(failed: [(Operation, [ErrorType])])
+        case DependenciesFailed([(Operation, [ErrorType])])
     }
     
     public init() { }
@@ -21,16 +21,16 @@ public struct NoFailedDependencies: OperationCondition, Fallible {
     }
     
     public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
-        let opers = operation.dependencies.flatMap({ $0 as? Operation })
-        let failedOperations = opers.filter {
+        let operations = operation.dependencies.flatMap({ $0 as? Operation })
+        let failedOperations = operations.filter({
             if let errors = $0.errors {
                 return !errors.isEmpty
             }
             return false
-        }
+        })
         if !failedOperations.isEmpty {
-            let elements = failedOperations.map({ return ($0, $0.errors!) })
-            let fail = failed(withError: .DependenciesFailed(failed: elements))
+            let operationsAndErrors = failedOperations.map({ return ($0, $0.errors!) })
+            let fail = failed(withError: .DependenciesFailed(operationsAndErrors))
             completion(fail)
         } else {
             completion(.Satisfied)
@@ -42,7 +42,7 @@ public struct NoFailedDependencies: OperationCondition, Fallible {
 internal struct NoFailedDependency: OperationCondition, Fallible {
     
     internal enum Error: ErrorType {
-        case DependencyFailed(failed: (Operation, [ErrorType]))
+        case DependencyFailed((Operation, [ErrorType]))
         case DependencyErrorsNil
     }
     
@@ -62,7 +62,7 @@ internal struct NoFailedDependency: OperationCondition, Fallible {
             return
         }
         if !errors.isEmpty {
-            completion(failed(withError: .DependencyFailed(failed: (operation, errors))))
+            completion(failed(withError: .DependencyFailed((operation, errors))))
         } else {
             completion(.Satisfied)
         }

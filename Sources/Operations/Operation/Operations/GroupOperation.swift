@@ -106,7 +106,7 @@ extension GroupOperation: OperationQueueDelegate {
         if operation === finishingOperation {
             internalQueue.suspended = true
             groupOperationWillFinish()
-            finish(errors: aggregatedErrors)
+            finish(with: aggregatedErrors)
         }
         else if operation !== startingOperation {
             operationDidFinish(operation, withErrors: errors)

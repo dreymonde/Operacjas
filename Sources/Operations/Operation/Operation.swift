@@ -191,7 +191,7 @@ public class Operation: NSOperation {
     
     internal var exclusivityCategories: [MutualExclusivityCategory] = []
     
-    public func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
+    public final func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
         assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
         exclusivityCategories.append(category)
     }
@@ -275,7 +275,7 @@ public class Operation: NSOperation {
         cancel()
     }
     
-    public var errors: [ErrorType]? {
+    public final var errors: [ErrorType]? {
         return state == .Finished ? _combinedErrors : nil
     }
     
@@ -297,7 +297,7 @@ public class Operation: NSOperation {
      */
     public final func finishWithError(error: ErrorType?) {
         if let error = error {
-            finish(errors: [error])
+            finish(with: [error])
         }
         else {
             finish()
@@ -311,7 +311,7 @@ public class Operation: NSOperation {
     private var hasFinishedAlready = false
     private var _combinedErrors = [ErrorType]()
 
-    public final func finish(errors errors: [ErrorType] = []) {
+    public final func finish(with errors: [ErrorType] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
             state = .Finishing
