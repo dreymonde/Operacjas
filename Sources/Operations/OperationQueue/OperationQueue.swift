@@ -98,7 +98,7 @@ public class OperationQueue: NSOperationQueue {
                 and it's now it a state where it can proceed with evaluating conditions,
                 if appropriate.
             */
-            operation.willEnqueue()
+            operation._willEnqueue()
         }
         else {
             /*

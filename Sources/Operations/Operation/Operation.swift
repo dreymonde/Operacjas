@@ -82,12 +82,17 @@ public class Operation: NSOperation {
         }
     }
     
+    internal func _willEnqueue() {
+        state = .Pending
+        willEnqueue()
+    }
+    
     /**
      Indicates that the Operation can now begin to evaluate readiness conditions,
      if appropriate.
      */
     public func willEnqueue() {
-        state = .Pending
+        
     }
     
     /// Private storage for the `state` property that will be KVO observed.
