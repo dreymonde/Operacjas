@@ -356,11 +356,10 @@ public class Operation: NSOperation {
          use waiting when they should instead be chaining discrete operations
          together using dependencies.
          
-         To reinforce this idea, invoking `waitUntilFinished()` will crash your
-         app, as incentive for you to find a more appropriate way to express
+         To reinforce this idea, invoking `waitUntilFinished()` will cause Xcode warning, 
+         as incentive for you to find a more appropriate way to express
          the behavior you're wishing to create.
          */
-        fatalError("Waiting on operations is an anti-pattern. Remove this ONLY if you're absolutely sure there is No Other Way™.")
     }
     
 }
