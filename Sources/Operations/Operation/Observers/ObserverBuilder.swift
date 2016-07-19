@@ -74,9 +74,9 @@ private struct ObserverBuilderObserver: OperationObserver {
 
 extension Operation {
     
-    public func observe(build: (_: ObserverBuilder) -> ()) {
+    public func observe(build: (operation: ObserverBuilder) -> ()) {
         let builder = ObserverBuilder()
-        build(builder)
+        build(operation: builder)
         let observer = ObserverBuilderObserver(builder: builder)
         self.addObserver(observer)
     }

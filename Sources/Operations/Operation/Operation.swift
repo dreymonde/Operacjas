@@ -317,6 +317,7 @@ public class Operation: NSOperation {
      for how an error from an `NSURLSession` is passed along via the
      `finishWithError()` method.
      */
+    @available(*, deprecated, message="use finish(with:) instead or adopt Fallible protocol (recommended)")
     public final func finishWithError(error: ErrorType?) {
         if let error = error {
             finish(with: [error])
