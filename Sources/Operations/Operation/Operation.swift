@@ -347,6 +347,7 @@ public class Operation: NSOperation {
         // No op.
     }
     
+    @available(*, deprecated, message="Waiting on operations is an anti-pattern. Use this ONLY if you're absolutely sure there is No Other Way™.")
     public override final func waitUntilFinished() {
         /*
          Waiting on operations is almost NEVER the right thing to do. It is
