@@ -310,24 +310,6 @@ public class Operation: NSOperation {
     // MARK: Finishing
     
     /**
-     This method is deprecated and probably will be removed in 0.5. Most operations may finish with a single error, if they have one at all.
-     This is a convenience method to simplify calling the actual `finish()`
-     method. This is also useful if you wish to finish with an error provided
-     by the system frameworks. As an example, see `DownloadEarthquakesOperation`
-     for how an error from an `NSURLSession` is passed along via the
-     `finishWithError()` method.
-     */
-    @available(*, deprecated, message="use finish(with:) instead or adopt Fallible protocol (recommended)")
-    public final func finishWithError(error: ErrorType?) {
-        if let error = error {
-            finish(with: [error])
-        }
-        else {
-            finish()
-        }
-    }
-    
-    /**
      A private property to ensure we only notify the observers once that the
      operation has finished.
      */
@@ -351,6 +333,13 @@ public class Operation: NSOperation {
             
             state = .Finished
         }
+    }
+    
+    /// Finishes operation reporting single error.
+    ///
+    /// - Parameter error: Reported error.
+    public final func finish(with error: ErrorType) {
+        finish(with: [error])
     }
     
     /// Called when `self` is about to enter it's `finished` state. For use by subclassers.
