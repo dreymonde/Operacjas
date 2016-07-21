@@ -14,6 +14,7 @@ import Foundation
  
     - Note: Use `BlockObserver` only as a reusable object. For individual observing, use `operation.observe` instead.
 */
+@available(*, deprecated, message="Use 'operation.observe' for single operation observing, or implement 'OperationObserver' if you want your observer to be reusable.")
 public struct BlockObserver: OperationObserver {
     // MARK: Properties
     

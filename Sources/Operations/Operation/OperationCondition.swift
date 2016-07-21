@@ -79,16 +79,7 @@ extension CollectionType where Generator.Element == OperationCondition, Index.Di
         // After all the conditions have evaluated, this block will execute.
         dispatch_group_notify(conditionGroup, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
             // Aggregate the errors that occurred, in order.
-            var failures = results.flatMap({ $0?.error })
-            
-            /*
-             If any of the conditions caused this operation to be cancelled,
-             check for that.
-             */
-            if operation.cancelled {
-                failures.append(OperationError.ConditionFailed)
-            }
-            
+            let failures = results.flatMap({ $0?.error })
             completion(failures)
         }
     }

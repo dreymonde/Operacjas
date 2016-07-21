@@ -33,10 +33,6 @@
 		BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
 		BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
 		BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */; };
-		BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
-		BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
-		BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
-		BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */; };
 		BE42EF4E1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
 		BE42EF4F1D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
 		BE42EF501D2EA65100E13A70 /* VitalOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */; };
@@ -139,7 +135,6 @@
 		BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationCondition.swift; sourceTree = "<group>"; };
 		BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationObserver.swift; sourceTree = "<group>"; };
 		BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLock+Operations.swift"; sourceTree = "<group>"; };
-		BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationErrors.swift; sourceTree = "<group>"; };
 		BE42EF4D1D2EA65100E13A70 /* VitalOperationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VitalOperationsTests.swift; sourceTree = "<group>"; };
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
 		BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
@@ -288,7 +283,6 @@
 				BE17C49E1CD3CEA300708FC5 /* Operation.swift */,
 				BE17C4A31CD3CEFE00708FC5 /* OperationCondition.swift */,
 				BE17C4A81CD3CF0700708FC5 /* OperationObserver.swift */,
-				BE17C4B21CD3CF4200708FC5 /* OperationErrors.swift */,
 				BE889E5E1D38F575003567AE /* Fallible.swift */,
 			);
 			path = Operation;
@@ -627,7 +621,6 @@
 				BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E51CD639000066A71B /* SilentCondition.swift in Sources */,
 				BE17C4A91CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
-				BE17C4B31CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
 				BE889E5F1D38F575003567AE /* Fallible.swift in Sources */,
 				BE889E511D38C7CF003567AE /* NoFailedDependencies.swift in Sources */,
 				BE17C4AE1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
@@ -663,7 +656,6 @@
 				BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E61CD639000066A71B /* SilentCondition.swift in Sources */,
 				BE17C4AA1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
-				BE17C4B41CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
 				BE889E601D38F588003567AE /* Fallible.swift in Sources */,
 				BE889E521D38C7DA003567AE /* NoFailedDependencies.swift in Sources */,
 				BE17C4AF1CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
@@ -699,7 +691,6 @@
 				BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E71CD639000066A71B /* SilentCondition.swift in Sources */,
 				BE17C4AB1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
-				BE17C4B51CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
 				BE889E611D38F589003567AE /* Fallible.swift in Sources */,
 				BE889E531D38C7DB003567AE /* NoFailedDependencies.swift in Sources */,
 				BE17C4B01CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
@@ -723,7 +714,6 @@
 				BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E81CD639000066A71B /* SilentCondition.swift in Sources */,
 				BE17C4AC1CD3CF0700708FC5 /* OperationObserver.swift in Sources */,
-				BE17C4B61CD3CF4200708FC5 /* OperationErrors.swift in Sources */,
 				BE889E621D38F589003567AE /* Fallible.swift in Sources */,
 				BE889E541D38C7DC003567AE /* NoFailedDependencies.swift in Sources */,
 				BE17C4B11CD3CF2300708FC5 /* NSLock+Operations.swift in Sources */,
