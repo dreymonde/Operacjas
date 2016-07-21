@@ -63,4 +63,20 @@ class OperationsTests: XCTestCase {
         waitForExpectationsWithTimeout(10.0, handler: nil)
     }
     
+    func testConfigure() {
+        let expectation = expectationWithDescription("Test")
+        class TestOperation: Operation {
+            let expectation: XCTestExpectation
+            init(expectation: XCTestExpectation) {
+                self.expectation = expectation
+            }
+            override func configure() {
+                print("Configured")
+                expectation.fulfill()
+            }
+        }
+        _ = TestOperation(expectation: expectation)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
 }
