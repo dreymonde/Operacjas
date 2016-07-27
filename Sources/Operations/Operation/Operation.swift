@@ -238,6 +238,38 @@ public class Operation: NSOperation {
         public static let ExpectSuccess = DependencyOptions(rawValue: 1 << 0)
     }
     
+    public func addDependency<FallibleOperation: Operation where FallibleOperation: Fallible>(operation: FallibleOperation, resolveError: (DependencyError<FallibleOperation.Error>) -> ErrorResolvingDisposition) {
+        operation.observe { (operation) in
+            operation.didFinishWithErrors({ [weak self] (errors) in
+                for error in errors {
+                    var disposition: ErrorResolvingDisposition
+                    if let error = error as? FallibleOperation.Error {
+                        disposition = resolveError(.Native(error))
+                    } else {
+                        disposition = resolveError(.Foreign(error))
+                    }
+                    switch disposition {
+                    case .Execute:
+                        continue
+                    case .FailWithSame:
+                        self?._internalErrors.append(error)
+                    case .Fail(with: let customError):
+                        self?._internalErrors.append(customError)
+                    }
+                }
+            })
+        }
+        addDependency(operation)
+    }
+    
+    public func addDependency<FallibleOperation, Resolver
+        where FallibleOperation: Operation,
+        FallibleOperation: Fallible,
+        Resolver: OperationErrorResolver,
+        Resolver.Error == FallibleOperation.Error>(operation: FallibleOperation, errorResolver: Resolver) {
+        addDependency(operation, resolveError: errorResolver.resolve)
+    }
+    
     /// Makes the receiver dependent on the completion of the specified operation.
     ///
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.

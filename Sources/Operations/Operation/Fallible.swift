@@ -27,3 +27,30 @@ extension Fallible where Self: Operation {
     }
     
 }
+
+public enum DependencyError<Error: ErrorType> {
+    case Native(Error)
+    case Foreign(ErrorType)
+    
+    public var native: Error? {
+        switch self {
+        case let .Native(error):
+            return error
+        default:
+            return nil
+        }
+    }
+}
+
+public enum ErrorResolvingDisposition {
+    case Execute
+    case FailWithSame
+    case Fail(with: ErrorType)
+}
+
+public protocol OperationErrorResolver {
+    associatedtype Error: ErrorType
+    
+    func resolve(error: DependencyError<Error>) -> ErrorResolvingDisposition
+}
+

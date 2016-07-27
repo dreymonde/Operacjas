@@ -75,4 +75,124 @@ class NoFailedTests: XCTestCase {
         waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
+    class JustFail: Operation, Fallible {
+        enum Error: ErrorType {
+            case A
+            case B
+            case C
+        }
+        let error: Error
+        init(failWith error: Error) {
+            self.error = error
+        }
+        
+        override func execute() {
+            finish(with: error)
+        }
+    }
+    
+    enum Test: ErrorType {
+        case Error
+    }
+    
+    func testResolverFail() {
+        let expectation = expectationWithDescription("Block")
+        let justFail = JustFail(failWith: .A)
+        let block = BlockOperation(mainQueueBlock: { print("Executing") })
+        block.addDependency(justFail, resolveError: { error in
+            switch error {
+            case .Native(let error):
+                switch error {
+                case .B:
+                    return .Execute
+                case .A:
+                    return .FailWithSame
+                case .C:
+                    return .Fail(with: Test.Error)
+                }
+            default:
+                return .FailWithSame
+            }
+        })
+        block.observe {
+            $0.didStart {
+                XCTFail()
+            }
+            $0.didFail { errors in
+                print(errors)
+                expectation.fulfill()
+            }
+        }
+        queue.addOperations(justFail, block)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
+    func testResolverExecute() {
+        let expectation = expectationWithDescription("Block")
+        let justFail = JustFail(failWith: .B)
+        let block = BlockOperation(mainQueueBlock: { print("Executing") })
+        block.addDependency(justFail, resolveError: { error in
+            switch error {
+            case .Native(let error):
+                switch error {
+                case .B:
+                    return .Execute
+                case .A:
+                    return .FailWithSame
+                case .C:
+                    return .Fail(with: Test.Error)
+                }
+            default:
+                return .FailWithSame
+            }
+        })
+        block.observe {
+            $0.didFail { errors in
+                print(errors)
+                XCTFail()
+            }
+            $0.didSuccess {
+                expectation.fulfill()
+            }
+        }
+        queue.addOperations(justFail, block)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
+    struct JustFailResolver: OperationErrorResolver {
+        func resolve(error: DependencyError<JustFail.Error>) -> ErrorResolvingDisposition {
+            switch error {
+            case .Native(let error):
+                switch error {
+                case .B:
+                    return .Execute
+                case .A:
+                    return .FailWithSame
+                case .C:
+                    return .Fail(with: Test.Error)
+                }
+            default:
+                return .FailWithSame
+            }
+        }
+    }
+    
+    func testReusableFail() {
+        let expectation = expectationWithDescription("Block")
+        let justFail = JustFail(failWith: .A)
+        let block = BlockOperation(mainQueueBlock: { print("Executing") })
+        block.addDependency(justFail, errorResolver: JustFailResolver())
+        block.observe {
+            $0.didStart {
+                XCTFail()
+            }
+            $0.didFail { errors in
+                print(errors)
+                expectation.fulfill()
+            }
+        }
+        queue.addOperations(justFail, block)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
 }
