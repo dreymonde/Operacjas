@@ -16,7 +16,7 @@ class VitalOperationsTests: XCTestCase {
         let importantPrinter = BlockOperation {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, vital: true)
+        testQueue.addOperation(importantPrinter, options: [.Vital])
         let expectation = expectationWithDescription("Waiting for next operation to start")
         let lessImportantPrinter = BlockOperation {
             print("I am just a regular printer")
@@ -65,7 +65,7 @@ class VitalOperationsTests: XCTestCase {
         let importantPrinter = BlockOperation {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, vital: true)
+        testQueue.addOperation(importantPrinter, options: [.Vital])
         let expectation = expectationWithDescription("Waiting for next operation to start")
         let lessImportantPrinter = BlockOperation {
             print("I am just a regular printer")

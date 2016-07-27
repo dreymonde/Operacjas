@@ -139,11 +139,22 @@ public class OperationQueue: NSOperationQueue {
         modules.append(module)
     }
     
+    public struct EnqueuingOptions: OptionSetType {
+        public var rawValue: Int
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let Vital = EnqueuingOptions(rawValue: 1 << 0)
+    }
+    
     /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
     ///
     /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
-    public func addOperation(operation: NSOperation, vital: Bool) {
-        addDependency(operation)
+    public func addOperation(operation: NSOperation, options: [EnqueuingOptions]) {
+        if options.contains(.Vital) {
+            addDependency(operation)
+        }
         addOperation(operation)
     }
     
