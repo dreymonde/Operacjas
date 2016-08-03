@@ -239,26 +239,7 @@ public class Operation: NSOperation {
     }
     
     public func addDependency<FallibleOperation: Operation where FallibleOperation: Fallible>(operation: FallibleOperation, resolveError: (DependencyError<FallibleOperation.Error>) -> ErrorResolvingDisposition) {
-        operation.observe { (operation) in
-            operation.didFinishWithErrors({ [weak self] (errors) in
-                for error in errors {
-                    var disposition: ErrorResolvingDisposition
-                    if let error = error as? FallibleOperation.Error {
-                        disposition = resolveError(.Native(error))
-                    } else {
-                        disposition = resolveError(.Foreign(error))
-                    }
-                    switch disposition {
-                    case .Execute:
-                        continue
-                    case .FailWithSame:
-                        self?._internalErrors.append(error)
-                    case .Fail(with: let customError):
-                        self?._internalErrors.append(customError)
-                    }
-                }
-            })
-        }
+        operation.addObserver(ErrorResolverObserver(resolve: resolveError, dependee: self))
         addDependency(operation)
     }
     
@@ -412,4 +393,38 @@ public func <(lhs: Operation.State, rhs: Operation.State) -> Bool {
 
 public func ==(lhs: Operation.State, rhs: Operation.State) -> Bool {
     return lhs.rawValue == rhs.rawValue
+}
+
+internal struct ErrorResolverObserver<Error: ErrorType>: OperationObserver {
+    
+    let resolve: (DependencyError<Error>) -> ErrorResolvingDisposition
+    weak var dependee: Operation?
+    
+    func operationDidStart(operation: Operation) { }
+    
+    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) { }
+    
+    func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+        var disposedErrors: [ErrorType] = []
+        for error in errors {
+            var disposition: ErrorResolvingDisposition
+            if let error = error as? Error {
+                disposition = resolve(.Native(error))
+            } else {
+                disposition = resolve(.Foreign(error))
+            }
+            switch disposition {
+            case .Execute:
+                continue
+            case .FailWithSame:
+                disposedErrors.append(error)
+            case let .Fail(with: customError):
+                disposedErrors.append(customError)
+            }
+        }
+        if !disposedErrors.isEmpty {
+            dependee?._internalErrors.appendContentsOf(disposedErrors)
+        }
+    }
+    
 }

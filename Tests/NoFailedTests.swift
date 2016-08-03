@@ -142,7 +142,7 @@ class NoFailedTests: XCTestCase {
                 case .C:
                     return .Fail(with: Test.Error)
                 }
-            default:
+            case .Foreign:
                 return .FailWithSame
             }
         })
@@ -182,6 +182,37 @@ class NoFailedTests: XCTestCase {
         let justFail = JustFail(failWith: .A)
         let block = BlockOperation(mainQueueBlock: { print("Executing") })
         block.addDependency(justFail, errorResolver: JustFailResolver())
+        block.observe {
+            $0.didStart {
+                XCTFail()
+            }
+            $0.didFail { errors in
+                print(errors)
+                expectation.fulfill()
+            }
+        }
+        queue.addOperations(justFail, block)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
+    struct NativeJistFailResolver: OperationNativeErrorResolver {
+        func resolve(error: JustFail.Error) -> ErrorResolvingDisposition {
+            switch error {
+            case .B:
+                return .Execute
+            case .A:
+                return .FailWithSame
+            case .C:
+                return .Fail(with: Test.Error)
+            }
+        }
+    }
+    
+    func testReusableNative() {
+        let expectation = expectationWithDescription("Block")
+        let justFail = JustFail(failWith: .A)
+        let block = BlockOperation(mainQueueBlock: { print("Executing") })
+        block.addDependency(justFail, errorResolver: NativeJistFailResolver())
         block.observe {
             $0.didStart {
                 XCTFail()

@@ -54,3 +54,21 @@ public protocol OperationErrorResolver {
     func resolve(error: DependencyError<Error>) -> ErrorResolvingDisposition
 }
 
+public protocol OperationNativeErrorResolver: OperationErrorResolver {
+    associatedtype Error: ErrorType
+    
+    func resolve(error: Error) -> ErrorResolvingDisposition
+}
+
+extension OperationNativeErrorResolver {
+    
+    func resolve(error: DependencyError<Error>) -> ErrorResolvingDisposition {
+        switch error {
+        case .Native(let error):
+            return resolve(error)
+        case .Foreign:
+            return .FailWithSame
+        }
+    }
+    
+}
