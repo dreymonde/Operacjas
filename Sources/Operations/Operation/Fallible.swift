@@ -6,6 +6,8 @@
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
+import Foundation
+
 public protocol Fallible {
     associatedtype Error: ErrorType
 }
@@ -46,6 +48,7 @@ public enum ErrorResolvingDisposition {
     case Execute
     case FailWithSame
     case Fail(with: ErrorType)
+    case Produce(NSOperation)
 }
 
 public protocol OperationErrorResolver {

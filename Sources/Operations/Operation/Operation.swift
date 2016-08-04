@@ -420,6 +420,8 @@ internal struct ErrorResolverObserver<Error: ErrorType>: OperationObserver {
                 disposedErrors.append(error)
             case let .Fail(with: customError):
                 disposedErrors.append(customError)
+            case let .Produce(newOperation):
+                operation.produceOperation(newOperation)
             }
         }
         if !disposedErrors.isEmpty {
