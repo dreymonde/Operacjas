@@ -14,7 +14,7 @@
 - `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
 - `0.2.x` and later versions contains community improvements.
 
-We recommend you to use the newest "community version" (`0.4.0` at the time).
+We recommend you to use the newest "community version" (`0.5.0` at the time).
 
 #### Note
 
@@ -362,14 +362,14 @@ queue.addOperations(networkAlert, basicAlert)
 3. No failed dependencies condition (`NoFailedDependencies`) - kind of obvious one. Again, be careful - this will apply only to **failed** dependencies, not to the cancelled one. If you want that kind of behavior too, make sure to call `cancel(with: error)` instead of just `cancel()`.
 
 ### Tips and tricks
-- If your operation failed, simply call `finish(with errors: [ErrorType])` method instead of just `finish()` (you can also call conform your `Operation` to `Fallible`, and use super-sweet convenience method `finish(withError:)`, more on this [here](https://github.com/AdvancedOperations/Operations/pull/24)), that will indicate that even though your operation have entered the `finished` state, it wasn't able to do it's job.
+- If your operation failed, simply call `finish(with error: ErrorType)` method instead of just `finish()` (you can also call conform your `Operation` to `Fallible`, and use super-sweet convenience method `finish(withError:)`, more on this [here](https://github.com/AdvancedOperations/Operations/pull/24)), that will indicate that even though your operation have entered the `finished` state, it wasn't able to do it's job.
 - Of course, you can add dependencies, conditions and observers at initialization.
 
 ## Installation
 **Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
 
 ```ruby
-github "AdvancedOperations/Operations" ~> 0.4.0
+github "AdvancedOperations/Operations" ~> 0.5.0
 ```
 
 ## Contributing
