@@ -27,3 +27,14 @@ extension Fallible where Self: Operation {
     }
     
 }
+
+public enum ErrorPurpose {
+    case Fatal
+    case Informative
+}
+
+public protocol ErrorInformer {
+    
+    func purpose(of error: ErrorType) -> ErrorPurpose
+    
+}
