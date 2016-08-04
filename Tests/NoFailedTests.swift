@@ -66,8 +66,8 @@ class NoFailedTests: XCTestCase {
             })
         }
         
-        noFailMain.addDependency(fail1, expectSuccess: true)
-        noFailMain.addDependency(noFail1, expectSuccess: true)
+        noFailMain.addDependency(fail1, options: [.ExpectSuccess])
+        noFailMain.addDependency(noFail1, options: [.ExpectSuccess])
         queue.addOperation(fail1)
         queue.addOperation(noFail1)
         queue.addOperation(noFailMain)

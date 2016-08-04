@@ -229,12 +229,21 @@ public class Operation: NSOperation {
         super.addDependency(operation)
     }
     
+    public struct DependencyOptions: OptionSetType {
+        public var rawValue: Int
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
+        
+        public static let ExpectSuccess = DependencyOptions(rawValue: 1 << 0)
+    }
+    
     /// Makes the receiver dependent on the completion of the specified operation.
     ///
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
-    public func addDependency(operation: Operation, expectSuccess: Bool) {
+    public func addDependency(operation: Operation, options: [DependencyOptions]) {
         addDependency(operation)
-        if expectSuccess {
+        if options.contains(.ExpectSuccess) {
             addCondition(NoFailedDependency(dependency: operation))
         }
     }
