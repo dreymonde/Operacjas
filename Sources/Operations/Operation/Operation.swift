@@ -238,12 +238,12 @@ public class Operation: NSOperation {
         public static let ExpectSuccess = DependencyOptions(rawValue: 1 << 0)
     }
     
-    public func addDependency<FallibleOperation: Operation where FallibleOperation: Fallible>(operation: FallibleOperation, resolveError: (DependencyError<FallibleOperation.Error>) -> ErrorResolvingDisposition) {
+    public final func addDependency<FallibleOperation: Operation where FallibleOperation: Fallible>(operation: FallibleOperation, resolveError: (DependencyError<FallibleOperation.Error>) -> ErrorResolvingDisposition) {
         operation.addObserver(ErrorResolverObserver(resolve: resolveError, dependee: self))
         addDependency(operation)
     }
     
-    public func addDependency<FallibleOperation, Resolver
+    public final func addDependency<FallibleOperation, Resolver
         where FallibleOperation: Operation,
         FallibleOperation: Fallible,
         Resolver: OperationErrorResolver,
