@@ -75,4 +75,46 @@ class NoFailedTests: XCTestCase {
         waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
+    class FailOperationTwo: Operation, Fallible, ErrorInformer {
+        enum Error: ErrorType {
+            case JustGoAway
+            case JustSomeInfo
+        }
+        override func execute() {
+            finish(withError: .JustSomeInfo)
+        }
+        func purpose(of error: ErrorType) -> ErrorPurpose {
+            if error == Error.JustSomeInfo {
+                return .Informative
+            }
+            return .Fatal
+        }
+    }
+    
+    func testDecider() {
+        let fot = FailOperationTwo()
+        let noFail = NoFailOperation()
+        let expectation = expectationWithDescription("No Fail Main")
+        
+        noFail.observe {
+            $0.didSuccess {
+                expectation.fulfill()
+            }
+            $0.didFail {
+                debugPrint($0)
+                XCTFail()
+            }
+        }
+        noFail.addDependency(fot, options: [.ExpectSuccess])
+        queue.addOperations(fot, noFail)
+        waitForExpectationsWithTimeout(5.0, handler: nil)
+    }
+    
+}
+
+func == <EqError: ErrorType where EqError: Equatable>(lhs: ErrorType, rhs: EqError) -> Bool {
+    if let lhs = lhs as? EqError {
+        return lhs == rhs
+    }
+    return false
 }

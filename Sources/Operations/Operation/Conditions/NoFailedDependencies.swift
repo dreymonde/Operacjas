@@ -63,9 +63,13 @@ internal struct NoFailedDependency: OperationCondition {
     }
     
     func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
-        guard let errors = dependency.errors else {
+        guard var errors = dependency.errors else {
             completion(.Failed(with: Error.DependencyErrorsNil))
             return
+        }
+        if let decider = dependency as? ErrorInformer {
+            errors = errors.filter({ decider.purpose(of: $0) == .Fatal })
+            print(errors)
         }
         if !errors.isEmpty {
             completion(.Failed(with: Error.DependencyFailed((operation, errors))))
