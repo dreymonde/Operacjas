@@ -19,12 +19,12 @@ import Foundation
     `DriftOperationQueue` and uses it to manage dependencies.
 */
 public protocol DriftOperationQueueDelegate: class {
-    func operationQueue(operationQueue: DriftOperationQueue, willAddOperation operation: NSOperation)
-    func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
+    func operationQueue(_ operationQueue: DriftOperationQueue, willAddOperation operation: Foundation.Operation)
+    func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [Error])
 }
 
 extension DriftOperationQueueDelegate {
-    public func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+    public func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [Error]) { }
 }
 
 /// The block that is called when operation is enqueued.
@@ -38,13 +38,13 @@ public typealias DriftOperationQueueEnqueuingModule = (operation: DriftOperation
     - Extracting generated dependencies from operation conditions
     - Setting up dependencies to enforce mutual exclusivity
 */
-public class DriftOperationQueue: NSOperationQueue {
+public class DriftOperationQueue: Foundation.OperationQueue {
     
     /// - Note: Consider not to use `delegate` with your queues.
     /// There are better approaches, for example, enqueueing modules and operation observers.
     public weak var delegate: DriftOperationQueueDelegate?
     
-    public override func addOperation(operation: NSOperation) {
+    public override func addOperation(_ operation: Operation) {
         dependOnVitals(operation)
         if let operation = operation as? DriftOperation {
             
@@ -116,7 +116,7 @@ public class DriftOperationQueue: NSOperationQueue {
         super.addOperation(operation)
     }
     
-    public override func addOperations(operations: [NSOperation], waitUntilFinished wait: Bool) {
+    public override func addOperations(_ operations: [Operation], waitUntilFinished wait: Bool) {
         /*
             The base implementation of this method does not call `addOperation()`,
             so we'll call it ourselves.
@@ -135,11 +135,11 @@ public class DriftOperationQueue: NSOperationQueue {
     private var modules: [DriftOperationQueueEnqueuingModule] = []
     
     /// Assigns a `module` which will be called when new `DriftOperation`s are added to the queue.
-    public func addEnqueuingModule(module: DriftOperationQueueEnqueuingModule) {
+    public func addEnqueuingModule(_ module: DriftOperationQueueEnqueuingModule) {
         modules.append(module)
     }
     
-    public struct EnqueuingOptions: OptionSetType {
+    public struct EnqueuingOptions: OptionSet {
         public var rawValue: Int
         public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -151,22 +151,22 @@ public class DriftOperationQueue: NSOperationQueue {
     /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
     ///
     /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
-    public func addOperation(operation: NSOperation, options: [EnqueuingOptions]) {
+    public func addOperation(_ operation: Foundation.Operation, options: [EnqueuingOptions]) {
         if options.contains(.Vital) {
             addDependency(operation)
         }
         addOperation(operation)
     }
     
-    public func addOperations(operations: NSOperation...) {
+    public func addOperations(_ operations: Foundation.Operation...) {
         addOperations(operations, waitUntilFinished: false)
     }
     
-    private let vitalAccessQueue = dispatch_queue_create("com.AdvancedOperations.VitalOperationsAccessQueue", DISPATCH_QUEUE_SERIAL)
-    private var vitalOperations: [NSOperation] = []
+    private let vitalAccessQueue = DispatchQueue(label: "com.AdvancedOperations.VitalOperationsAccessQueue")
+    private var vitalOperations: [Foundation.Operation] = []
     
-    private func dependOnVitals(operation: NSOperation) {
-        dispatch_sync(vitalAccessQueue) {
+    private func dependOnVitals(_ operation: Foundation.Operation) {
+        vitalAccessQueue.sync {
             for vital in self.vitalOperations where vital !== operation {
                 operation.addDependency(vital)
             }
@@ -174,15 +174,15 @@ public class DriftOperationQueue: NSOperationQueue {
     }
     
     /// Makes any newly added operation to the queue dependent on `operation`
-    public func addDependency(operation: NSOperation) {
-        dispatch_sync(vitalAccessQueue) {
+    public func addDependency(_ operation: Foundation.Operation) {
+        vitalAccessQueue.sync {
             self.vitalOperations.append(operation)
         }
         operation.addCompletionBlock { [weak self] in
             if let this = self {
-                dispatch_sync(this.vitalAccessQueue) {
-                    if let index = this.vitalOperations.indexOf(operation) {
-                        this.vitalOperations.removeAtIndex(index)
+                this.vitalAccessQueue.sync {
+                    if let index = this.vitalOperations.index(of: operation) {
+                        this.vitalOperations.remove(at: index)
                     }
                 }
             }
@@ -190,12 +190,3 @@ public class DriftOperationQueue: NSOperationQueue {
     }
     
 }
-
-@available(*, unavailable, renamed="DriftOperationQueue")
-public typealias OperationQueue = DriftOperationQueue
-
-@available(*, unavailable, renamed="DriftOperationQueueDelegate")
-public typealias OperationQueueDelegate = DriftOperationQueueDelegate
-
-@available(*, unavailable, renamed="DriftOperationQueueEnqueuingModule")
-public typealias OperationQueueEnqueuingModule = DriftOperationQueueEnqueuingModule

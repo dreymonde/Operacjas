@@ -23,16 +23,16 @@ import Foundation
 */
 public class GroupOperation: DriftOperation {
     private let internalQueue = DriftOperationQueue()
-    private let startingOperation = NSBlockOperation(block: {})
-    private let finishingOperation = NSBlockOperation(block: {})
+    private let startingOperation = BlockOperation(block: {})
+    private let finishingOperation = BlockOperation(block: {})
 
-    private var aggregatedErrors = [ErrorType]()
+    private var aggregatedErrors = [Error]()
     
-    public init(operations: [NSOperation], configureQueue: ((DriftOperationQueue) -> Void)? = nil) {
+    public init(operations: [Operation], configureQueue: ((DriftOperationQueue) -> Void)? = nil) {
         super.init()
         
         configureQueue?(internalQueue)
-        internalQueue.suspended = true
+        internalQueue.isSuspended = true
         internalQueue.delegate = self
         internalQueue.addOperation(startingOperation)
 
@@ -47,11 +47,11 @@ public class GroupOperation: DriftOperation {
     }
     
     public override func execute() {
-        internalQueue.suspended = false
+        internalQueue.isSuspended = false
         internalQueue.addOperation(finishingOperation)
     }
     
-    public func addOperation(operation: NSOperation) {
+    public func addOperation(_ operation: Operation) {
         internalQueue.addOperation(operation)
     }
     
@@ -60,11 +60,11 @@ public class GroupOperation: DriftOperation {
         Errors aggregated through this method will be included in the final array
         of errors reported to observers and to the `finished(_:)` method.
     */
-    public final func aggregateError(error: ErrorType) {
+    public final func aggregateError(_ error: Error) {
         aggregatedErrors.append(error)
     }
     
-    public func operationDidFinish(operation: NSOperation, withErrors errors: [ErrorType]) {
+    public func operationDidFinish(_ operation: Operation, withErrors errors: [Error]) {
         // For use by subclassers.
     }
     
@@ -76,8 +76,8 @@ public class GroupOperation: DriftOperation {
 }
 
 extension GroupOperation: DriftOperationQueueDelegate {
-    public final func operationQueue(operationQueue: DriftOperationQueue, willAddOperation operation: NSOperation) {
-        assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
+    public final func operationQueue(_ operationQueue: DriftOperationQueue, willAddOperation operation: Operation) {
+        assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*
             Some operation in this group has produced a new operation to execute.
@@ -100,13 +100,13 @@ extension GroupOperation: DriftOperationQueueDelegate {
         }
     }
     
-    public final func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
-        aggregatedErrors.appendContentsOf(errors)
+    public final func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Operation, withErrors errors: [Error]) {
+        aggregatedErrors.append(contentsOf: errors)
         
         if operation === finishingOperation {
-            internalQueue.suspended = true
+            internalQueue.isSuspended = true
             groupOperationWillFinish()
-            finish(with: aggregatedErrors)
+            finish(withErrors: aggregatedErrors)
         }
         else if operation !== startingOperation {
             operationDidFinish(operation, withErrors: errors)

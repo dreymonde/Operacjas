@@ -11,33 +11,33 @@ import Foundation
 public final class ObserverBuilder {
     
     private var startHandler: ((Void) -> Void)?
-    private var produceHandler: ((NSOperation) -> Void)?
-    private var finishHandler: (([ErrorType]) -> Void)?
+    private var produceHandler: ((Operation) -> Void)?
+    private var finishHandler: (([Error]) -> Void)?
     private var successHandler: ((Void) -> Void)?
-    private var errorHandler: (([ErrorType]) -> Void)?
+    private var errorHandler: (([Error]) -> Void)?
     
 }
 
 extension ObserverBuilder {
     
-    public func didStart(handler: () -> ()) {
+    public func didStart(_ handler: () -> ()) {
         self.startHandler = handler
     }
     
-    public func didProduceAnotherOperation(handler: (produced: NSOperation) -> ()) {
+    public func didProduceAnotherOperation(_ handler: (produced: Operation) -> ()) {
         self.produceHandler = handler
     }
     
     // WARNING! Usage of this method will ignore didSuccess and didFailed calls. Use them instead in most cases.
-    public func didFinishWithErrors(handler: (errors: [ErrorType]) -> ()) {
+    public func didFinishWithErrors(_ handler: (errors: [Error]) -> ()) {
         self.finishHandler = handler
     }
     
-    public func didSuccess(handler: () -> ()) {
+    public func didSuccess(_ handler: () -> ()) {
         self.successHandler = handler
     }
     
-    public func didFail(handler: (errors: [ErrorType]) -> ()) {
+    public func didFail(_ handler: (errors: [Error]) -> ()) {
         self.errorHandler = handler
     }
         
@@ -51,15 +51,15 @@ private struct ObserverBuilderObserver: DriftOperationObserver {
         self.builder = builder
     }
     
-    private func operationDidStart(operation: DriftOperation) {
+    private func operationDidStart(_ operation: DriftOperation) {
         builder.startHandler?()
     }
     
-    private func operation(operation: DriftOperation, didProduceOperation newOperation: NSOperation) {
+    private func operation(_ operation: DriftOperation, didProduceOperation newOperation: Operation) {
         builder.produceHandler?(newOperation)
     }
     
-    private func operationDidFinish(operation: DriftOperation, errors: [ErrorType]) {
+    private func operationDidFinish(_ operation: DriftOperation, errors: [Error]) {
         if let finishHandler = builder.finishHandler {
             finishHandler(errors)
         } else {
@@ -74,7 +74,7 @@ private struct ObserverBuilderObserver: DriftOperationObserver {
 
 extension DriftOperation {
     
-    public func observe(build: (operation: ObserverBuilder) -> ()) {
+    public func observe(_ build: (operation: ObserverBuilder) -> ()) {
         let builder = ObserverBuilder()
         build(operation: builder)
         let observer = ObserverBuilderObserver(builder: builder)

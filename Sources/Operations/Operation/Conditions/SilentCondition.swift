@@ -25,12 +25,12 @@ public struct SilentCondition<T: DriftOperationCondition>: DriftOperationConditi
         self.condition = condition
     }
     
-    public func dependencyForOperation(operation: DriftOperation) -> NSOperation? {
+    public func dependencyForOperation(_ operation: DriftOperation) -> Operation? {
         // Returning nil means we will never a dependency to be generated.
         return nil
     }
     
-    public func evaluateForOperation(operation: DriftOperation, completion: DriftOperationConditionResult -> Void) {
+    public func evaluateForOperation(_ operation: DriftOperation, completion: (DriftOperationConditionResult) -> Void) {
         condition.evaluateForOperation(operation, completion: completion)
     }
 }

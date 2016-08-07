@@ -29,15 +29,15 @@ public protocol DriftOperationCondition {
             expressing that as multiple conditions. Alternatively, you could return
             a single `GroupOperation` that executes multiple operations internally.
     */
-    func dependencyForOperation(operation: DriftOperation) -> NSOperation?
+    func dependencyForOperation(_ operation: DriftOperation) -> Operation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluateForOperation(operation: DriftOperation, completion: DriftOperationConditionResult -> Void)
+    func evaluateForOperation(_ operation: DriftOperation, completion: (DriftOperationConditionResult) -> Void)
 }
 
 extension DriftOperationCondition {
     public static var name: String {
-        return String(Self)
+        return String(Self.self)
     }
 }
 
@@ -46,11 +46,11 @@ extension DriftOperationCondition {
     failed with an error.
 */
 public enum DriftOperationConditionResult {
-    case Satisfied
-    case Failed(with: ErrorType)
+    case satisfied
+    case failed(with: Error)
     
-    var error: ErrorType? {
-        if case .Failed(let error) = self {
+    var error: Error? {
+        if case .failed(let error) = self {
             return error
         }
         return nil
@@ -59,32 +59,26 @@ public enum DriftOperationConditionResult {
 
 // MARK: Evaluate Conditions
 
-extension CollectionType where Generator.Element == DriftOperationCondition, Index.Distance == Int {
-    func evaluate(forOperation operation: DriftOperation, completion: ([ErrorType]) -> Void) {
+extension Collection where Iterator.Element == DriftOperationCondition, IndexDistance == Int {
+    func evaluate(forOperation operation: DriftOperation, completion: ([Error]) -> Void) {
         // Check conditions.
-        let conditionGroup = dispatch_group_create()
-        var results = [DriftOperationConditionResult?](count: self.count, repeatedValue: nil)
+        let conditionGroup = DispatchGroup()
+        var results = [DriftOperationConditionResult?](repeating: nil, count: self.count)
 
         // Ask each condition to evaluate and store its result in the "results" array.
-        for (index, condition) in self.enumerate() {
-            dispatch_group_enter(conditionGroup)
+        for (index, condition) in self.enumerated() {
+            conditionGroup.enter()
             condition.evaluateForOperation(operation) { result in
                 results[index] = result
-                dispatch_group_leave(conditionGroup)
+                conditionGroup.leave()
             }
         }
         
         // After all the conditions have evaluated, this block will execute.
-        dispatch_group_notify(conditionGroup, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        conditionGroup.notify(queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default)) {
             // Aggregate the errors that occurred, in order.
             let failures = results.flatMap({ $0?.error })
             completion(failures)
         }
     }
 }
-
-@available(*, unavailable, renamed="DriftOperationCondition")
-public typealias OperationCondition = DriftOperationCondition
-
-@available(*, unavailable, renamed="DriftOperationConditionResult")
-public typealias OperationConditionResult = DriftOperationConditionResult

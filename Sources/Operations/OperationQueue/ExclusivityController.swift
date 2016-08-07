@@ -17,7 +17,7 @@ import Foundation
 public class ExclusivityController {
     public static let sharedExclusivityController = ExclusivityController()
     
-    private let serialQueue = dispatch_queue_create("DriftOperations.ExclusivityController", DISPATCH_QUEUE_SERIAL)
+    private let serialQueue = DispatchQueue(label: "DriftOperations.ExclusivityController")
     private var operations: [String: [DriftOperation]] = [:]
     
     private init() {
@@ -28,13 +28,13 @@ public class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    public func addOperation(operation: DriftOperation, categories: [String]) {
+    public func addOperation(_ operation: DriftOperation, categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
             until after the operation had already begun, which would be incorrect.
         */
-        dispatch_sync(serialQueue) {
+        serialQueue.sync {
             for category in categories {
                 self.noqueue_addOperation(operation, category: category)
             }
@@ -42,8 +42,8 @@ public class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    public func removeOperation(operation: DriftOperation, categories: [String]) {
-        dispatch_async(serialQueue) {
+    public func removeOperation(_ operation: DriftOperation, categories: [String]) {
+        serialQueue.async {
             for category in categories {
                 self.noqueue_removeOperation(operation, category: category)
             }
@@ -53,7 +53,7 @@ public class ExclusivityController {
     
     // MARK: DriftOperation Management
     
-    private func noqueue_addOperation(operation: DriftOperation, category: String) {
+    private func noqueue_addOperation(_ operation: DriftOperation, category: String) {
         var operationsWithThisCategory = operations[category] ?? []
         
         if let last = operationsWithThisCategory.last {
@@ -65,13 +65,13 @@ public class ExclusivityController {
         operations[category] = operationsWithThisCategory
     }
     
-    private func noqueue_removeOperation(operation: DriftOperation, category: String) {
+    private func noqueue_removeOperation(_ operation: DriftOperation, category: String) {
         let matchingOperations = operations[category]
 
         if var operationsWithThisCategory = matchingOperations,
-           let index = operationsWithThisCategory.indexOf(operation) {
+           let index = operationsWithThisCategory.index(of: operation) {
 
-            operationsWithThisCategory.removeAtIndex(index)
+            operationsWithThisCategory.remove(at: index)
             operations[category] = operationsWithThisCategory
         }
     }

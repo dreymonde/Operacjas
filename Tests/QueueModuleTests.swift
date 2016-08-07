@@ -13,7 +13,7 @@ class QueueModuleTests: XCTestCase {
     
     func testBasicModule() {
         let testQueue = DriftOperationQueue()
-        let expectation = expectationWithDescription("DriftOperation is running")
+        let expectation = self.expectation(description: "DriftOperation is running")
         testQueue.addEnqueuingModule { operation, queue in
             operation.observe {
                 $0.didSuccess {
@@ -22,11 +22,11 @@ class QueueModuleTests: XCTestCase {
                 }
             }
         }
-        let testPrinter = BlockOperation {
+        let testPrinter = BlockDriftOperation {
             print("I'm blocked :)")
         }
         testQueue.addOperation(testPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
 }

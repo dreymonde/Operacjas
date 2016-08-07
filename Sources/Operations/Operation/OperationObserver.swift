@@ -15,18 +15,18 @@ import Foundation
 public protocol DriftOperationObserver {
     
     /// Invoked immediately prior to the `DriftOperation`'s `execute()` method.
-    func operationDidStart(operation: DriftOperation)
+    func operationDidStart(_ operation: DriftOperation)
     
     /// Invoked when `DriftOperation.produceOperation(_:)` is executed.
-    func operation(operation: DriftOperation, didProduceOperation newOperation: NSOperation)
+    func operation(_ operation: DriftOperation, didProduceOperation newOperation: Foundation.Operation)
     
     /**
         Invoked as an `DriftOperation` finishes, along with any errors produced during
         execution (or readiness evaluation).
     */
-    func operationDidFinish(operation: DriftOperation, errors: [ErrorType])
+    func operationDidFinish(_ operation: DriftOperation, errors: [Error])
     
 }
 
-@available(*, unavailable, renamed="DriftOperationObserver")
+@available(*, unavailable, renamed: "DriftOperationObserver")
 public typealias OperationObserver = DriftOperationObserver

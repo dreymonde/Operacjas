@@ -8,16 +8,13 @@
 
 import Foundation
 
-@available(*, unavailable, renamed="DriftOperation")
-public typealias Operation = DriftOperation
-
 /**
  The subclass of `NSOperation` from which all other operations should be derived.
  This class adds both Conditions and Observers, which allow the operation to define
  extended readiness requirements, as well as notify many interested parties
  about interesting operation state changes
  */
-public class DriftOperation: NSOperation {
+public class DriftOperation: Operation {
     
     // use the KVO mechanism to indicate that changes to "state" affect other properties as well
     class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
@@ -38,48 +35,48 @@ public class DriftOperation: NSOperation {
     public enum State: Int, Comparable {
         
         /// The initial state of an `DriftOperation`.
-        case Initialized
+        case initialized
         
         /// The `DriftOperation` is ready to begin evaluating conditions.
-        case Pending
+        case pending
         
         /// The `DriftOperation` is evaluating conditions.
-        case EvaluatingConditions
+        case evaluatingConditions
         
         /**
          The `DriftOperation`'s conditions have all been satisfied, and it is ready
          to execute.
          */
-        case Ready
+        case ready
         
         /// The `DriftOperation` is executing.
-        case Executing
+        case executing
         
         /**
          Execution of the `DriftOperation` has finished, but it has not yet notified
          the queue of this.
          */
-        case Finishing
+        case finishing
         
         /// The `DriftOperation` has finished executing.
-        case Finished
+        case finished
         
         /// Return `true` if `self` can transition to `target` state.
-        func canTransitionToState(target: State) -> Bool {
+        func canTransitionToState(_ target: State) -> Bool {
             switch (self, target) {
-            case (.Initialized, .Pending):
+            case (.initialized, .pending):
                 return true
-            case (.Pending, .EvaluatingConditions):
+            case (.pending, .evaluatingConditions):
                 return true
-            case (.EvaluatingConditions, .Ready):
+            case (.evaluatingConditions, .ready):
                 return true
-            case (.Ready, .Executing):
+            case (.ready, .executing):
                 return true
-            case (.Ready, .Finishing):
+            case (.ready, .finishing):
                 return true
-            case (.Executing, .Finishing):
+            case (.executing, .finishing):
                 return true
-            case (.Finishing, .Finished):
+            case (.finishing, .finished):
                 return true
             default:
                 return false
@@ -88,7 +85,7 @@ public class DriftOperation: NSOperation {
     }
     
     internal func _willEnqueue() {
-        state = .Pending
+        state = .pending
         willEnqueue()
     }
     
@@ -98,7 +95,7 @@ public class DriftOperation: NSOperation {
     }
     
     /// Private storage for the `state` property that will be KVO observed.
-    private var _state = State.Initialized
+    private var _state = State.initialized
     
     /// A lock to guard reads and writes to the `_state` property
     private let stateLock = NSLock()
@@ -119,10 +116,10 @@ public class DriftOperation: NSOperation {
              acquire the lock, then we'd be stuck waiting on our own lock. It's the
              classic definition of deadlock.
              */
-            willChangeValueForKey("state")
+            willChangeValue(forKey: "state")
             
             stateLock.withCriticalScope {
-                guard _state != .Finished else {
+                guard _state != .finished else {
                     return
                 }
                 
@@ -130,34 +127,34 @@ public class DriftOperation: NSOperation {
                 _state = newState
             }
             
-            didChangeValueForKey("state")
+            didChangeValue(forKey: "state")
         }
     }
     
     // Here is where we extend our definition of "readiness".
-    public override var ready: Bool {
+    public override var isReady: Bool {
         switch state {
             
-        case .Initialized:
+        case .initialized:
             // If the operation has been cancelled, "isReady" should return true
-            return cancelled
+            return isCancelled
             
-        case .Pending:
+        case .pending:
             // If the operation has been cancelled, "isReady" should return true
-            guard !cancelled else {
+            guard !isCancelled else {
                 return true
             }
             
             // If super isReady, conditions can be evaluated
-            if super.ready {
+            if super.isReady {
                 evaluateConditions()
             }
             
             // Until conditions have been evaluated, "isReady" returns false
             return false
             
-        case .Ready:
-            return super.ready || cancelled
+        case .ready:
+            return super.isReady || isCancelled
             
         default:
             return false
@@ -167,29 +164,29 @@ public class DriftOperation: NSOperation {
     /// If `true`, the operation is given "User Initiated" Quality of Class.
     public var userInitiated: Bool {
         get {
-            return qualityOfService == .UserInitiated
+            return qualityOfService == .userInitiated
         }
         set {
-            assert(state < .Executing, "Cannot modify userInitiated after execution has begun.")
-            qualityOfService = newValue ? .UserInitiated : .Default
+            assert(state < .executing, "Cannot modify userInitiated after execution has begun.")
+            qualityOfService = newValue ? .userInitiated : .default
         }
     }
     
-    public override var executing: Bool {
-        return state == .Executing
+    public override var isExecuting: Bool {
+        return state == .executing
     }
     
-    public override var finished: Bool {
-        return state == .Finished
+    public override var isFinished: Bool {
+        return state == .finished
     }
     
     private func evaluateConditions() {
-        assert(state == .Pending && !cancelled, "evaluateConditions() was called out-of-order")
+        assert(state == .pending && !isCancelled, "evaluateConditions() was called out-of-order")
         
-        state = .EvaluatingConditions
+        state = .evaluatingConditions
         conditions.evaluate(forOperation: self) { failures in
-            self._internalErrors.appendContentsOf(failures)
-            self.state = .Ready
+            self._internalErrors.append(contentsOf: failures)
+            self.state = .ready
         }
     }
     
@@ -199,7 +196,7 @@ public class DriftOperation: NSOperation {
     ///
     /// - Warning: This method needs to be called before enqueuing.
     public final func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
-        assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
+        assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
         exclusivityCategories.append(category)
     }
     
@@ -210,8 +207,8 @@ public class DriftOperation: NSOperation {
     /// Makes `self` dependent on the evalution of `condition`.
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public func addCondition(condition: DriftOperationCondition) {
-        assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
+    public func addCondition(_ condition: DriftOperationCondition) {
+        assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
         
         conditions.append(condition)
     }
@@ -221,17 +218,17 @@ public class DriftOperation: NSOperation {
     /// Assigns an `observer` to `self`
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public func addObserver(observer: DriftOperationObserver) {
-        assert(state < .Executing, "Cannot modify observers after execution has begun.")
+    public func addObserver(_ observer: DriftOperationObserver) {
+        assert(state < .executing, "Cannot modify observers after execution has begun.")
         observers.append(observer)
     }
     
-    public override func addDependency(operation: NSOperation) {
-        assert(state < .Executing, "Dependencies cannot be modified after execution has begun.")
+    public override func addDependency(_ operation: Operation) {
+        assert(state < .executing, "Dependencies cannot be modified after execution has begun.")
         super.addDependency(operation)
     }
     
-    public struct DependencyOptions: OptionSetType {
+    public struct DependencyOptions: OptionSet {
         public var rawValue: Int
         public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -243,7 +240,7 @@ public class DriftOperation: NSOperation {
     /// Makes the receiver dependent on the completion of the specified operation.
     ///
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
-    public func addDependency(operation: DriftOperation, options: [DependencyOptions]) {
+    public func addDependency(_ operation: DriftOperation, options: [DependencyOptions]) {
         addDependency(operation)
         if options.contains(.ExpectSuccess) {
             addCondition(NoFailedDependency(dependency: operation))
@@ -257,16 +254,16 @@ public class DriftOperation: NSOperation {
         super.start()
         
         // If the operation has been cancelled, we still need to enter the "Finished" state.
-        if cancelled {
+        if isCancelled {
             finish()
         }
     }
     
     public override final func main() {
-        assert(state == .Ready, "This operation must be performed on an operation queue.")
+        assert(state == .ready, "This operation must be performed on an operation queue.")
         
-        if _internalErrors.isEmpty && !cancelled {
-            state = .Executing
+        if _internalErrors.isEmpty && !isCancelled {
+            state = .executing
             for observer in observers {
                 observer.operationDidStart(self)
             }
@@ -294,10 +291,10 @@ public class DriftOperation: NSOperation {
         finish()
     }
     
-    private var _internalErrors = [ErrorType]()
+    private var _internalErrors = [Error]()
     
     /// Cancels operation with `error`.
-    public func cancel(with error: ErrorType) {
+    public func cancel(with error: Error) {
         _internalErrors.append(error)
         cancel()
     }
@@ -307,12 +304,12 @@ public class DriftOperation: NSOperation {
     /// - Returns: `nil` if `DriftOperation` is not finished yet. Empty array if `DriftOperation` was finished successfully.
     ///
     /// - Warning: You can't access this property inside the observers (you'll receive `nil`), because they are called slightly *before* finishing.
-    public final var errors: [ErrorType]? {
-        return state == .Finished ? _combinedErrors : nil
+    public final var errors: [Error]? {
+        return state == .finished ? _combinedErrors : nil
     }
     
     /// Adds an `operation` to the queue on which `self` is executing.
-    public final func produceOperation(operation: NSOperation) {
+    public final func produceOperation(_ operation: Operation) {
         for observer in observers {
             observer.operation(self, didProduceOperation: operation)
         }
@@ -325,15 +322,15 @@ public class DriftOperation: NSOperation {
      operation has finished.
      */
     private var hasFinishedAlready = false
-    private var _combinedErrors = [ErrorType]()
+    private var _combinedErrors = [Error]()
     
     /// Puts `self` in `finished` state.
     ///
     /// - Parameter errors: Reported errors
-    public final func finish(with errors: [ErrorType] = []) {
+    public final func finish(withErrors errors: [Error] = []) {
         if !hasFinishedAlready {
             hasFinishedAlready = true
-            state = .Finishing
+            state = .finishing
             
             _combinedErrors = _internalErrors + errors
             finished(_combinedErrors)
@@ -342,23 +339,23 @@ public class DriftOperation: NSOperation {
                 observer.operationDidFinish(self, errors: _combinedErrors)
             }
             
-            state = .Finished
+            state = .finished
         }
     }
     
     /// Finishes operation reporting single error.
     ///
     /// - Parameter error: Reported error.
-    public final func finish(with error: ErrorType) {
-        finish(with: [error])
+    public final func finish(with error: Error) {
+        finish(withErrors: [error])
     }
     
     /// Called when `self` is about to enter it's `finished` state. For use by subclassers.
-    public func finished(errors: [ErrorType]) {
+    public func finished(_ errors: [Error]) {
         // No op.
     }
     
-    @available(*, deprecated, message="Waiting on operations is an anti-pattern. Use this ONLY if you're absolutely sure there is No Other Way™.")
+    @available(*, deprecated, message: "Waiting on operations is an anti-pattern. Use this ONLY if you're absolutely sure there is No Other Way™.")
     public override final func waitUntilFinished() {
         /*
          Waiting on operations is almost NEVER the right thing to do. It is

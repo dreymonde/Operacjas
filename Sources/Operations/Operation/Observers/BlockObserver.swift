@@ -14,15 +14,15 @@ import Foundation
  
     - Note: Use `BlockObserver` only as a reusable object. For individual observing, use `operation.observe` instead.
 */
-@available(*, deprecated, message="Use 'operation.observe' for single operation observing, or implement 'DriftOperationObserver' if you want your observer to be reusable.")
+@available(*, deprecated, message: "Use 'operation.observe' for single operation observing, or implement 'DriftOperationObserver' if you want your observer to be reusable.")
 public struct BlockObserver: DriftOperationObserver {
     // MARK: Properties
     
-    private let startHandler: (DriftOperation -> Void)?
-    private let produceHandler: ((DriftOperation, NSOperation) -> Void)?
-    private let finishHandler: ((DriftOperation, [ErrorType]) -> Void)?
+    private let startHandler: ((DriftOperation) -> Void)?
+    private let produceHandler: ((DriftOperation, Operation) -> Void)?
+    private let finishHandler: ((DriftOperation, [Error]) -> Void)?
     
-    public init(startHandler: (DriftOperation -> Void)? = nil, produceHandler: ((DriftOperation, NSOperation) -> Void)? = nil, finishHandler: ((DriftOperation, [ErrorType]) -> Void)? = nil) {
+    public init(startHandler: ((DriftOperation) -> Void)? = nil, produceHandler: ((DriftOperation, Operation) -> Void)? = nil, finishHandler: ((DriftOperation, [Error]) -> Void)? = nil) {
         self.startHandler = startHandler
         self.produceHandler = produceHandler
         self.finishHandler = finishHandler
@@ -30,15 +30,15 @@ public struct BlockObserver: DriftOperationObserver {
     
     // MARK: DriftOperationObserver
     
-    public func operationDidStart(operation: DriftOperation) {
+    public func operationDidStart(_ operation: DriftOperation) {
         startHandler?(operation)
     }
     
-    public func operation(operation: DriftOperation, didProduceOperation newOperation: NSOperation) {
+    public func operation(_ operation: DriftOperation, didProduceOperation newOperation: Operation) {
         produceHandler?(operation, newOperation)
     }
     
-    public func operationDidFinish(operation: DriftOperation, errors: [ErrorType]) {
+    public func operationDidFinish(_ operation: DriftOperation, errors: [Error]) {
         finishHandler?(operation, errors)
     }
 }
