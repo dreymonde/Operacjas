@@ -202,7 +202,7 @@ public class DriftOperation: Operation {
     
     // MARK: Observers and Conditions
     
-    private(set) var conditions = [DriftOperationCondition]()
+    private(set) public var conditions = [DriftOperationCondition]()
     
     /// Makes `self` dependent on the evalution of `condition`.
     ///
@@ -213,7 +213,7 @@ public class DriftOperation: Operation {
         conditions.append(condition)
     }
     
-    private(set) var observers = [DriftOperationObserver]()
+    private(set) public var observers = [DriftOperationObserver]()
     
     /// Assigns an `observer` to `self`
     ///
@@ -234,7 +234,7 @@ public class DriftOperation: Operation {
             self.rawValue = rawValue
         }
         
-        public static let ExpectSuccess = DependencyOptions(rawValue: 1 << 0)
+        public static let expectSuccess = DependencyOptions(rawValue: 1 << 0)
     }
     
     /// Makes the receiver dependent on the completion of the specified operation.
@@ -242,7 +242,7 @@ public class DriftOperation: Operation {
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
     public func addDependency(_ operation: DriftOperation, options: [DependencyOptions]) {
         addDependency(operation)
-        if options.contains(.ExpectSuccess) {
+        if options.contains(.expectSuccess) {
             addCondition(NoFailedDependency(dependency: operation))
         }
     }
@@ -311,7 +311,7 @@ public class DriftOperation: Operation {
     /// Adds an `operation` to the queue on which `self` is executing.
     public final func produceOperation(_ operation: Operation) {
         for observer in observers {
-            observer.operation(self, didProduceOperation: operation)
+            observer.operation(self, didProduce: operation)
         }
     }
     
@@ -336,7 +336,7 @@ public class DriftOperation: Operation {
             finished(_combinedErrors)
             
             for observer in observers {
-                observer.operationDidFinish(self, errors: _combinedErrors)
+                observer.operationDidFinish(self, with: _combinedErrors)
             }
             
             state = .finished

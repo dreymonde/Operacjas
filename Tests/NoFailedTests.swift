@@ -66,8 +66,8 @@ class NoFailedTests: XCTestCase {
             })
         }
         
-        noFailMain.addDependency(fail1, options: [.ExpectSuccess])
-        noFailMain.addDependency(noFail1, options: [.ExpectSuccess])
+        noFailMain.addDependency(fail1, options: [.expectSuccess])
+        noFailMain.addDependency(noFail1, options: [.expectSuccess])
         queue.addOperation(fail1)
         queue.addOperation(noFail1)
         queue.addOperation(noFailMain)
@@ -105,7 +105,7 @@ class NoFailedTests: XCTestCase {
                 XCTFail()
             }
         }
-        noFail.addDependency(fot, options: [.ExpectSuccess])
+        noFail.addDependency(fot, options: [.expectSuccess])
         queue.addOperations(fot, noFail)
         waitForExpectations(timeout: 5.0, handler: nil)
     }

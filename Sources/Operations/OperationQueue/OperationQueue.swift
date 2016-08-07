@@ -19,12 +19,12 @@ import Foundation
     `DriftOperationQueue` and uses it to manage dependencies.
 */
 public protocol DriftOperationQueueDelegate: class {
-    func operationQueue(_ operationQueue: DriftOperationQueue, willAddOperation operation: Foundation.Operation)
-    func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [Error])
+    func operationQueue(_ operationQueue: DriftOperationQueue, willAdd operation: Foundation.Operation)
+    func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, with errors: [Error])
 }
 
 extension DriftOperationQueueDelegate {
-    public func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, withErrors errors: [Error]) { }
+    public func operationQueue(_ operationQueue: DriftOperationQueue, operationDidFinish operation: Foundation.Operation, with errors: [Error]) { }
 }
 
 /// The block that is called when operation is enqueued.
@@ -55,7 +55,7 @@ public class DriftOperationQueue: Foundation.OperationQueue {
                 }
                 $0.didFinishWithErrors { [weak self] errors in
                     if let queue = self {
-                        queue.delegate?.operationQueue(queue, operationDidFinish: operation, withErrors: errors)
+                        queue.delegate?.operationQueue(queue, operationDidFinish: operation, with: errors)
                     }
                 }
             }
@@ -108,11 +108,11 @@ public class DriftOperationQueue: Foundation.OperationQueue {
             */
             operation.addCompletionBlock { [weak self, weak operation] in
                 guard let queue = self, let operation = operation else { return }
-                queue.delegate?.operationQueue(queue, operationDidFinish: operation, withErrors: [])
+                queue.delegate?.operationQueue(queue, operationDidFinish: operation, with: [])
             }
         }
         
-        delegate?.operationQueue(self, willAddOperation: operation)
+        delegate?.operationQueue(self, willAdd: operation)
         super.addOperation(operation)
     }
     
@@ -145,27 +145,27 @@ public class DriftOperationQueue: Foundation.OperationQueue {
             self.rawValue = rawValue
         }
         
-        public static let Vital = EnqueuingOptions(rawValue: 1 << 0)
+        public static let vital = EnqueuingOptions(rawValue: 1 << 0)
     }
     
     /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
     ///
     /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
-    public func addOperation(_ operation: Foundation.Operation, options: [EnqueuingOptions]) {
-        if options.contains(.Vital) {
+    public func addOperation(_ operation: Operation, options: [EnqueuingOptions]) {
+        if options.contains(.vital) {
             addDependency(operation)
         }
         addOperation(operation)
     }
     
-    public func addOperations(_ operations: Foundation.Operation...) {
+    public func addOperations(_ operations: Operation...) {
         addOperations(operations, waitUntilFinished: false)
     }
     
     private let vitalAccessQueue = DispatchQueue(label: "com.AdvancedOperations.VitalOperationsAccessQueue")
     private var vitalOperations: [Foundation.Operation] = []
     
-    private func dependOnVitals(_ operation: Foundation.Operation) {
+    private func dependOnVitals(_ operation: Operation) {
         vitalAccessQueue.sync {
             for vital in self.vitalOperations where vital !== operation {
                 operation.addDependency(vital)
@@ -174,7 +174,7 @@ public class DriftOperationQueue: Foundation.OperationQueue {
     }
     
     /// Makes any newly added operation to the queue dependent on `operation`
-    public func addDependency(_ operation: Foundation.Operation) {
+    public func addDependency(_ operation: Operation) {
         vitalAccessQueue.sync {
             self.vitalOperations.append(operation)
         }

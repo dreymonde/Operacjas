@@ -34,11 +34,11 @@ public struct BlockObserver: DriftOperationObserver {
         startHandler?(operation)
     }
     
-    public func operation(_ operation: DriftOperation, didProduceOperation newOperation: Operation) {
+    public func operation(_ operation: DriftOperation, didProduce newOperation: Operation) {
         produceHandler?(operation, newOperation)
     }
     
-    public func operationDidFinish(_ operation: DriftOperation, errors: [Error]) {
+    public func operationDidFinish(_ operation: DriftOperation, with errors: [Error]) {
         finishHandler?(operation, errors)
     }
 }

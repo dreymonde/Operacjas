@@ -76,7 +76,7 @@ public class GroupOperation: DriftOperation {
 }
 
 extension GroupOperation: DriftOperationQueueDelegate {
-    public final func operationQueue(_ operationQueue: DriftOperationQueue, willAddOperation operation: Operation) {
+    public final func operationQueue(_ operationQueue: DriftOperationQueue, willAdd operation: Operation) {
         assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*

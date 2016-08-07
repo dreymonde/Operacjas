@@ -55,11 +55,11 @@ private struct ObserverBuilderObserver: DriftOperationObserver {
         builder.startHandler?()
     }
     
-    private func operation(_ operation: DriftOperation, didProduceOperation newOperation: Operation) {
+    private func operation(_ operation: DriftOperation, didProduce newOperation: Operation) {
         builder.produceHandler?(newOperation)
     }
     
-    private func operationDidFinish(_ operation: DriftOperation, errors: [Error]) {
+    private func operationDidFinish(_ operation: DriftOperation, with errors: [Error]) {
         if let finishHandler = builder.finishHandler {
             finishHandler(errors)
         } else {

@@ -18,15 +18,12 @@ public protocol DriftOperationObserver {
     func operationDidStart(_ operation: DriftOperation)
     
     /// Invoked when `DriftOperation.produceOperation(_:)` is executed.
-    func operation(_ operation: DriftOperation, didProduceOperation newOperation: Foundation.Operation)
+    func operation(_ operation: DriftOperation, didProduce newOperation: Foundation.Operation)
     
     /**
         Invoked as an `DriftOperation` finishes, along with any errors produced during
         execution (or readiness evaluation).
     */
-    func operationDidFinish(_ operation: DriftOperation, errors: [Error])
+    func operationDidFinish(_ operation: DriftOperation, with errors: [Error])
     
 }
-
-@available(*, unavailable, renamed: "DriftOperationObserver")
-public typealias OperationObserver = DriftOperationObserver
