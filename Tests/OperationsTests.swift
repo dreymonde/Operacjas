@@ -1,6 +1,6 @@
 //
-//  OperationsTests.swift
-//  OperationsTests
+//  DriftOperationsTests.swift
+//  DriftOperationsTests
 //
 //  Created by Oleg Dreyman on 29.04.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -9,9 +9,9 @@
 import XCTest
 @testable import Operations
 
-class OperationsTests: XCTestCase {
+class DriftOperationsTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = DriftOperationQueue()
     
     override func setUp() {
         super.setUp()
@@ -24,7 +24,7 @@ class OperationsTests: XCTestCase {
     }
     
     func testRegularBuilder() {
-        let expectation = expectationWithDescription("Operation waiting")
+        let expectation = expectationWithDescription("DriftOperation waiting")
         let operation = BlockOperation {
             print("here")
         }
@@ -44,7 +44,7 @@ class OperationsTests: XCTestCase {
     }
     
     func testBuilderWithFinished() {
-        let expectation = expectationWithDescription("Operation waiting")
+        let expectation = expectationWithDescription("DriftOperation waiting")
         let operation = BlockOperation {
             print("here")
         }

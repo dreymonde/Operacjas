@@ -8,6 +8,8 @@
 
 import Foundation
 
+@available(*, unavailable, renamed="DriftOperation")
+public typealias Operation = DriftOperation
 
 /**
  The subclass of `NSOperation` from which all other operations should be derived.
@@ -15,7 +17,7 @@ import Foundation
  extended readiness requirements, as well as notify many interested parties
  about interesting operation state changes
  */
-public class Operation: NSOperation {
+public class DriftOperation: NSOperation {
     
     // use the KVO mechanism to indicate that changes to "state" affect other properties as well
     class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
@@ -32,34 +34,34 @@ public class Operation: NSOperation {
     
     // MARK: State Management
     
-    /// The state of Operation
+    /// The state of DriftOperation
     public enum State: Int, Comparable {
         
-        /// The initial state of an `Operation`.
+        /// The initial state of an `DriftOperation`.
         case Initialized
         
-        /// The `Operation` is ready to begin evaluating conditions.
+        /// The `DriftOperation` is ready to begin evaluating conditions.
         case Pending
         
-        /// The `Operation` is evaluating conditions.
+        /// The `DriftOperation` is evaluating conditions.
         case EvaluatingConditions
         
         /**
-         The `Operation`'s conditions have all been satisfied, and it is ready
+         The `DriftOperation`'s conditions have all been satisfied, and it is ready
          to execute.
          */
         case Ready
         
-        /// The `Operation` is executing.
+        /// The `DriftOperation` is executing.
         case Executing
         
         /**
-         Execution of the `Operation` has finished, but it has not yet notified
+         Execution of the `DriftOperation` has finished, but it has not yet notified
          the queue of this.
          */
         case Finishing
         
-        /// The `Operation` has finished executing.
+        /// The `DriftOperation` has finished executing.
         case Finished
         
         /// Return `true` if `self` can transition to `target` state.
@@ -90,7 +92,7 @@ public class Operation: NSOperation {
         willEnqueue()
     }
     
-    /// Called when the operation is about to enqueue in `OperationQueue`
+    /// Called when the operation is about to enqueue in `DriftOperationQueue`
     public func willEnqueue() {
         
     }
@@ -203,23 +205,23 @@ public class Operation: NSOperation {
     
     // MARK: Observers and Conditions
     
-    private(set) var conditions = [OperationCondition]()
+    private(set) var conditions = [DriftOperationCondition]()
     
     /// Makes `self` dependent on the evalution of `condition`.
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public func addCondition(condition: OperationCondition) {
+    public func addCondition(condition: DriftOperationCondition) {
         assert(state < .EvaluatingConditions, "Cannot modify conditions after execution has begun.")
         
         conditions.append(condition)
     }
     
-    private(set) var observers = [OperationObserver]()
+    private(set) var observers = [DriftOperationObserver]()
     
     /// Assigns an `observer` to `self`
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public func addObserver(observer: OperationObserver) {
+    public func addObserver(observer: DriftOperationObserver) {
         assert(state < .Executing, "Cannot modify observers after execution has begun.")
         observers.append(observer)
     }
@@ -241,7 +243,7 @@ public class Operation: NSOperation {
     /// Makes the receiver dependent on the completion of the specified operation.
     ///
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
-    public func addDependency(operation: Operation, options: [DependencyOptions]) {
+    public func addDependency(operation: DriftOperation, options: [DependencyOptions]) {
         addDependency(operation)
         if options.contains(.ExpectSuccess) {
             addCondition(NoFailedDependency(dependency: operation))
@@ -276,13 +278,13 @@ public class Operation: NSOperation {
     }
     
     /**
-     Begins the execution of the `Operation`.
+     Begins the execution of the `DriftOperation`.
      
-     `execute()` is the entry point of execution for all `Operation` subclasses.
-     If you subclass `Operation` and wish to customize its execution, you would
+     `execute()` is the entry point of execution for all `DriftOperation` subclasses.
+     If you subclass `DriftOperation` and wish to customize its execution, you would
      do so by overriding the `execute()` method.
      
-     At some point, your `Operation` subclass must call one of the "finish"
+     At some point, your `DriftOperation` subclass must call one of the "finish"
      methods defined below; this is how you indicate that your operation has
      finished its execution, and that operations dependent on yours can re-evaluate
      their readiness state.
@@ -302,7 +304,7 @@ public class Operation: NSOperation {
     
     /// An array of errors reported by the operation during it's execution. (read-only)
     ///
-    /// - Returns: `nil` if `Operation` is not finished yet. Empty array if `Operation` was finished successfully.
+    /// - Returns: `nil` if `DriftOperation` is not finished yet. Empty array if `DriftOperation` was finished successfully.
     ///
     /// - Warning: You can't access this property inside the observers (you'll receive `nil`), because they are called slightly *before* finishing.
     public final var errors: [ErrorType]? {
@@ -374,10 +376,10 @@ public class Operation: NSOperation {
 }
 
 // Simple operator functions to simplify the assertions used above.
-public func <(lhs: Operation.State, rhs: Operation.State) -> Bool {
+public func <(lhs: DriftOperation.State, rhs: DriftOperation.State) -> Bool {
     return lhs.rawValue < rhs.rawValue
 }
 
-public func ==(lhs: Operation.State, rhs: Operation.State) -> Bool {
+public func ==(lhs: DriftOperation.State, rhs: DriftOperation.State) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }

@@ -9,7 +9,7 @@ This file shows how operations can be composed together to form new operations.
 import Foundation
 
 /**
-    A subclass of `Operation` that executes zero or more operations as part of its
+    A subclass of `DriftOperation` that executes zero or more operations as part of its
     own execution. This class of operation is very useful for abstracting several
     smaller operations into a larger operation. As an example, the `GetEarthquakesOperation`
     is composed of both a `DownloadEarthquakesOperation` and a `ParseEarthquakesOperation`.
@@ -21,14 +21,14 @@ import Foundation
     subsequent operations (still within the outer `GroupOperation`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-public class GroupOperation: Operation {
-    private let internalQueue = OperationQueue()
+public class GroupOperation: DriftOperation {
+    private let internalQueue = DriftOperationQueue()
     private let startingOperation = NSBlockOperation(block: {})
     private let finishingOperation = NSBlockOperation(block: {})
 
     private var aggregatedErrors = [ErrorType]()
     
-    public init(operations: [NSOperation], configureQueue: ((OperationQueue) -> Void)? = nil) {
+    public init(operations: [NSOperation], configureQueue: ((DriftOperationQueue) -> Void)? = nil) {
         super.init()
         
         configureQueue?(internalQueue)
@@ -75,8 +75,8 @@ public class GroupOperation: Operation {
     
 }
 
-extension GroupOperation: OperationQueueDelegate {
-    public final func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
+extension GroupOperation: DriftOperationQueueDelegate {
+    public final func operationQueue(operationQueue: DriftOperationQueue, willAddOperation operation: NSOperation) {
         assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
         
         /*
@@ -100,7 +100,7 @@ extension GroupOperation: OperationQueueDelegate {
         }
     }
     
-    public final func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
+    public final func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
         aggregatedErrors.appendContentsOf(errors)
         
         if operation === finishingOperation {

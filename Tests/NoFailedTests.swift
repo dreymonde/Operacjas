@@ -1,6 +1,6 @@
 //
 //  NoFailedTests.swift
-//  Operations
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 15.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -12,9 +12,9 @@ import XCTest
 
 class NoFailedTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = DriftOperationQueue()
     
-    class FailOperation: Operation, Fallible {
+    class FailOperation: DriftOperation, Fallible {
         enum Error: ErrorType {
             case JustGoAway
         }
@@ -22,7 +22,7 @@ class NoFailedTests: XCTestCase {
             finish(withError: .JustGoAway)
         }
     }
-    class NoFailOperation: Operation {
+    class NoFailOperation: DriftOperation {
         override func execute() {
             print("No fail")
             finish()
@@ -75,7 +75,7 @@ class NoFailedTests: XCTestCase {
         waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
-    class FailOperationTwo: Operation, Fallible, ErrorInformer {
+    class FailOperationTwo: DriftOperation, Fallible, ErrorInformer {
         enum Error: ErrorType {
             case JustGoAway
             case JustSomeInfo

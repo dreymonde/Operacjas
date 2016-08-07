@@ -1,6 +1,6 @@
 //
 //  QueueModuleTests.swift
-//  Operations
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 04.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -12,8 +12,8 @@ import XCTest
 class QueueModuleTests: XCTestCase {
     
     func testBasicModule() {
-        let testQueue = OperationQueue()
-        let expectation = expectationWithDescription("Operation is running")
+        let testQueue = DriftOperationQueue()
+        let expectation = expectationWithDescription("DriftOperation is running")
         testQueue.addEnqueuingModule { operation, queue in
             operation.observe {
                 $0.didSuccess {

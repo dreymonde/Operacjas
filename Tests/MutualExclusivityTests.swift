@@ -1,6 +1,6 @@
 //
 //  MutualExclusivityTests.swift
-//  Operations
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 15.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -12,7 +12,7 @@ import XCTest
 
 class MutualExclusivityTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = DriftOperationQueue()
     
     func testMutually() {
         enum Category: String, MutualExclusivityCategory {

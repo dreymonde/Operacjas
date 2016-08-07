@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file defines the OperationObserver protocol.
+This file defines the DriftOperationObserver protocol.
 */
 
 import Foundation
@@ -12,18 +12,21 @@ import Foundation
     The protocol that types may implement if they wish to be notified of significant
     operation lifecycle events.
 */
-public protocol OperationObserver {
+public protocol DriftOperationObserver {
     
-    /// Invoked immediately prior to the `Operation`'s `execute()` method.
-    func operationDidStart(operation: Operation)
+    /// Invoked immediately prior to the `DriftOperation`'s `execute()` method.
+    func operationDidStart(operation: DriftOperation)
     
-    /// Invoked when `Operation.produceOperation(_:)` is executed.
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation)
+    /// Invoked when `DriftOperation.produceOperation(_:)` is executed.
+    func operation(operation: DriftOperation, didProduceOperation newOperation: NSOperation)
     
     /**
-        Invoked as an `Operation` finishes, along with any errors produced during
+        Invoked as an `DriftOperation` finishes, along with any errors produced during
         execution (or readiness evaluation).
     */
-    func operationDidFinish(operation: Operation, errors: [ErrorType])
+    func operationDidFinish(operation: DriftOperation, errors: [ErrorType])
     
 }
+
+@available(*, unavailable, renamed="DriftOperationObserver")
+public typealias OperationObserver = DriftOperationObserver

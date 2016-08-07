@@ -9,46 +9,46 @@ This file contains an NSOperationQueue subclass.
 import Foundation
 
 /**
-    The delegate of an `OperationQueue` can respond to `Operation` lifecycle
+    The delegate of an `DriftOperationQueue` can respond to `DriftOperation` lifecycle
     events by implementing these methods.
 
-    In general, implementing `OperationQueueDelegate` is not necessary; you would
-    want to use an `OperationObserver` instead. However, there are a couple of
-    situations where using `OperationQueueDelegate` can lead to simpler code.
+    In general, implementing `DriftOperationQueueDelegate` is not necessary; you would
+    want to use an `DriftOperationObserver` instead. However, there are a couple of
+    situations where using `DriftOperationQueueDelegate` can lead to simpler code.
     For example, `GroupOperation` is the delegate of its own internal
-    `OperationQueue` and uses it to manage dependencies.
+    `DriftOperationQueue` and uses it to manage dependencies.
 */
-public protocol OperationQueueDelegate: class {
-    func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
-    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
+public protocol DriftOperationQueueDelegate: class {
+    func operationQueue(operationQueue: DriftOperationQueue, willAddOperation operation: NSOperation)
+    func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
 }
 
-extension OperationQueueDelegate {
-    public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+extension DriftOperationQueueDelegate {
+    public func operationQueue(operationQueue: DriftOperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
 }
 
 /// The block that is called when operation is enqueued.
-public typealias OperationQueueEnqueuingModule = (operation: Operation, queue: OperationQueue) -> Void
+public typealias DriftOperationQueueEnqueuingModule = (operation: DriftOperation, queue: DriftOperationQueue) -> Void
 
 /**
-    `OperationQueue` is an `NSOperationQueue` subclass that implements a large
-    number of "extra features" related to the `Operation` class:
+    `DriftOperationQueue` is an `NSOperationQueue` subclass that implements a large
+    number of "extra features" related to the `DriftOperation` class:
     
     - Notifying a delegate of all operation completion
     - Extracting generated dependencies from operation conditions
     - Setting up dependencies to enforce mutual exclusivity
 */
-public class OperationQueue: NSOperationQueue {
+public class DriftOperationQueue: NSOperationQueue {
     
     /// - Note: Consider not to use `delegate` with your queues.
     /// There are better approaches, for example, enqueueing modules and operation observers.
-    public weak var delegate: OperationQueueDelegate?
+    public weak var delegate: DriftOperationQueueDelegate?
     
     public override func addOperation(operation: NSOperation) {
         dependOnVitals(operation)
-        if let operation = operation as? Operation {
+        if let operation = operation as? DriftOperation {
             
-            // Set up an observer to invoke the `OperationQueueDelegate` method.
+            // Set up an observer to invoke the `DriftOperationQueueDelegate` method.
             operation.observe {
                 $0.didProduceAnotherOperation { [weak self] operation in
                     self?.addOperation(operation)
@@ -132,10 +132,10 @@ public class OperationQueue: NSOperationQueue {
         }
     }
     
-    private var modules: [OperationQueueEnqueuingModule] = []
+    private var modules: [DriftOperationQueueEnqueuingModule] = []
     
-    /// Assigns a `module` which will be called when new `Operation`s are added to the queue.
-    public func addEnqueuingModule(module: OperationQueueEnqueuingModule) {
+    /// Assigns a `module` which will be called when new `DriftOperation`s are added to the queue.
+    public func addEnqueuingModule(module: DriftOperationQueueEnqueuingModule) {
         modules.append(module)
     }
     
@@ -190,3 +190,12 @@ public class OperationQueue: NSOperationQueue {
     }
     
 }
+
+@available(*, unavailable, renamed="DriftOperationQueue")
+public typealias OperationQueue = DriftOperationQueue
+
+@available(*, unavailable, renamed="DriftOperationQueueDelegate")
+public typealias OperationQueueDelegate = DriftOperationQueueDelegate
+
+@available(*, unavailable, renamed="DriftOperationQueueEnqueuingModule")
+public typealias OperationQueueEnqueuingModule = DriftOperationQueueEnqueuingModule

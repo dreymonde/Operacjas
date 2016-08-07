@@ -1,6 +1,6 @@
 //
 //  ObserverBuilder.swift
-//  Operations
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 14.05.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -43,7 +43,7 @@ extension ObserverBuilder {
         
 }
 
-private struct ObserverBuilderObserver: OperationObserver {
+private struct ObserverBuilderObserver: DriftOperationObserver {
     
     let builder: ObserverBuilder
     
@@ -51,15 +51,15 @@ private struct ObserverBuilderObserver: OperationObserver {
         self.builder = builder
     }
     
-    private func operationDidStart(operation: Operation) {
+    private func operationDidStart(operation: DriftOperation) {
         builder.startHandler?()
     }
     
-    private func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    private func operation(operation: DriftOperation, didProduceOperation newOperation: NSOperation) {
         builder.produceHandler?(newOperation)
     }
     
-    private func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+    private func operationDidFinish(operation: DriftOperation, errors: [ErrorType]) {
         if let finishHandler = builder.finishHandler {
             finishHandler(errors)
         } else {
@@ -72,7 +72,7 @@ private struct ObserverBuilderObserver: OperationObserver {
     }
 }
 
-extension Operation {
+extension DriftOperation {
     
     public func observe(build: (operation: ObserverBuilder) -> ()) {
         let builder = ObserverBuilder()

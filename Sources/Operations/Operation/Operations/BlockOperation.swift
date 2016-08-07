@@ -3,17 +3,17 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This code shows how to create a simple subclass of Operation.
+This code shows how to create a simple subclass of DriftOperation.
 */
 
 import Foundation
 
 /// A closure type that takes a closure as its parameter.
-public typealias OperationBlock = (Void -> Void) -> Void
+public typealias DriftOperationBlock = (Void -> Void) -> Void
 
-/// A sublcass of `Operation` to execute a closure.
-public final class BlockOperation: Operation {
-    private let block: OperationBlock?
+/// A sublcass of `DriftOperation` to execute a closure.
+public final class BlockOperation: DriftOperation {
+    private let block: DriftOperationBlock?
     
     /**
         The designated initializer.
@@ -24,7 +24,7 @@ public final class BlockOperation: Operation {
             will never finish executing. If this parameter is `nil`, the operation
             will immediately finish.
     */
-    public init(block: OperationBlock? = nil) {
+    public init(block: DriftOperationBlock? = nil) {
         self.block = block
         super.init()
     }

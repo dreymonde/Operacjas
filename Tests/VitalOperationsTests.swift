@@ -1,6 +1,6 @@
 //
 //  VitalOperationsTests.swift
-//  Operations
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 04.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -12,7 +12,7 @@ import XCTest
 class VitalOperationsTests: XCTestCase {
 
     func testVitalOperation() {
-        let testQueue = OperationQueue()
+        let testQueue = DriftOperationQueue()
         let importantPrinter = BlockOperation {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
@@ -36,7 +36,7 @@ class VitalOperationsTests: XCTestCase {
     }
     
     func testMultipleVitals() {
-        let testQueue = OperationQueue()
+        let testQueue = DriftOperationQueue()
         var last = -1
         for index in 0 ... 5 {
             let important = BlockOperation {
@@ -61,7 +61,7 @@ class VitalOperationsTests: XCTestCase {
     }
     
     func testWithAddOperationVitalTrue() {
-        let testQueue = OperationQueue()
+        let testQueue = DriftOperationQueue()
         let importantPrinter = BlockOperation {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
@@ -85,8 +85,8 @@ class VitalOperationsTests: XCTestCase {
     }
     
     func testWithMultipleQueues() {
-        let one = OperationQueue()
-        let two = OperationQueue()
+        let one = DriftOperationQueue()
+        let two = DriftOperationQueue()
         
         let importantPrinter = BlockOperation {
             print("Look at me, I am extra super-duper important")

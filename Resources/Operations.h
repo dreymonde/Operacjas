@@ -1,6 +1,6 @@
 //
-//  Operations.h
-//  Operations
+//  DriftOperations.h
+//  DriftOperations
 //
 //  Created by Oleg Dreyman on 29.04.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.

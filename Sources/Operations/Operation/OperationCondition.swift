@@ -3,18 +3,16 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file contains the fundamental logic relating to Operation conditions.
+This file contains the fundamental logic relating to DriftOperation conditions.
 */
 
 import Foundation
-
-public let OperationConditionKey = "OperationCondition"
 
 /**
     A protocol for defining conditions that must be satisfied in order for an
     operation to begin execution.
 */
-public protocol OperationCondition {
+public protocol DriftOperationCondition {
     
     /// The name of the condition
     static var name: String { get }
@@ -24,30 +22,30 @@ public protocol OperationCondition {
         operation is executed first. Use this method to return an operation that
         (for example) asks for permission to perform the operation
         
-        - parameter operation: The `Operation` to which the Condition has been added.
+        - parameter operation: The `DriftOperation` to which the Condition has been added.
         - returns: An `NSOperation`, if a dependency should be automatically added. Otherwise, `nil`.
         - note: Only a single operation may be returned as a dependency. If you
             find that you need to return multiple operations, then you should be
             expressing that as multiple conditions. Alternatively, you could return
             a single `GroupOperation` that executes multiple operations internally.
     */
-    func dependencyForOperation(operation: Operation) -> NSOperation?
+    func dependencyForOperation(operation: DriftOperation) -> NSOperation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void)
+    func evaluateForOperation(operation: DriftOperation, completion: DriftOperationConditionResult -> Void)
 }
 
-extension OperationCondition {
+extension DriftOperationCondition {
     public static var name: String {
         return String(Self)
     }
 }
 
 /**
-    An enum to indicate whether an `OperationCondition` was satisfied, or if it
+    An enum to indicate whether an `DriftOperationCondition` was satisfied, or if it
     failed with an error.
 */
-public enum OperationConditionResult {
+public enum DriftOperationConditionResult {
     case Satisfied
     case Failed(with: ErrorType)
     
@@ -61,11 +59,11 @@ public enum OperationConditionResult {
 
 // MARK: Evaluate Conditions
 
-extension CollectionType where Generator.Element == OperationCondition, Index.Distance == Int {
-    func evaluate(forOperation operation: Operation, completion: ([ErrorType]) -> Void) {
+extension CollectionType where Generator.Element == DriftOperationCondition, Index.Distance == Int {
+    func evaluate(forOperation operation: DriftOperation, completion: ([ErrorType]) -> Void) {
         // Check conditions.
         let conditionGroup = dispatch_group_create()
-        var results = [OperationConditionResult?](count: self.count, repeatedValue: nil)
+        var results = [DriftOperationConditionResult?](count: self.count, repeatedValue: nil)
 
         // Ask each condition to evaluate and store its result in the "results" array.
         for (index, condition) in self.enumerate() {
@@ -84,3 +82,9 @@ extension CollectionType where Generator.Element == OperationCondition, Index.Di
         }
     }
 }
+
+@available(*, unavailable, renamed="DriftOperationCondition")
+public typealias OperationCondition = DriftOperationCondition
+
+@available(*, unavailable, renamed="DriftOperationConditionResult")
+public typealias OperationConditionResult = DriftOperationConditionResult
