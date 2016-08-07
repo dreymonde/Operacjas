@@ -11,8 +11,11 @@ import Foundation
 /// A closure type that takes a closure as its parameter.
 public typealias DriftOperationBlock = (Void -> Void) -> Void
 
+@available(*, unavailable, renamed="BlockDriftOperation")
+public typealias BlockOperation = BlockDriftOperation
+
 /// A sublcass of `DriftOperation` to execute a closure.
-public final class BlockOperation: DriftOperation {
+public final class BlockDriftOperation: DriftOperation {
     private let block: DriftOperationBlock?
     
     /**
