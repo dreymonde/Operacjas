@@ -241,7 +241,7 @@ public class Operation: NSOperation {
     /// Makes the receiver dependent on the completion of the specified operation.
     ///
     /// - Parameter expectSuccess: If `true`, `self` operation will fail if `operation` fails.
-    public func addDependency(operation: Operation, options: [DependencyOptions]) {
+    public func addDependency(operation: Operation, options: DependencyOptions) {
         addDependency(operation)
         if options.contains(.ExpectSuccess) {
             addCondition(NoFailedDependency(dependency: operation))

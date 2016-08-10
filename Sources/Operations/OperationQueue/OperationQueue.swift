@@ -151,7 +151,7 @@ public class OperationQueue: NSOperationQueue {
     /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
     ///
     /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
-    public func addOperation(operation: NSOperation, options: [EnqueuingOptions]) {
+    public func addOperation(operation: NSOperation, options: EnqueuingOptions) {
         if options.contains(.Vital) {
             addDependency(operation)
         }
