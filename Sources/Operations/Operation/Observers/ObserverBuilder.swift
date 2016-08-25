@@ -8,77 +8,63 @@
 
 import Foundation
 
-public final class ObserverBuilder {
+public struct BuilderObserver: OperationObserver {
     
-    private var startHandler: ((Void) -> Void)?
-    private var produceHandler: ((NSOperation) -> Void)?
-    private var finishHandler: (([ErrorType]) -> Void)?
-    private var successHandler: ((Void) -> Void)?
-    private var errorHandler: (([ErrorType]) -> Void)?
+    private var start: (() -> ())?
+    private var produce: ((NSOperation) -> ())?
+    private var finish: (([ErrorType]) -> ())?
+    private var success: (() -> ())?
+    private var error: (([ErrorType]) -> ())?
     
-}
-
-extension ObserverBuilder {
-    
-    public func didStart(handler: () -> ()) {
-        self.startHandler = handler
+    public mutating func didStart(handler: () -> ()) {
+        self.start = handler
     }
     
-    public func didProduceAnotherOperation(handler: (produced: NSOperation) -> ()) {
-        self.produceHandler = handler
+    public mutating func didProduceAnotherOperation(handler: (produced: NSOperation) -> ()) {
+        self.produce = handler
     }
     
     // WARNING! Usage of this method will ignore didSuccess and didFailed calls. Use them instead in most cases.
-    public func didFinishWithErrors(handler: (errors: [ErrorType]) -> ()) {
-        self.finishHandler = handler
+    public mutating func didFinishWithErrors(handler: (errors: [ErrorType]) -> ()) {
+        self.finish = handler
     }
     
-    public func didSuccess(handler: () -> ()) {
-        self.successHandler = handler
+    public mutating func didSuccess(handler: () -> ()) {
+        self.success = handler
     }
     
-    public func didFail(handler: (errors: [ErrorType]) -> ()) {
-        self.errorHandler = handler
-    }
-        
-}
-
-private struct ObserverBuilderObserver: OperationObserver {
-    
-    let builder: ObserverBuilder
-    
-    init(builder: ObserverBuilder) {
-        self.builder = builder
+    public mutating func didFail(handler: (errors: [ErrorType]) -> ()) {
+        self.error = handler
     }
     
-    private func operationDidStart(operation: Operation) {
-        builder.startHandler?()
+    public func operationDidStart(operation: Operation) {
+        self.start?()
     }
     
-    private func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
-        builder.produceHandler?(newOperation)
+    public func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+        self.produce?(newOperation)
     }
     
-    private func operationDidFinish(operation: Operation, errors: [ErrorType]) {
-        if let finishHandler = builder.finishHandler {
+    public func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+        if let finishHandler = finish {
             finishHandler(errors)
         } else {
             if errors.isEmpty {
-                builder.successHandler?()
+                success?()
             } else {
-                builder.errorHandler?(errors)
+                error?(errors)
             }
         }
     }
+    
 }
 
 extension Operation {
     
-    public func observe(build: (operation: ObserverBuilder) -> ()) {
-        let builder = ObserverBuilder()
-        build(operation: builder)
-        let observer = ObserverBuilderObserver(builder: builder)
-        self.addObserver(observer)
+    public func observe(build: (inout operation: BuilderObserver) -> ()) {
+        var builderObserver = BuilderObserver()
+        build(operation: &builderObserver)
+        self.addObserver(builderObserver)
     }
     
 }
