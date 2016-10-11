@@ -16,14 +16,14 @@ class VitalOperationsTests: XCTestCase {
         let importantPrinter = BlockOperacja {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, options: [.Vital])
-        let expectation = expectationWithDescription("Waiting for next operation to start")
+        testQueue.addOperation(importantPrinter, options: [.vital])
+        let expectation = self.expectation(description: "Waiting for next operation to start")
         let lessImportantPrinter = BlockOperacja {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
             operation.didStart {
-                if !importantPrinter.finished {
+                if !importantPrinter.isFinished {
                     XCTFail("This operation should wait for vitals")
                 }
             }
@@ -32,7 +32,7 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(lessImportantPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testMultipleVitals() {
@@ -47,7 +47,7 @@ class VitalOperationsTests: XCTestCase {
             testQueue.addDependency(important)
             testQueue.addOperation(important)
         }
-        let expectation = expectationWithDescription("Waiting for start of non-vital operation")
+        let expectation = self.expectation(description: "Waiting for start of non-vital operation")
         let nonImportant = BlockOperacja {
             print("Regular is my style")
         }
@@ -57,7 +57,7 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(nonImportant)
-        waitForExpectationsWithTimeout(8.0, handler: nil)
+        waitForExpectations(timeout: 8.0, handler: nil)
     }
     
     func testWithAddOperationVitalTrue() {
@@ -65,14 +65,14 @@ class VitalOperationsTests: XCTestCase {
         let importantPrinter = BlockOperacja {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, options: [.Vital])
-        let expectation = expectationWithDescription("Waiting for next operation to start")
+        testQueue.addOperation(importantPrinter, options: [.vital])
+        let expectation = self.expectation(description: "Waiting for next operation to start")
         let lessImportantPrinter = BlockOperacja {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
             operation.didStart {
-                if !importantPrinter.finished {
+                if !importantPrinter.isFinished {
                     XCTFail("This operation should wait for vitals")
                 }
             }
@@ -81,7 +81,7 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(lessImportantPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testWithMultipleQueues() {
@@ -92,14 +92,14 @@ class VitalOperationsTests: XCTestCase {
             print("Look at me, I am extra super-duper important")
         }
         
-        let expectation = expectationWithDescription("Waiting for waiter")
+        let expectation = self.expectation(description: "Waiting for waiter")
         let waiter = BlockOperacja {
             print("I'm here")
             expectation.fulfill()
         }
         waiter.observe {
             $0.didStart {
-                guard importantPrinter.finished else {
+                guard importantPrinter.isFinished else {
                     XCTFail("You should wait, young man!")
                     return
                 }
@@ -108,7 +108,7 @@ class VitalOperationsTests: XCTestCase {
         one.addOperation(importantPrinter)
         two.addDependency(importantPrinter)
         two.addOperation(waiter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
 }

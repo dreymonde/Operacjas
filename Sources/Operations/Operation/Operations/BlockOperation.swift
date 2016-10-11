@@ -9,11 +9,11 @@ This code shows how to create a simple subclass of Operacja.
 import Foundation
 
 /// A closure type that takes a closure as its parameter.
-public typealias OperacjaBlock = (Void -> Void) -> Void
+public typealias OperacjaBlock = (@escaping (Void) -> Void) -> Void
 
 /// A sublcass of `Operacja` to execute a closure.
 public final class BlockOperacja: Operacja {
-    private let block: OperacjaBlock?
+    fileprivate let block: OperacjaBlock?
     
     /**
         The designated initializer.
@@ -24,8 +24,13 @@ public final class BlockOperacja: Operacja {
             will never finish executing. If this parameter is `nil`, the operation
             will immediately finish.
     */
-    public init(block: OperacjaBlock? = nil) {
+    public init(block: @escaping OperacjaBlock) {
         self.block = block
+        super.init()
+    }
+    
+    override public init() {
+        self.block = nil
         super.init()
     }
     
@@ -37,9 +42,9 @@ public final class BlockOperacja: Operacja {
             the designated initializer). The operation will be automatically ended
             after the `mainQueueBlock` is executed.
     */
-    public convenience init(mainQueueBlock: dispatch_block_t) {
+    public convenience init(mainQueueBlock: @escaping () -> ()) {
         self.init(block: { continuation in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 mainQueueBlock()
                 continuation()
             }

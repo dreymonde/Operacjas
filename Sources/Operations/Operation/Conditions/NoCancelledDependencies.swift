@@ -15,26 +15,26 @@ import Foundation
 */
 public struct NoCancelledDependencies: OperacjaCondition {
     
-    public enum Error: ErrorType {
-        case DependenciesWereCancelled([NSOperation])
+    public enum ErrorType: Error {
+        case dependenciesWereCancelled([Operation])
     }
     
     public init() { }
     
-    public func dependencyForOperation(operation: Operacja) -> NSOperation? {
+    public func dependencyForOperation(_ operation: Operacja) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
+    public func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         // Verify that all of the dependencies executed.
-        let cancelledDependencies = operation.dependencies.filter({ $0.cancelled })
+        let cancelledDependencies = operation.dependencies.filter({ $0.isCancelled })
 
         if !cancelledDependencies.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            completion(.Failed(with: Error.DependenciesWereCancelled(cancelledDependencies)))
+            completion(.failed(with: ErrorType.dependenciesWereCancelled(cancelledDependencies)))
         }
         else {
-            completion(.Satisfied)
+            completion(.satisfied)
         }
     }
 }

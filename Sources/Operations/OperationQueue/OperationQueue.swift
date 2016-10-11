@@ -19,16 +19,16 @@ import Foundation
     `OperacjaQueue` and uses it to manage dependencies.
 */
 public protocol OperacjaQueueDelegate: class {
-    func operationQueue(operationQueue: OperacjaQueue, willAddOperation operation: NSOperation)
-    func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
+    func operationQueue(_ operationQueue: OperacjaQueue, willAddOperation operation: Operation)
+    func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, withErrors errors: [Error])
 }
 
 extension OperacjaQueueDelegate {
-    public func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+    public func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, withErrors errors: [Error]) { }
 }
 
 /// The block that is called when operation is enqueued.
-public typealias OperacjaQueueEnqueuingModule = (operation: Operacja, queue: OperacjaQueue) -> Void
+public typealias OperacjaQueueEnqueuingModule = (_ operation: Operacja, _ queue: OperacjaQueue) -> Void
 
 /**
     `OperacjaQueue` is an `NSOperationQueue` subclass that implements a large
@@ -38,13 +38,13 @@ public typealias OperacjaQueueEnqueuingModule = (operation: Operacja, queue: Ope
     - Extracting generated dependencies from operation conditions
     - Setting up dependencies to enforce mutual exclusivity
 */
-public class OperacjaQueue: NSOperationQueue {
+open class OperacjaQueue: OperationQueue {
     
     /// - Note: Consider not to use `delegate` with your queues.
     /// There are better approaches, for example, enqueueing modules and operation observers.
-    public weak var delegate: OperacjaQueueDelegate?
+    open weak var delegate: OperacjaQueueDelegate?
     
-    public override func addOperation(operation: NSOperation) {
+    open override func addOperation(_ operation: Operation) {
         dependOnVitals(operation)
         if let operation = operation as? Operacja {
             
@@ -89,7 +89,7 @@ public class OperacjaQueue: NSOperationQueue {
             
             // Connecting all user-defined modules. That's a fine alternative to delegates.
             for module in modules {
-                module(operation: operation, queue: self)
+                module(operation, self)
             }
             
             /*
@@ -116,7 +116,7 @@ public class OperacjaQueue: NSOperationQueue {
         super.addOperation(operation)
     }
     
-    public override func addOperations(operations: [NSOperation], waitUntilFinished wait: Bool) {
+    open override func addOperations(_ operations: [Operation], waitUntilFinished wait: Bool) {
         /*
             The base implementation of this method does not call `addOperation()`,
             so we'll call it ourselves.
@@ -132,41 +132,41 @@ public class OperacjaQueue: NSOperationQueue {
         }
     }
     
-    private var modules: [OperacjaQueueEnqueuingModule] = []
+    fileprivate var modules: [OperacjaQueueEnqueuingModule] = []
     
     /// Assigns a `module` which will be called when new `Operacja`s are added to the queue.
-    public func addEnqueuingModule(module: OperacjaQueueEnqueuingModule) {
+    open func addEnqueuingModule(_ module: @escaping OperacjaQueueEnqueuingModule) {
         modules.append(module)
     }
     
-    public struct EnqueuingOptions: OptionSetType {
+    public struct EnqueuingOptions: OptionSet {
         public var rawValue: Int
         public init(rawValue: Int) {
             self.rawValue = rawValue
         }
         
-        public static let Vital = EnqueuingOptions(rawValue: 1 << 0)
+        public static let vital = EnqueuingOptions(rawValue: 1 << 0)
     }
     
     /// Adds an operation to the queue. The operation will "block" the queue if `vital` is true.
     ///
     /// - Parameter vital: If `true`, `operation` will be marked as vital (no other operation on the queue can start until this one is finished).
-    public func addOperation(operation: NSOperation, options: EnqueuingOptions) {
-        if options.contains(.Vital) {
+    open func addOperation(_ operation: Operation, options: EnqueuingOptions) {
+        if options.contains(.vital) {
             addDependency(operation)
         }
         addOperation(operation)
     }
     
-    public func addOperations(operations: NSOperation...) {
+    open func addOperations(_ operations: Operation...) {
         addOperations(operations, waitUntilFinished: false)
     }
     
-    private let vitalAccessQueue = dispatch_queue_create("com.AdvancedOperations.VitalOperationsAccessQueue", DISPATCH_QUEUE_SERIAL)
-    private var vitalOperations: [NSOperation] = []
+    fileprivate let vitalAccessQueue = DispatchQueue(label: "com.AdvancedOperations.VitalOperationsAccessQueue", attributes: [])
+    fileprivate var vitalOperations: [Operation] = []
     
-    private func dependOnVitals(operation: NSOperation) {
-        dispatch_sync(vitalAccessQueue) {
+    fileprivate func dependOnVitals(_ operation: Operation) {
+        vitalAccessQueue.sync {
             for vital in self.vitalOperations where vital !== operation {
                 operation.addDependency(vital)
             }
@@ -174,15 +174,15 @@ public class OperacjaQueue: NSOperationQueue {
     }
     
     /// Makes any newly added operation to the queue dependent on `operation`
-    public func addDependency(operation: NSOperation) {
-        dispatch_sync(vitalAccessQueue) {
+    open func addDependency(_ operation: Operation) {
+        vitalAccessQueue.sync {
             self.vitalOperations.append(operation)
         }
         operation.addCompletionBlock { [weak self] in
             if let this = self {
-                dispatch_sync(this.vitalAccessQueue) {
-                    if let index = this.vitalOperations.indexOf(operation) {
-                        this.vitalOperations.removeAtIndex(index)
+                this.vitalAccessQueue.sync {
+                    if let index = this.vitalOperations.index(of: operation) {
+                        this.vitalOperations.remove(at: index)
                     }
                 }
             }

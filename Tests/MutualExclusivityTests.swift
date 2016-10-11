@@ -25,7 +25,7 @@ class MutualExclusivityTests: XCTestCase {
         }
         operationA.setMutuallyExclusive(inCategory: Category.A)
         
-        let expectation = expectationWithDescription("Waiting for second operation")
+        let expectation = self.expectation(description: "Waiting for second operation")
         let operationB = BlockOperacja {
             print("Second")
             expectation.fulfill()
@@ -33,15 +33,15 @@ class MutualExclusivityTests: XCTestCase {
         operationB.setMutuallyExclusive(inCategory: Category.A)
         operationB.observe { operation in
             operation.didStart {
-                if !operationA.finished {
+                if !operationA.isFinished {
                     XCTFail()
                 }
-                print(operationA.finished)
+                print(operationA.isFinished)
             }
         }
         queue.addOperation(operationA)
         queue.addOperation(operationB)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
 }

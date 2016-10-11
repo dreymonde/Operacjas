@@ -24,7 +24,7 @@ class OperacjasTests: XCTestCase {
     }
     
     func testRegularBuilder() {
-        let expectation = expectationWithDescription("Operacja waiting")
+        let expectation = self.expectation(description: "Operacja waiting")
         let operation = BlockOperacja {
             print("here")
         }
@@ -40,11 +40,11 @@ class OperacjasTests: XCTestCase {
             }
         }
         queue.addOperation(operation)
-        waitForExpectationsWithTimeout(10.0, handler: nil)
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
     
     func testBuilderWithFinished() {
-        let expectation = expectationWithDescription("Operacja waiting")
+        let expectation = self.expectation(description: "Operacja waiting")
         let operation = BlockOperacja {
             print("here")
         }
@@ -60,7 +60,7 @@ class OperacjasTests: XCTestCase {
             }
         }
         queue.addOperation(operation)
-        waitForExpectationsWithTimeout(10.0, handler: nil)
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
     
 }

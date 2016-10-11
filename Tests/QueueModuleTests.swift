@@ -13,10 +13,10 @@ class QueueModuleTests: XCTestCase {
     
     func testBasicModule() {
         let testQueue = OperacjaQueue()
-        let expectation = expectationWithDescription("Operacja is running")
+        let expectation = self.expectation(description: "Operacja is running")
         testQueue.addEnqueuingModule { operation, queue in
-            operation.observe {
-                $0.didSuccess {
+            operation.observe { (builder: inout BuilderObserver) in
+                builder.didSuccess {
                     print("I'm ready")
                     expectation.fulfill()
                 }
@@ -26,7 +26,7 @@ class QueueModuleTests: XCTestCase {
             print("I'm blocked :)")
         }
         testQueue.addOperation(testPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
 }

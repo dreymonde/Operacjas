@@ -14,13 +14,13 @@ import Foundation
     We use a singleton because mutual exclusivity must be enforced across the entire
     app, regardless of the `OperacjaQueue` on which an `Operacja` was executed.
 */
-public class ExclusivityController {
-    public static let sharedExclusivityController = ExclusivityController()
+open class ExclusivityController {
+    open static let sharedExclusivityController = ExclusivityController()
     
-    private let serialQueue = dispatch_queue_create("Operacjas.ExclusivityController", DISPATCH_QUEUE_SERIAL)
-    private var operations: [String: [Operacja]] = [:]
+    fileprivate let serialQueue = DispatchQueue(label: "Operacjas.ExclusivityController", attributes: [])
+    fileprivate var operations: [String: [Operacja]] = [:]
     
-    private init() {
+    fileprivate init() {
         /*
             A private initializer effectively prevents any other part of the app
             from accidentally creating an instance.
@@ -28,13 +28,13 @@ public class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    public func addOperation(operation: Operacja, categories: [String]) {
+    open func addOperation(_ operation: Operacja, categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
             until after the operation had already begun, which would be incorrect.
         */
-        dispatch_sync(serialQueue) {
+        serialQueue.sync {
             for category in categories {
                 self.noqueue_addOperation(operation, category: category)
             }
@@ -42,8 +42,8 @@ public class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    public func removeOperation(operation: Operacja, categories: [String]) {
-        dispatch_async(serialQueue) {
+    open func removeOperation(_ operation: Operacja, categories: [String]) {
+        serialQueue.async {
             for category in categories {
                 self.noqueue_removeOperation(operation, category: category)
             }
@@ -53,7 +53,7 @@ public class ExclusivityController {
     
     // MARK: Operacja Management
     
-    private func noqueue_addOperation(operation: Operacja, category: String) {
+    fileprivate func noqueue_addOperation(_ operation: Operacja, category: String) {
         var operationsWithThisCategory = operations[category] ?? []
         
         if let last = operationsWithThisCategory.last {
@@ -65,13 +65,13 @@ public class ExclusivityController {
         operations[category] = operationsWithThisCategory
     }
     
-    private func noqueue_removeOperation(operation: Operacja, category: String) {
+    fileprivate func noqueue_removeOperation(_ operation: Operacja, category: String) {
         let matchingOperations = operations[category]
 
         if var operationsWithThisCategory = matchingOperations,
-           let index = operationsWithThisCategory.indexOf(operation) {
+           let index = operationsWithThisCategory.index(of: operation) {
 
-            operationsWithThisCategory.removeAtIndex(index)
+            operationsWithThisCategory.remove(at: index)
             operations[category] = operationsWithThisCategory
         }
     }

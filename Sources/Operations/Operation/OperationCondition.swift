@@ -31,15 +31,15 @@ public protocol OperacjaCondition {
             expressing that as multiple conditions. Alternatively, you could return
             a single `GroupOperacja` that executes multiple operations internally.
     */
-    func dependencyForOperation(operation: Operacja) -> NSOperation?
+    func dependencyForOperation(_ operation: Operacja) -> Operation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void)
+    func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void)
 }
 
 extension OperacjaCondition {
     public static var name: String {
-        return String(Self)
+        return String(describing: Self.self)
     }
 }
 
@@ -48,11 +48,11 @@ extension OperacjaCondition {
     failed with an error.
 */
 public enum OperacjaConditionResult {
-    case Satisfied
-    case Failed(with: ErrorType)
+    case satisfied
+    case failed(with: Error)
     
-    var error: ErrorType? {
-        if case .Failed(let error) = self {
+    var error: Error? {
+        if case .failed(let error) = self {
             return error
         }
         return nil
@@ -61,23 +61,23 @@ public enum OperacjaConditionResult {
 
 // MARK: Evaluate Conditions
 
-extension CollectionType where Generator.Element == OperacjaCondition, Index.Distance == Int {
-    func evaluate(forOperation operation: Operacja, completion: ([ErrorType]) -> Void) {
+extension Collection where Iterator.Element == OperacjaCondition, IndexDistance == Int {
+    func evaluate(forOperation operation: Operacja, completion: @escaping ([Error]) -> Void) {
         // Check conditions.
-        let conditionGroup = dispatch_group_create()
-        var results = [OperacjaConditionResult?](count: self.count, repeatedValue: nil)
+        let conditionGroup = DispatchGroup()
+        var results = [OperacjaConditionResult?](repeating: nil, count: self.count)
 
         // Ask each condition to evaluate and store its result in the "results" array.
-        for (index, condition) in self.enumerate() {
-            dispatch_group_enter(conditionGroup)
+        for (index, condition) in self.enumerated() {
+            conditionGroup.enter()
             condition.evaluateForOperation(operation) { result in
                 results[index] = result
-                dispatch_group_leave(conditionGroup)
+                conditionGroup.leave()
             }
         }
         
         // After all the conditions have evaluated, this block will execute.
-        dispatch_group_notify(conditionGroup, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+        conditionGroup.notify(queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default)) {
             // Aggregate the errors that occurred, in order.
             let failures = results.flatMap({ $0?.error })
             completion(failures)

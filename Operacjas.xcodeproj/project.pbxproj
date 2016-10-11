@@ -258,12 +258,12 @@
 		BE17C4981CD3CD3600708FC5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				BEFD74CB1CD630240066A71B /* Operations */,
+				BEFD74CB1CD630240066A71B /* Operacjas */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		BEFD74CB1CD630240066A71B /* Operations */ = {
+		BEFD74CB1CD630240066A71B /* Operacjas */ = {
 			isa = PBXGroup;
 			children = (
 				BE17C4AD1CD3CF2300708FC5 /* NSLock+Operations.swift */,
@@ -271,6 +271,7 @@
 				BEFD74CD1CD630390066A71B /* OperationQueue */,
 				BEFD74CC1CD6302C0066A71B /* Operation */,
 			);
+			name = Operacjas;
 			path = Operations;
 			sourceTree = "<group>";
 		};
@@ -939,7 +940,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -963,7 +964,7 @@
 				PRODUCT_NAME = Operacjas;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -978,7 +979,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -993,7 +994,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -21,18 +21,18 @@ import Foundation
     subsequent operations (still within the outer `GroupOperacja`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-public class GroupOperacja: Operacja {
-    private let internalQueue = OperacjaQueue()
-    private let startingOperation = NSBlockOperation(block: {})
-    private let finishingOperation = NSBlockOperation(block: {})
+open class GroupOperacja: Operacja {
+    fileprivate let internalQueue = OperacjaQueue()
+    fileprivate let startingOperation = BlockOperation(block: {})
+    fileprivate let finishingOperation = BlockOperation(block: {})
 
-    private var aggregatedErrors = [ErrorType]()
+    fileprivate var aggregatedErrors = [Error]()
     
-    public init(operations: [NSOperation], configureQueue: ((OperacjaQueue) -> Void)? = nil) {
+    public init(operations: [Operation], configureQueue: ((OperacjaQueue) -> Void)? = nil) {
         super.init()
         
         configureQueue?(internalQueue)
-        internalQueue.suspended = true
+        internalQueue.isSuspended = true
         internalQueue.delegate = self
         internalQueue.addOperation(startingOperation)
 
@@ -41,17 +41,17 @@ public class GroupOperacja: Operacja {
         }
     }
     
-    public override func cancel() {
+    open override func cancel() {
         internalQueue.cancelAllOperations()
         super.cancel()
     }
     
-    public override func execute() {
-        internalQueue.suspended = false
+    open override func execute() {
+        internalQueue.isSuspended = false
         internalQueue.addOperation(finishingOperation)
     }
     
-    public func addOperation(operation: NSOperation) {
+    open func addOperation(_ operation: Operation) {
         internalQueue.addOperation(operation)
     }
     
@@ -60,24 +60,24 @@ public class GroupOperacja: Operacja {
         Errors aggregated through this method will be included in the final array
         of errors reported to observers and to the `finished(_:)` method.
     */
-    public final func aggregateError(error: ErrorType) {
+    public final func aggregateError(_ error: Error) {
         aggregatedErrors.append(error)
     }
     
-    public func operationDidFinish(operation: NSOperation, withErrors errors: [ErrorType]) {
+    open func operationDidFinish(_ operation: Operation, withErrors errors: [Error]) {
         // For use by subclassers.
     }
     
     /// This method is called right before GroupOperacja finishes it's execution. Do not try to add any more operations at this point.
-    public func groupOperationWillFinish() {
+    open func groupOperationWillFinish() {
         // For use by subclassers
     }
     
 }
 
 extension GroupOperacja: OperacjaQueueDelegate {
-    public final func operationQueue(operationQueue: OperacjaQueue, willAddOperation operation: NSOperation) {
-        assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
+    public final func operationQueue(_ operationQueue: OperacjaQueue, willAddOperation operation: Operation) {
+        assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*
             Some operation in this group has produced a new operation to execute.
@@ -100,13 +100,13 @@ extension GroupOperacja: OperacjaQueueDelegate {
         }
     }
     
-    public final func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
-        aggregatedErrors.appendContentsOf(errors)
+    public final func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, withErrors errors: [Error]) {
+        aggregatedErrors.append(contentsOf: errors)
         
         if operation === finishingOperation {
-            internalQueue.suspended = true
+            internalQueue.isSuspended = true
             groupOperationWillFinish()
-            finish(with: aggregatedErrors)
+            finish(errors: aggregatedErrors)
         }
         else if operation !== startingOperation {
             operationDidFinish(operation, withErrors: errors)

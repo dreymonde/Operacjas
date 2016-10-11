@@ -10,42 +10,42 @@ import Foundation
 
 public struct BuilderObserver: OperacjaObserver {
     
-    private var start: (() -> ())?
-    private var produce: ((NSOperation) -> ())?
-    private var finish: (([ErrorType]) -> ())?
-    private var success: (() -> ())?
-    private var error: (([ErrorType]) -> ())?
+    fileprivate var start: (() -> ())?
+    fileprivate var produce: ((Operation) -> ())?
+    fileprivate var finish: (([Error]) -> ())?
+    fileprivate var success: (() -> ())?
+    fileprivate var error: (([Error]) -> ())?
     
-    public mutating func didStart(handler: () -> ()) {
+    public mutating func didStart(_ handler: @escaping () -> ()) {
         self.start = handler
     }
     
-    public mutating func didProduceAnotherOperation(handler: (produced: NSOperation) -> ()) {
+    public mutating func didProduceAnotherOperation(_ handler: @escaping (_ produced: Operation) -> ()) {
         self.produce = handler
     }
     
     // WARNING! Usage of this method will ignore didSuccess and didFailed calls. Use them instead in most cases.
-    public mutating func didFinishWithErrors(handler: (errors: [ErrorType]) -> ()) {
+    public mutating func didFinishWithErrors(_ handler: @escaping (_ errors: [Error]) -> ()) {
         self.finish = handler
     }
     
-    public mutating func didSuccess(handler: () -> ()) {
+    public mutating func didSuccess(_ handler: @escaping () -> ()) {
         self.success = handler
     }
     
-    public mutating func didFail(handler: (errors: [ErrorType]) -> ()) {
+    public mutating func didFail(_ handler: @escaping (_ errors: [Error]) -> ()) {
         self.error = handler
     }
     
-    public func operationDidStart(operation: Operacja) {
+    public func operationDidStart(_ operation: Operacja) {
         self.start?()
     }
     
-    public func operation(operation: Operacja, didProduceOperation newOperation: NSOperation) {
+    public func operation(_ operation: Operacja, didProduceOperation newOperation: Operation) {
         self.produce?(newOperation)
     }
     
-    public func operationDidFinish(operation: Operacja, errors: [ErrorType]) {
+    public func operationDidFinish(_ operation: Operacja, errors: [Error]) {
         if let finishHandler = finish {
             finishHandler(errors)
         } else {
@@ -61,9 +61,9 @@ public struct BuilderObserver: OperacjaObserver {
 
 extension Operacja {
     
-    public func observe(build: (inout operation: BuilderObserver) -> ()) {
+    public func observe(_ build: (_ operation: inout BuilderObserver) -> ()) {
         var builderObserver = BuilderObserver()
-        build(operation: &builderObserver)
+        build(&builderObserver)
         self.addObserver(builderObserver)
     }
     

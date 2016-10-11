@@ -15,11 +15,11 @@ class NoFailedTests: XCTestCase {
     let queue = OperacjaQueue()
     
     class FailOperacja: Operacja, Fallible {
-        enum Error: ErrorType {
-            case JustGoAway
+        enum ErrorType: Error {
+            case justGoAway
         }
         override func execute() {
-            finish(withError: .JustGoAway)
+            finish(withError: .justGoAway)
         }
     }
     class NoFailOperacja: Operacja {
@@ -33,7 +33,7 @@ class NoFailedTests: XCTestCase {
         let fail1 = FailOperacja()
         let noFail1 = NoFailOperacja()
         
-        let expectation = expectationWithDescription("No Fail Main")
+        let expectation = self.expectation(description: "No Fail Main")
         let noFailMain = NoFailOperacja()
         noFailMain.observe { (operation) in
             operation.didFinishWithErrors { errors in
@@ -49,14 +49,14 @@ class NoFailedTests: XCTestCase {
         queue.addOperation(noFail1)
         queue.addOperation(noFailMain)
         
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testNoFailedOne() {
         let fail1 = FailOperacja()
         let noFail1 = NoFailOperacja()
         
-        let expectation = expectationWithDescription("No Fail Main")
+        let expectation = self.expectation(description: "No Fail Main")
         let noFailMain = NoFailOperacja()
         noFailMain.observe { (operation) in
             operation.didFinishWithErrors({ (errors) in
@@ -66,35 +66,35 @@ class NoFailedTests: XCTestCase {
             })
         }
         
-        noFailMain.addDependency(fail1, options: [.ExpectSuccess])
-        noFailMain.addDependency(noFail1, options: [.ExpectSuccess])
+        noFailMain.addDependency(fail1, options: [.expectSuccess])
+        noFailMain.addDependency(noFail1, options: [.expectSuccess])
         queue.addOperation(fail1)
         queue.addOperation(noFail1)
         queue.addOperation(noFailMain)
         
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     class FailOperationTwo: Operacja, Fallible, ErrorInformer {
-        enum Error: ErrorType {
-            case JustGoAway
-            case JustSomeInfo
+        enum ErrorType: Error {
+            case justGoAway
+            case justSomeInfo
         }
         override func execute() {
-            finish(withError: .JustSomeInfo)
+            finish(withError: .justSomeInfo)
         }
-        func purpose(of error: ErrorType) -> ErrorPurpose {
-            if error == Error.JustSomeInfo {
-                return .Informative
+        func purpose(of error: Error) -> ErrorPurpose {
+            if error == ErrorType.justSomeInfo {
+                return .informative
             }
-            return .Fatal
+            return .fatal
         }
     }
     
     func testDecider() {
         let fot = FailOperationTwo()
         let noFail = NoFailOperacja()
-        let expectation = expectationWithDescription("No Fail Main")
+        let expectation = self.expectation(description: "No Fail Main")
         
         noFail.observe {
             $0.didSuccess {
@@ -105,14 +105,14 @@ class NoFailedTests: XCTestCase {
                 XCTFail()
             }
         }
-        noFail.addDependency(fot, options: [.ExpectSuccess])
+        noFail.addDependency(fot, options: [.expectSuccess])
         queue.addOperations(fot, noFail)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
 }
 
-func == <EqError: ErrorType where EqError: Equatable>(lhs: ErrorType, rhs: EqError) -> Bool {
+func == <EqError: Error>(lhs: Error, rhs: EqError) -> Bool where EqError: Equatable {
     if let lhs = lhs as? EqError {
         return lhs == rhs
     }

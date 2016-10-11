@@ -17,17 +17,17 @@ import Foundation
  */
 public struct NoFailedDependencies: OperacjaCondition {
     
-    public enum Error: ErrorType {
-        case DependenciesFailed([(Operacja, [ErrorType])])
+    public enum ErrorType: Error {
+        case dependenciesFailed([(Operacja, [Error])])
     }
     
     public init() { }
     
-    public func dependencyForOperation(operation: Operacja) -> NSOperation? {
+    public func dependencyForOperation(_ operation: Operacja) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
+    public func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         let operations = operation.dependencies.flatMap({ $0 as? Operacja })
         let failedOperations = operations.filter({
             if let errors = $0.errors {
@@ -37,9 +37,9 @@ public struct NoFailedDependencies: OperacjaCondition {
         })
         if !failedOperations.isEmpty {
             let operationsAndErrors = failedOperations.map({ return ($0, $0.errors!) })
-            completion(.Failed(with: Error.DependenciesFailed(operationsAndErrors)))
+            completion(.failed(with: ErrorType.dependenciesFailed(operationsAndErrors)))
         } else {
-            completion(.Satisfied)
+            completion(.satisfied)
         }
     }
     
@@ -47,34 +47,34 @@ public struct NoFailedDependencies: OperacjaCondition {
 
 internal struct NoFailedDependency: OperacjaCondition {
     
-    internal enum Error: ErrorType {
-        case DependencyFailed((Operacja, [ErrorType]))
-        case DependencyErrorsNil
+    internal enum ErrorType: Error {
+        case dependencyFailed((Operacja, [Error]))
+        case dependencyErrorsNil
     }
     
-    private var dependency: Operacja
+    fileprivate var dependency: Operacja
     
     internal init(dependency: Operacja) {
         self.dependency = dependency
     }
     
-    func dependencyForOperation(operation: Operacja) -> NSOperation? {
+    func dependencyForOperation(_ operation: Operacja) -> Operation? {
         return nil
     }
     
-    func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
+    func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         guard var errors = dependency.errors else {
-            completion(.Failed(with: Error.DependencyErrorsNil))
+            completion(.failed(with: ErrorType.dependencyErrorsNil))
             return
         }
         if let decider = dependency as? ErrorInformer {
-            errors = errors.filter({ decider.purpose(of: $0) == .Fatal })
+            errors = errors.filter({ decider.purpose(of: $0) == .fatal })
             print(errors)
         }
         if !errors.isEmpty {
-            completion(.Failed(with: Error.DependencyFailed((operation, errors))))
+            completion(.failed(with: ErrorType.dependencyFailed((operation, errors))))
         } else {
-            completion(.Satisfied)
+            completion(.satisfied)
         }
     }
     

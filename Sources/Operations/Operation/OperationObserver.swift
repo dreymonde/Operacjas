@@ -15,15 +15,15 @@ import Foundation
 public protocol OperacjaObserver {
     
     /// Invoked immediately prior to the `Operacja`'s `execute()` method.
-    func operationDidStart(operation: Operacja)
+    func operationDidStart(_ operation: Operacja)
     
     /// Invoked when `Operacja.produceOperation(_:)` is executed.
-    func operation(operation: Operacja, didProduceOperation newOperation: NSOperation)
+    func operation(_ operation: Operacja, didProduceOperation newOperation: Operation)
     
     /**
         Invoked as an `Operacja` finishes, along with any errors produced during
         execution (or readiness evaluation).
     */
-    func operationDidFinish(operation: Operacja, errors: [ErrorType])
+    func operationDidFinish(_ operation: Operacja, errors: [Error])
     
 }
