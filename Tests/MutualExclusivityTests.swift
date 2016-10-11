@@ -1,6 +1,6 @@
 //
 //  MutualExclusivityTests.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 15.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -8,11 +8,11 @@
 
 import Foundation
 import XCTest
-@testable import Operations
+@testable import Operacjas
 
 class MutualExclusivityTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = OperacjaQueue()
     
     func testMutually() {
         enum Category: String, MutualExclusivityCategory {
@@ -20,28 +20,28 @@ class MutualExclusivityTests: XCTestCase {
             case B
         }
         
-        let operationA = BlockOperation {
+        let operationA = BlockOperacja.onMain {
             print("First")
         }
-        operationA.setMutuallyExclusive(inCategory: Category.A)
+        operationA.setMutuallyExclusive(in: Category.A)
         
-        let expectation = expectationWithDescription("Waiting for second operation")
-        let operationB = BlockOperation {
+        let expectation = self.expectation(description: "Waiting for second operation")
+        let operationB = BlockOperacja.onMain {
             print("Second")
             expectation.fulfill()
         }
-        operationB.setMutuallyExclusive(inCategory: Category.A)
+        operationB.setMutuallyExclusive(in: Category.A)
         operationB.observe { operation in
             operation.didStart {
-                if !operationA.finished {
+                if !operationA.isFinished {
                     XCTFail()
                 }
-                print(operationA.finished)
+                print(operationA.isFinished)
             }
         }
         queue.addOperation(operationA)
         queue.addOperation(operationB)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
 }

@@ -1,40 +1,40 @@
 //
 //  Fallible.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 15.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
 public protocol Fallible {
-    associatedtype Error: ErrorType
+    associatedtype ErrorType: Error
 }
 
-extension Fallible where Self: Operation {
+extension Fallible where Self : Operacja {
     
     /// Puts `self` in `finished` state.
     ///
     /// - Parameter error: A case of nested `Error` type.
-    public func finish(withError error: Error) {
-        finish(with: [error])
+    public func finish(withError error: ErrorType) {
+        finish(with: error)
     }
     
     /// Marks an operation as `cancelled`.
     ///
     /// - Parameter error: A case of nested `Error` type.
-    public func cancel(withError error: Error) {
+    public func cancel(withError error: ErrorType) {
         cancel(with: error)
     }
     
 }
 
 public enum ErrorPurpose {
-    case Fatal
-    case Informative
+    case fatal
+    case informative
 }
 
 public protocol ErrorInformer {
     
-    func purpose(of error: ErrorType) -> ErrorPurpose
+    func purpose(of error: Error) -> ErrorPurpose
     
 }

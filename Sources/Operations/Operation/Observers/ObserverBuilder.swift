@@ -1,6 +1,6 @@
 //
 //  ObserverBuilder.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 14.05.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -8,77 +8,63 @@
 
 import Foundation
 
-public final class ObserverBuilder {
+public struct BuilderObserver: OperacjaObserver {
     
-    private var startHandler: ((Void) -> Void)?
-    private var produceHandler: ((NSOperation) -> Void)?
-    private var finishHandler: (([ErrorType]) -> Void)?
-    private var successHandler: ((Void) -> Void)?
-    private var errorHandler: (([ErrorType]) -> Void)?
+    fileprivate var start: (() -> ())?
+    fileprivate var produce: ((Operation) -> ())?
+    fileprivate var finish: (([Error]) -> ())?
+    fileprivate var success: (() -> ())?
+    fileprivate var error: (([Error]) -> ())?
     
-}
-
-extension ObserverBuilder {
-    
-    public func didStart(handler: () -> ()) {
-        self.startHandler = handler
+    public mutating func didStart(_ handler: @escaping () -> ()) {
+        self.start = handler
     }
     
-    public func didProduceAnotherOperation(handler: (produced: NSOperation) -> ()) {
-        self.produceHandler = handler
+    public mutating func didProduceAnotherOperation(_ handler: @escaping (_ produced: Operation) -> ()) {
+        self.produce = handler
     }
     
     // WARNING! Usage of this method will ignore didSuccess and didFailed calls. Use them instead in most cases.
-    public func didFinishWithErrors(handler: (errors: [ErrorType]) -> ()) {
-        self.finishHandler = handler
+    public mutating func didFinishWithErrors(_ handler: @escaping (_ errors: [Error]) -> ()) {
+        self.finish = handler
     }
     
-    public func didSuccess(handler: () -> ()) {
-        self.successHandler = handler
+    public mutating func didSuccess(_ handler: @escaping () -> ()) {
+        self.success = handler
     }
     
-    public func didFail(handler: (errors: [ErrorType]) -> ()) {
-        self.errorHandler = handler
-    }
-        
-}
-
-private struct ObserverBuilderObserver: OperationObserver {
-    
-    let builder: ObserverBuilder
-    
-    init(builder: ObserverBuilder) {
-        self.builder = builder
+    public mutating func didFail(_ handler: @escaping (_ errors: [Error]) -> ()) {
+        self.error = handler
     }
     
-    private func operationDidStart(operation: Operation) {
-        builder.startHandler?()
+    public func operationDidStart(_ operation: Operacja) {
+        self.start?()
     }
     
-    private func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
-        builder.produceHandler?(newOperation)
+    public func operation(_ operation: Operacja, didProduce newOperation: Operation) {
+        self.produce?(newOperation)
     }
     
-    private func operationDidFinish(operation: Operation, errors: [ErrorType]) {
-        if let finishHandler = builder.finishHandler {
+    public func operationDidFinish(_ operation: Operacja, with errors: [Error]) {
+        if let finishHandler = finish {
             finishHandler(errors)
         } else {
             if errors.isEmpty {
-                builder.successHandler?()
+                success?()
             } else {
-                builder.errorHandler?(errors)
+                error?(errors)
             }
         }
     }
+    
 }
 
-extension Operation {
+extension Operacja {
     
-    public func observe(build: (operation: ObserverBuilder) -> ()) {
-        let builder = ObserverBuilder()
-        build(operation: builder)
-        let observer = ObserverBuilderObserver(builder: builder)
-        self.addObserver(observer)
+    public func observe(_ build: (_ operation: inout BuilderObserver) -> ()) {
+        var builderObserver = BuilderObserver()
+        build(&builderObserver)
+        self.addObserver(builderObserver)
     }
     
 }

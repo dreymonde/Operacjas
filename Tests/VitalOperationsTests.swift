@@ -1,29 +1,29 @@
 //
 //  VitalOperationsTests.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 04.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
 import XCTest
-@testable import Operations
+@testable import Operacjas
 
 class VitalOperationsTests: XCTestCase {
 
     func testVitalOperation() {
-        let testQueue = OperationQueue()
-        let importantPrinter = BlockOperation {
+        let testQueue = OperacjaQueue()
+        let importantPrinter = BlockOperacja.onMain {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, options: [.Vital])
-        let expectation = expectationWithDescription("Waiting for next operation to start")
-        let lessImportantPrinter = BlockOperation {
+        testQueue.addOperation(importantPrinter, options: [.vital])
+        let expectation = self.expectation(description: "Waiting for next operation to start")
+        let lessImportantPrinter = BlockOperacja.onMain {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
             operation.didStart {
-                if !importantPrinter.finished {
+                if !importantPrinter.isFinished {
                     XCTFail("This operation should wait for vitals")
                 }
             }
@@ -32,14 +32,14 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(lessImportantPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testMultipleVitals() {
-        let testQueue = OperationQueue()
+        let testQueue = OperacjaQueue()
         var last = -1
         for index in 0 ... 5 {
-            let important = BlockOperation {
+            let important = BlockOperacja.onMain {
                 XCTAssertEqual(last, index - 1)
                 print("I am so \(index) important")
                 last = index
@@ -47,8 +47,8 @@ class VitalOperationsTests: XCTestCase {
             testQueue.addDependency(important)
             testQueue.addOperation(important)
         }
-        let expectation = expectationWithDescription("Waiting for start of non-vital operation")
-        let nonImportant = BlockOperation {
+        let expectation = self.expectation(description: "Waiting for start of non-vital operation")
+        let nonImportant = BlockOperacja.onMain {
             print("Regular is my style")
         }
         nonImportant.observe {
@@ -57,22 +57,22 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(nonImportant)
-        waitForExpectationsWithTimeout(8.0, handler: nil)
+        waitForExpectations(timeout: 8.0, handler: nil)
     }
     
     func testWithAddOperationVitalTrue() {
-        let testQueue = OperationQueue()
-        let importantPrinter = BlockOperation {
+        let testQueue = OperacjaQueue()
+        let importantPrinter = BlockOperacja.onMain {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
-        testQueue.addOperation(importantPrinter, options: [.Vital])
-        let expectation = expectationWithDescription("Waiting for next operation to start")
-        let lessImportantPrinter = BlockOperation {
+        testQueue.addOperation(importantPrinter, options: [.vital])
+        let expectation = self.expectation(description: "Waiting for next operation to start")
+        let lessImportantPrinter = BlockOperacja.onMain {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
             operation.didStart {
-                if !importantPrinter.finished {
+                if !importantPrinter.isFinished {
                     XCTFail("This operation should wait for vitals")
                 }
             }
@@ -81,25 +81,25 @@ class VitalOperationsTests: XCTestCase {
             }
         }
         testQueue.addOperation(lessImportantPrinter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testWithMultipleQueues() {
-        let one = OperationQueue()
-        let two = OperationQueue()
+        let one = OperacjaQueue()
+        let two = OperacjaQueue()
         
-        let importantPrinter = BlockOperation {
+        let importantPrinter = BlockOperacja.onMain {
             print("Look at me, I am extra super-duper important")
         }
         
-        let expectation = expectationWithDescription("Waiting for waiter")
-        let waiter = BlockOperation {
+        let expectation = self.expectation(description: "Waiting for waiter")
+        let waiter = BlockOperacja.onMain {
             print("I'm here")
             expectation.fulfill()
         }
         waiter.observe {
             $0.didStart {
-                guard importantPrinter.finished else {
+                guard importantPrinter.isFinished else {
                     XCTFail("You should wait, young man!")
                     return
                 }
@@ -108,7 +108,7 @@ class VitalOperationsTests: XCTestCase {
         one.addOperation(importantPrinter)
         two.addDependency(importantPrinter)
         two.addOperation(waiter)
-        waitForExpectationsWithTimeout(5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
 }

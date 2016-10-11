@@ -3,42 +3,42 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows how to implement the OperationObserver protocol.
+This file shows how to implement the OperacjaObserver protocol.
 */
 
 import Foundation
 
 /**
     The `BlockObserver` is a way to attach arbitrary blocks to significant events
-    in an `Operation`'s lifecycle. Deprecated.
+    in an `Operacja`'s lifecycle. Deprecated.
  
     - Note: Use `BlockObserver` only as a reusable object. For individual observing, use `operation.observe` instead.
 */
-@available(*, deprecated, message="Use 'operation.observe' for single operation observing, or implement 'OperationObserver' if you want your observer to be reusable.")
-public struct BlockObserver: OperationObserver {
+@available(*, deprecated, message: "Use 'operation.observe' for single operation observing, or implement 'OperacjaObserver' if you want your observer to be reusable.")
+public struct BlockObserver: OperacjaObserver {
     // MARK: Properties
     
-    private let startHandler: (Operation -> Void)?
-    private let produceHandler: ((Operation, NSOperation) -> Void)?
-    private let finishHandler: ((Operation, [ErrorType]) -> Void)?
+    fileprivate let startHandler: ((Operacja) -> Void)?
+    fileprivate let produceHandler: ((Operacja, Operation) -> Void)?
+    fileprivate let finishHandler: ((Operacja, [Error]) -> Void)?
     
-    public init(startHandler: (Operation -> Void)? = nil, produceHandler: ((Operation, NSOperation) -> Void)? = nil, finishHandler: ((Operation, [ErrorType]) -> Void)? = nil) {
+    public init(startHandler: ((Operacja) -> Void)? = nil, produceHandler: ((Operacja, Operation) -> Void)? = nil, finishHandler: ((Operacja, [Error]) -> Void)? = nil) {
         self.startHandler = startHandler
         self.produceHandler = produceHandler
         self.finishHandler = finishHandler
     }
     
-    // MARK: OperationObserver
+    // MARK: OperacjaObserver
     
-    public func operationDidStart(operation: Operation) {
+    public func operationDidStart(_ operation: Operacja) {
         startHandler?(operation)
     }
     
-    public func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    public func operation(_ operation: Operacja, didProduce newOperation: Operation) {
         produceHandler?(operation, newOperation)
     }
     
-    public func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+    public func operationDidFinish(_ operation: Operacja, with errors: [Error]) {
         finishHandler?(operation, errors)
     }
 }

@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This file shows an example of implementing the OperationCondition protocol.
+This file shows an example of implementing the OperacjaCondition protocol.
 */
 
 import Foundation
@@ -13,28 +13,28 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-public struct NoCancelledDependencies: OperationCondition {
+public struct NoCancelledDependencies : OperacjaCondition {
     
-    public enum Error: ErrorType {
-        case DependenciesWereCancelled([NSOperation])
+    public enum ErrorType : Error {
+        case dependenciesWereCancelled([Operation])
     }
     
     public init() { }
     
-    public func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependency(for operation: Operacja) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         // Verify that all of the dependencies executed.
-        let cancelledDependencies = operation.dependencies.filter({ $0.cancelled })
+        let cancelledDependencies = operation.dependencies.filter({ $0.isCancelled })
 
         if !cancelledDependencies.isEmpty {
             // At least one dependency was cancelled; the condition was not satisfied.
-            completion(.Failed(with: Error.DependenciesWereCancelled(cancelledDependencies)))
+            completion(.failed(with: ErrorType.dependenciesWereCancelled(cancelledDependencies)))
         }
         else {
-            completion(.Satisfied)
+            completion(.satisfied)
         }
     }
 }

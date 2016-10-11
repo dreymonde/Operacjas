@@ -9,30 +9,30 @@ This file shows how operations can be composed together to form new operations.
 import Foundation
 
 /**
-    A subclass of `Operation` that executes zero or more operations as part of its
+    A subclass of `Operacja` that executes zero or more operations as part of its
     own execution. This class of operation is very useful for abstracting several
     smaller operations into a larger operation. As an example, the `GetEarthquakesOperation`
     is composed of both a `DownloadEarthquakesOperation` and a `ParseEarthquakesOperation`.
 
-    Additionally, `GroupOperation`s are useful if you establish a chain of dependencies,
+    Additionally, `GroupOperacja`s are useful if you establish a chain of dependencies,
     but part of the chain may "loop". For example, if you have an operation that
     requires the user to be authenticated, you may consider putting the "login"
     operation inside a group operation. That way, the "login" operation may produce
-    subsequent operations (still within the outer `GroupOperation`) that will all
+    subsequent operations (still within the outer `GroupOperacja`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-public class GroupOperation: Operation {
-    private let internalQueue = OperationQueue()
-    private let startingOperation = NSBlockOperation(block: {})
-    private let finishingOperation = NSBlockOperation(block: {})
+open class GroupOperacja : Operacja {
+    fileprivate let internalQueue = OperacjaQueue()
+    fileprivate let startingOperation = BlockOperation(block: {})
+    fileprivate let finishingOperation = BlockOperation(block: {})
 
-    private var aggregatedErrors = [ErrorType]()
+    fileprivate var aggregatedErrors = [Error]()
     
-    public init(operations: [NSOperation], configureQueue: ((OperationQueue) -> Void)? = nil) {
+    public init(operations: [Operation], configureQueue: ((OperacjaQueue) -> Void)? = nil) {
         super.init()
         
         configureQueue?(internalQueue)
-        internalQueue.suspended = true
+        internalQueue.isSuspended = true
         internalQueue.delegate = self
         internalQueue.addOperation(startingOperation)
 
@@ -41,17 +41,17 @@ public class GroupOperation: Operation {
         }
     }
     
-    public override func cancel() {
+    open override func cancel() {
         internalQueue.cancelAllOperations()
         super.cancel()
     }
     
-    public override func execute() {
-        internalQueue.suspended = false
+    open override func execute() {
+        internalQueue.isSuspended = false
         internalQueue.addOperation(finishingOperation)
     }
     
-    public func addOperation(operation: NSOperation) {
+    open func addOperation(_ operation: Operation) {
         internalQueue.addOperation(operation)
     }
     
@@ -60,24 +60,24 @@ public class GroupOperation: Operation {
         Errors aggregated through this method will be included in the final array
         of errors reported to observers and to the `finished(_:)` method.
     */
-    public final func aggregateError(error: ErrorType) {
+    public final func aggregate(_ error: Error) {
         aggregatedErrors.append(error)
     }
     
-    public func operationDidFinish(operation: NSOperation, withErrors errors: [ErrorType]) {
+    open func operationDidFinish(_ operation: Operation, with errors: [Error]) {
         // For use by subclassers.
     }
     
-    /// This method is called right before GroupOperation finishes it's execution. Do not try to add any more operations at this point.
-    public func groupOperationWillFinish() {
+    /// This method is called right before GroupOperacja finishes it's execution. Do not try to add any more operations at this point.
+    open func groupOperationWillFinish() {
         // For use by subclassers
     }
     
 }
 
-extension GroupOperation: OperationQueueDelegate {
-    public final func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
-        assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
+extension GroupOperacja : OperacjaQueueDelegate {
+    public final func operationQueue(_ operationQueue: OperacjaQueue, willAdd operation: Operation) {
+        assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*
             Some operation in this group has produced a new operation to execute.
@@ -100,16 +100,16 @@ extension GroupOperation: OperationQueueDelegate {
         }
     }
     
-    public final func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
-        aggregatedErrors.appendContentsOf(errors)
+    public final func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, with errors: [Error]) {
+        aggregatedErrors.append(contentsOf: errors)
         
         if operation === finishingOperation {
-            internalQueue.suspended = true
+            internalQueue.isSuspended = true
             groupOperationWillFinish()
-            finish(with: aggregatedErrors)
+            finish(errors: aggregatedErrors)
         }
         else if operation !== startingOperation {
-            operationDidFinish(operation, withErrors: errors)
+            operationDidFinish(operation, with: errors)
         }
     }
 }

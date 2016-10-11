@@ -1,6 +1,6 @@
 //
 //  MutualExclusivityCategory.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 08.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -14,7 +14,7 @@ public protocol MutualExclusivityCategory {
     
 }
 
-extension MutualExclusivityCategory where Self: RawRepresentable, Self.RawValue == String {
+extension MutualExclusivityCategory where Self : RawRepresentable, Self.RawValue == String {
     
     public var categoryIdentifier: String {
         return "\(Self.self):\(rawValue)"
