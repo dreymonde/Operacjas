@@ -1,11 +1,11 @@
-# Operations
+# Operacjas
 
 [![Swift][swift-badge]][swift-url]
 [![Build Status][travis-badge]][travis-url]
 [![Platform][platform-badge]][platform-url]
 [![Latest0.4][version-0.4-badge]][releases-url]
 
-**Operations** is an open-source implementation of concepts from [Advanced NSOperations][anso-url] talk.
+**Operacjas** is an open-source implementation of concepts from [Advanced NSOperations][anso-url] talk.
 
 > The `NSOperation` class is an abstract class you use to encapsulate the code and data associated with a single task.
 
@@ -18,18 +18,18 @@ We recommend you to use the newest "community version" (`0.5.0` at the time).
 
 #### Note
 
-There are aslo other implementations of "Advanced NSOperations". You can also see [danthorpe/Operations][danthorpe/Operations], which soon will become **ProcedureKit** ([#343](https://github.com/danthorpe/Operations/issues/343)). It has a lot more possibilities, and many predefined operations, conditions, observers and so on. However, we have different goals. **AdvancedOperations/Operations** aims to have a pretty small codebase which will perform as a ground for your own projects, features and new cool ideas, wherever **ProcedureKit** is mostly all-in-one solution. Also, **Operations** is still in the "flow state" and things are moving fast, and **ProcedureKit** already has stable releases. So, basically, use the project which is closer to you (you can also consider using so-called "Apple versions" of **Operations**).
+There are aslo other implementations of "Advanced NSOperations". You can also see [danthorpe/Operations][danthorpe/Operations], which soon will become **ProcedureKit** ([#343](https://github.com/danthorpe/Operations/issues/343)). It has a lot more possibilities, and many predefined operations, conditions, observers and so on. However, we have different goals. **AdvancedOperations/Operations** aims to have a pretty small codebase which will perform as a ground for your own projects, features and new cool ideas, wherever **ProcedureKit** is mostly all-in-one solution. Also, **Operacjas** is still in the "flow state" and things are moving fast, and **ProcedureKit** already has stable releases. So, basically, use the project which is closer to you (you can also consider using so-called "Apple versions" of **Operacjas**).
 
 Also take a look at [PSOperations](https://github.com/pluralsight/PSOperations).
 
 ## Usage
 
-*DISCLAIMER*: **Operations** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operations** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*.
+*DISCLAIMER*: **Operacjas** are un-swifty as hell, with all these subclassing and reference semantics everywhere. But the goal of **Operacjas** is not to make `NSOperation` "swifty", but to make it more powerful *using* Swift. Operations are still a very great concept that can dramatically simplify the structure of your app, they are system-aware and they *just work*.
 
 Before reading the **Usage** section, please go watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple, it will help you to understand what's going on, especially if you're new to `NSOperation` and `NSOperationQueue`.
 
 ### Operations
-Operations are abstract distinctive pieces of work. Each operation must accomplish some task, and the only thing it cares about is that task. **Operations** introduces `Operation` - an `NSOperation` subclass which add some new concepts and redefines readyness state, and `OperationQueue` - `NSOperationQueue` subclass which supports this concepts.
+Operations are abstract distinctive pieces of work. Each operation must accomplish some task, and the only thing it cares about is that task. **Operacjas** introduces `Operation` - an `NSOperation` subclass which add some new concepts and redefines readyness state, and `OperationQueue` - `NSOperationQueue` subclass which supports this concepts.
 
 ##### Creation of `Operation`
 The best way to create an operation is to subclass `Operation`. Unlike `NSOperation`, here you only need to override new `execute()` method.
@@ -316,7 +316,7 @@ Now every `NetworkOperation` will be treated appropriately, again - automaticall
 There're actually a lot of cool things you can do using enqueuing modules - use your creativity! 
 
 ### Mutual exclusivity
-There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *dependent* on another. **Operations** does it for you automatically. All you need to do is simply mark your `Operation` as being mutually exclusive in some `MutualExclusivityCategory`, which is a simple protocol:
+There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *dependent* on another. **Operacjas** does it for you automatically. All you need to do is simply mark your `Operation` as being mutually exclusive in some `MutualExclusivityCategory`, which is a simple protocol:
 
 ```swift
 public protocol MutualExclusivityCategory {
@@ -355,7 +355,7 @@ queue.addOperations(networkAlert, basicAlert)
 ```
 
 ### What's out of the box?
-**Operations** have some pretty useful stuff right out of the box:
+**Operacjas** have some pretty useful stuff right out of the box:
 
 1. Silent condition (`SilentCondition<T>`) that causes another condition to not enqueue its dependency. If we take our `LoggedInCondition` example, making `SilentCondition<LoggedInCondition>` will only check if the user is already logged in, and if he's not, it will **not** generate `LoginOperation`.
 2. No cancelled dependencies condition (`NoCancelledDependencies`) specifies that every operation dependency must have succeeded without cancelling. If any dependency was cancelled, the target operation will be cancelled. Be careful, this will apply only to **cancelled** dependencies, not to the failed ones.
@@ -366,14 +366,14 @@ queue.addOperations(networkAlert, basicAlert)
 - Of course, you can add dependencies, conditions and observers at initialization.
 
 ## Installation
-**Operations** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
+**Operacjas** is available through [Carthage][carthage-url]. To install, just write into your Cartfile:
 
 ```ruby
 github "AdvancedOperations/Operations" ~> 0.5.0
 ```
 
 ## Contributing
-**Operations** is in early stage of development and is opened for any ideas. If you want to contribute, you can:
+**Operacjas** is in early stage of development and is opened for any ideas. If you want to contribute, you can:
 
 - Propose idea/bugfix in issues
 - Make a pull request
