@@ -3,7 +3,7 @@
 [![Swift][swift-badge]][swift-url]
 [![Build Status][travis-badge]][travis-url]
 [![Platform][platform-badge]][platform-url]
-[![Latest0.4][version-0.4-badge]][releases-url]
+[![Latest0.4][version-0.6-badge]][releases-url]
 
 **Operacjas** is an open-source implementation of concepts from [Advanced NSOperations][anso-url] talk.
 
@@ -390,15 +390,18 @@ One more: if you get a merget PR, regardless of content (typos, code, doc fixes)
 ## License
 See [#11](https://github.com/AdvancedOperations/Operations/issues/11)
 
+## Why "Operacjas"?
+🇵🇱
+
 [travis-badge]: https://travis-ci.org/AdvancedOperations/Operations.svg?branch=master
 [travis-url]: https://travis-ci.org/AdvancedOperations/Operations
-[swift-badge]: https://img.shields.io/badge/Swift-2.2-orange.svg?style=flat
+[swift-badge]: https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat
 [swift-url]: https://swift.org
 [platform-badge]: https://img.shields.io/badge/Platform-OS%20X-lightgray.svg?style=flat
 [platform-url]: https://developer.apple.com/swift/
 [anso-url]: https://developer.apple.com/videos/play/wwdc2015/226/
 [mvcn-url]: https://realm.io/news/slug-marcus-zarra-exploring-mvcn-swift/
 [carthage-url]: https://github.com/Carthage/Carthage
-[version-0.4-badge]: https://img.shields.io/badge/Operations-0.4-1D4980.svg
+[version-0.6-badge]: https://img.shields.io/badge/Operations-0.6-1D4980.svg
 [danthorpe/Operations]: https://github.com/danthorpe/Operations
 [releases-url]: https://github.com/AdvancedOperations/Operations/releases
