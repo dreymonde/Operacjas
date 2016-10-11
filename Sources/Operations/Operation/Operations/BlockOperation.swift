@@ -12,7 +12,7 @@ import Foundation
 public typealias OperacjaBlock = (@escaping (Void) -> Void) -> Void
 
 /// A sublcass of `Operacja` to execute a closure.
-public final class BlockOperacja: Operacja {
+public final class BlockOperacja : Operacja {
     fileprivate let block: OperacjaBlock?
     
     /**
@@ -37,26 +37,25 @@ public final class BlockOperacja: Operacja {
     /**
         A convenience initializer to execute a block on the main queue.
         
-        - parameter mainQueueBlock: The block to execute on the main queue. Note
+        - parameter block: The block to execute on the main queue. Note
             that this block does not have a "continuation" block to execute (unlike
             the designated initializer). The operation will be automatically ended
             after the `mainQueueBlock` is executed.
     */
-    public convenience init(mainQueueBlock: @escaping () -> ()) {
-        self.init(block: { continuation in
+    static func onMain(_ block: @escaping () -> ()) -> BlockOperacja {
+        return BlockOperacja { continuation in
             DispatchQueue.main.async {
-                mainQueueBlock()
+                block()
                 continuation()
             }
-        })
+        }
     }
-    
+
     override public func execute() {
         guard let block = block else {
             finish()
             return
         }
-        
         block {
             self.finish()
         }

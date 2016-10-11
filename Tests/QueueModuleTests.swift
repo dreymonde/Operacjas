@@ -22,7 +22,7 @@ class QueueModuleTests: XCTestCase {
                 }
             }
         }
-        let testPrinter = BlockOperacja {
+        let testPrinter = BlockOperacja.onMain {
             print("I'm blocked :)")
         }
         testQueue.addOperation(testPrinter)

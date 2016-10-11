@@ -25,7 +25,7 @@ class OperacjasTests: XCTestCase {
     
     func testRegularBuilder() {
         let expectation = self.expectation(description: "Operacja waiting")
-        let operation = BlockOperacja {
+        let operation = BlockOperacja.onMain {
             print("here")
         }
         operation.observe {
@@ -45,7 +45,7 @@ class OperacjasTests: XCTestCase {
     
     func testBuilderWithFinished() {
         let expectation = self.expectation(description: "Operacja waiting")
-        let operation = BlockOperacja {
+        let operation = BlockOperacja.onMain {
             print("here")
         }
         operation.observe {

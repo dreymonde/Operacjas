@@ -28,7 +28,7 @@ open class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    open func addOperation(_ operation: Operacja, categories: [String]) {
+    open func addOperation(_ operation: Operacja, inCategories categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
@@ -42,7 +42,7 @@ open class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    open func removeOperation(_ operation: Operacja, categories: [String]) {
+    open func removeOperation(_ operation: Operacja, fromCategories categories: [String]) {
         serialQueue.async {
             for category in categories {
                 self.noqueue_removeOperation(operation, category: category)

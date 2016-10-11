@@ -15,19 +15,19 @@ import Foundation
  - Warning: Be careful. This does not apply to cancelled operation as well. If you want
  this kind of behavior, make sure to call `cancelWithError(_:)` instead of just `cancel()`.
  */
-public struct NoFailedDependencies: OperacjaCondition {
+public struct NoFailedDependencies : OperacjaCondition {
     
-    public enum ErrorType: Error {
+    public enum ErrorType : Error {
         case dependenciesFailed([(Operacja, [Error])])
     }
     
     public init() { }
     
-    public func dependencyForOperation(_ operation: Operacja) -> Operation? {
+    public func dependency(for operation: Operacja) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         let operations = operation.dependencies.flatMap({ $0 as? Operacja })
         let failedOperations = operations.filter({
             if let errors = $0.errors {
@@ -45,9 +45,9 @@ public struct NoFailedDependencies: OperacjaCondition {
     
 }
 
-internal struct NoFailedDependency: OperacjaCondition {
+internal struct NoFailedDependency : OperacjaCondition {
     
-    internal enum ErrorType: Error {
+    internal enum ErrorType : Error {
         case dependencyFailed((Operacja, [Error]))
         case dependencyErrorsNil
     }
@@ -58,11 +58,11 @@ internal struct NoFailedDependency: OperacjaCondition {
         self.dependency = dependency
     }
     
-    func dependencyForOperation(_ operation: Operacja) -> Operation? {
+    func dependency(for operation: Operacja) -> Operation? {
         return nil
     }
     
-    func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         guard var errors = dependency.errors else {
             completion(.failed(with: ErrorType.dependencyErrorsNil))
             return

@@ -41,11 +41,11 @@ public struct BuilderObserver: OperacjaObserver {
         self.start?()
     }
     
-    public func operation(_ operation: Operacja, didProduceOperation newOperation: Operation) {
+    public func operation(_ operation: Operacja, didProduce newOperation: Operation) {
         self.produce?(newOperation)
     }
     
-    public func operationDidFinish(_ operation: Operacja, errors: [Error]) {
+    public func operationDidFinish(_ operation: Operacja, with errors: [Error]) {
         if let finishHandler = finish {
             finishHandler(errors)
         } else {

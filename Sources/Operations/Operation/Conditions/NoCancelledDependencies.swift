@@ -13,19 +13,19 @@ import Foundation
     If any dependency was cancelled, the target operation will be cancelled as
     well.
 */
-public struct NoCancelledDependencies: OperacjaCondition {
+public struct NoCancelledDependencies : OperacjaCondition {
     
-    public enum ErrorType: Error {
+    public enum ErrorType : Error {
         case dependenciesWereCancelled([Operation])
     }
     
     public init() { }
     
-    public func dependencyForOperation(_ operation: Operacja) -> Operation? {
+    public func dependency(for operation: Operacja) -> Operation? {
         return nil
     }
     
-    public func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
         // Verify that all of the dependencies executed.
         let cancelledDependencies = operation.dependencies.filter({ $0.isCancelled })
 

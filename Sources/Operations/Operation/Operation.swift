@@ -15,7 +15,7 @@ import Foundation
  extended readiness requirements, as well as notify many interested parties
  about interesting operation state changes
  */
-open class Operacja: Operation {
+open class Operacja : Operation {
     
     // use the KVO mechanism to indicate that changes to "state" affect other properties as well
     class func keyPathsForValuesAffectingIsReady() -> Set<NSObject> {
@@ -33,7 +33,7 @@ open class Operacja: Operation {
     // MARK: State Management
     
     /// The state of Operacja
-    public enum State: Int, Comparable {
+    public enum State : Int, Comparable {
         
         /// The initial state of an `Operacja`.
         case initialized
@@ -163,7 +163,7 @@ open class Operacja: Operation {
     }
     
     /// If `true`, the operation is given "User Initiated" Quality of Class.
-    open var userInitiated: Bool {
+    open var isUserInitiated: Bool {
         get {
             return qualityOfService == .userInitiated
         }
@@ -196,7 +196,7 @@ open class Operacja: Operation {
     /// Sets an operation as being mutually exclusive in `category`.
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public final func setMutuallyExclusive(inCategory category: MutualExclusivityCategory) {
+    public final func setMutuallyExclusive(in category: MutualExclusivityCategory) {
         assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
         exclusivityCategories.append(category)
     }
@@ -210,7 +210,6 @@ open class Operacja: Operation {
     /// - Warning: This method needs to be called before enqueuing.
     open func addCondition(_ condition: OperacjaCondition) {
         assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
-        
         conditions.append(condition)
     }
     
@@ -229,7 +228,7 @@ open class Operacja: Operation {
         super.addDependency(operation)
     }
     
-    public struct DependencyOptions: OptionSet {
+    public struct DependencyOptions : OptionSet {
         public var rawValue: Int
         public init(rawValue: Int) {
             self.rawValue = rawValue
@@ -312,7 +311,7 @@ open class Operacja: Operation {
     /// Adds an `operation` to the queue on which `self` is executing.
     public final func produceOperation(_ operation: Operation) {
         for observer in observers {
-            observer.operation(self, didProduceOperation: operation)
+            observer.operation(self, didProduce: operation)
         }
     }
     
@@ -337,7 +336,7 @@ open class Operacja: Operation {
             finished(_combinedErrors)
             
             for observer in observers {
-                observer.operationDidFinish(self, errors: _combinedErrors)
+                observer.operationDidFinish(self, with: _combinedErrors)
             }
             
             state = .finished
@@ -374,10 +373,10 @@ open class Operacja: Operation {
 }
 
 // Simple operator functions to simplify the assertions used above.
-public func <(lhs: Operacja.State, rhs: Operacja.State) -> Bool {
+public func < (lhs: Operacja.State, rhs: Operacja.State) -> Bool {
     return lhs.rawValue < rhs.rawValue
 }
 
-public func ==(lhs: Operacja.State, rhs: Operacja.State) -> Bool {
+public func == (lhs: Operacja.State, rhs: Operacja.State) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }

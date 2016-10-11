@@ -10,7 +10,7 @@ public protocol Fallible {
     associatedtype ErrorType: Error
 }
 
-extension Fallible where Self: Operacja {
+extension Fallible where Self : Operacja {
     
     /// Puts `self` in `finished` state.
     ///

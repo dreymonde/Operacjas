@@ -34,11 +34,11 @@ public struct BlockObserver: OperacjaObserver {
         startHandler?(operation)
     }
     
-    public func operation(_ operation: Operacja, didProduceOperation newOperation: Operation) {
+    public func operation(_ operation: Operacja, didProduce newOperation: Operation) {
         produceHandler?(operation, newOperation)
     }
     
-    public func operationDidFinish(_ operation: Operacja, errors: [Error]) {
+    public func operationDidFinish(_ operation: Operacja, with errors: [Error]) {
         finishHandler?(operation, errors)
     }
 }

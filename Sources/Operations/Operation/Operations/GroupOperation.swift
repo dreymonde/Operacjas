@@ -21,7 +21,7 @@ import Foundation
     subsequent operations (still within the outer `GroupOperacja`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-open class GroupOperacja: Operacja {
+open class GroupOperacja : Operacja {
     fileprivate let internalQueue = OperacjaQueue()
     fileprivate let startingOperation = BlockOperation(block: {})
     fileprivate let finishingOperation = BlockOperation(block: {})
@@ -60,11 +60,11 @@ open class GroupOperacja: Operacja {
         Errors aggregated through this method will be included in the final array
         of errors reported to observers and to the `finished(_:)` method.
     */
-    public final func aggregateError(_ error: Error) {
+    public final func aggregate(_ error: Error) {
         aggregatedErrors.append(error)
     }
     
-    open func operationDidFinish(_ operation: Operation, withErrors errors: [Error]) {
+    open func operationDidFinish(_ operation: Operation, with errors: [Error]) {
         // For use by subclassers.
     }
     
@@ -75,8 +75,8 @@ open class GroupOperacja: Operacja {
     
 }
 
-extension GroupOperacja: OperacjaQueueDelegate {
-    public final func operationQueue(_ operationQueue: OperacjaQueue, willAddOperation operation: Operation) {
+extension GroupOperacja : OperacjaQueueDelegate {
+    public final func operationQueue(_ operationQueue: OperacjaQueue, willAdd operation: Operation) {
         assert(!finishingOperation.isFinished && !finishingOperation.isExecuting, "cannot add new operations to a group after the group has completed")
         
         /*
@@ -100,7 +100,7 @@ extension GroupOperacja: OperacjaQueueDelegate {
         }
     }
     
-    public final func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, withErrors errors: [Error]) {
+    public final func operationQueue(_ operationQueue: OperacjaQueue, operationDidFinish operation: Operation, with errors: [Error]) {
         aggregatedErrors.append(contentsOf: errors)
         
         if operation === finishingOperation {
@@ -109,7 +109,7 @@ extension GroupOperacja: OperacjaQueueDelegate {
             finish(errors: aggregatedErrors)
         }
         else if operation !== startingOperation {
-            operationDidFinish(operation, withErrors: errors)
+            operationDidFinish(operation, with: errors)
         }
     }
 }

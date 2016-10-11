@@ -14,7 +14,7 @@ import Foundation
     the user's location, but you do not want to prompt them for permission if you
     do not already have it.
 */
-public struct SilentCondition<T: OperacjaCondition>: OperacjaCondition {
+public struct SilentCondition<T : OperacjaCondition> : OperacjaCondition {
     public let condition: T
     
     public static var name: String {
@@ -25,12 +25,12 @@ public struct SilentCondition<T: OperacjaCondition>: OperacjaCondition {
         self.condition = condition
     }
     
-    public func dependencyForOperation(_ operation: Operacja) -> Operation? {
+    public func dependency(for operation: Operacja) -> Operation? {
         // Returning nil means we will never a dependency to be generated.
         return nil
     }
     
-    public func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
-        condition.evaluateForOperation(operation, completion: completion)
+    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+        condition.evaluate(for: operation, completion: completion)
     }
 }

@@ -18,12 +18,12 @@ public protocol OperacjaObserver {
     func operationDidStart(_ operation: Operacja)
     
     /// Invoked when `Operacja.produceOperation(_:)` is executed.
-    func operation(_ operation: Operacja, didProduceOperation newOperation: Operation)
+    func operation(_ operation: Operacja, didProduce newOperation: Operation)
     
     /**
         Invoked as an `Operacja` finishes, along with any errors produced during
         execution (or readiness evaluation).
     */
-    func operationDidFinish(_ operation: Operacja, errors: [Error])
+    func operationDidFinish(_ operation: Operacja, with errors: [Error])
     
 }

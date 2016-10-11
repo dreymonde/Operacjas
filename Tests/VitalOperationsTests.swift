@@ -13,12 +13,12 @@ class VitalOperationsTests: XCTestCase {
 
     func testVitalOperation() {
         let testQueue = OperacjaQueue()
-        let importantPrinter = BlockOperacja {
+        let importantPrinter = BlockOperacja.onMain {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
         testQueue.addOperation(importantPrinter, options: [.vital])
         let expectation = self.expectation(description: "Waiting for next operation to start")
-        let lessImportantPrinter = BlockOperacja {
+        let lessImportantPrinter = BlockOperacja.onMain {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
@@ -39,7 +39,7 @@ class VitalOperationsTests: XCTestCase {
         let testQueue = OperacjaQueue()
         var last = -1
         for index in 0 ... 5 {
-            let important = BlockOperacja {
+            let important = BlockOperacja.onMain {
                 XCTAssertEqual(last, index - 1)
                 print("I am so \(index) important")
                 last = index
@@ -48,7 +48,7 @@ class VitalOperationsTests: XCTestCase {
             testQueue.addOperation(important)
         }
         let expectation = self.expectation(description: "Waiting for start of non-vital operation")
-        let nonImportant = BlockOperacja {
+        let nonImportant = BlockOperacja.onMain {
             print("Regular is my style")
         }
         nonImportant.observe {
@@ -62,12 +62,12 @@ class VitalOperationsTests: XCTestCase {
     
     func testWithAddOperationVitalTrue() {
         let testQueue = OperacjaQueue()
-        let importantPrinter = BlockOperacja {
+        let importantPrinter = BlockOperacja.onMain {
             print("I am so freaking important so I'll make anyone wait for me, bitches")
         }
         testQueue.addOperation(importantPrinter, options: [.vital])
         let expectation = self.expectation(description: "Waiting for next operation to start")
-        let lessImportantPrinter = BlockOperacja {
+        let lessImportantPrinter = BlockOperacja.onMain {
             print("I am just a regular printer")
         }
         lessImportantPrinter.observe { operation in
@@ -88,12 +88,12 @@ class VitalOperationsTests: XCTestCase {
         let one = OperacjaQueue()
         let two = OperacjaQueue()
         
-        let importantPrinter = BlockOperacja {
+        let importantPrinter = BlockOperacja.onMain {
             print("Look at me, I am extra super-duper important")
         }
         
         let expectation = self.expectation(description: "Waiting for waiter")
-        let waiter = BlockOperacja {
+        let waiter = BlockOperacja.onMain {
             print("I'm here")
             expectation.fulfill()
         }

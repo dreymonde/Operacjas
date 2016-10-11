@@ -20,17 +20,17 @@ class MutualExclusivityTests: XCTestCase {
             case B
         }
         
-        let operationA = BlockOperacja {
+        let operationA = BlockOperacja.onMain {
             print("First")
         }
-        operationA.setMutuallyExclusive(inCategory: Category.A)
+        operationA.setMutuallyExclusive(in: Category.A)
         
         let expectation = self.expectation(description: "Waiting for second operation")
-        let operationB = BlockOperacja {
+        let operationB = BlockOperacja.onMain {
             print("Second")
             expectation.fulfill()
         }
-        operationB.setMutuallyExclusive(inCategory: Category.A)
+        operationB.setMutuallyExclusive(in: Category.A)
         operationB.observe { operation in
             operation.didStart {
                 if !operationA.isFinished {

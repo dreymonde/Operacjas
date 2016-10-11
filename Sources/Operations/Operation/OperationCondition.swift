@@ -31,10 +31,10 @@ public protocol OperacjaCondition {
             expressing that as multiple conditions. Alternatively, you could return
             a single `GroupOperacja` that executes multiple operations internally.
     */
-    func dependencyForOperation(_ operation: Operacja) -> Operation?
+    func dependency(for operation: Operacja) -> Operation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluateForOperation(_ operation: Operacja, completion: (OperacjaConditionResult) -> Void)
+    func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void)
 }
 
 extension OperacjaCondition {
@@ -70,7 +70,7 @@ extension Collection where Iterator.Element == OperacjaCondition, IndexDistance 
         // Ask each condition to evaluate and store its result in the "results" array.
         for (index, condition) in self.enumerated() {
             conditionGroup.enter()
-            condition.evaluateForOperation(operation) { result in
+            condition.evaluate(for: operation) { result in
                 results[index] = result
                 conditionGroup.leave()
             }
