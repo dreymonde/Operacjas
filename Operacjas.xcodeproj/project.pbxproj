@@ -522,14 +522,17 @@
 					BE17C4721CD3CD1100708FC5 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = WK35K3FV5Z;
+						LastSwiftMigration = 0800;
 					};
 					BE17C47F1CD3CD2000708FC5 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = WK35K3FV5Z;
+						LastSwiftMigration = 0800;
 					};
 					BE17C4881CD3CD2000708FC5 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = WK35K3FV5Z;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -872,7 +875,7 @@
 				PRODUCT_NAME = Operacjas;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -893,7 +896,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.Operacjas";
 				PRODUCT_NAME = Operacjas;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -904,7 +907,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -915,7 +918,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1016,6 +1019,7 @@
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1038,6 +1042,7 @@
 				PRODUCT_NAME = Operacjas;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1061,6 +1066,7 @@
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1083,6 +1089,7 @@
 				PRODUCT_NAME = Operacjas;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -1096,6 +1103,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Debug;
@@ -1108,6 +1116,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.advanced-operations.OperationsTests";
 				PRODUCT_NAME = OperacjasTests;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;

@@ -9,7 +9,7 @@
 
 > The `NSOperation` class is an abstract class you use to encapsulate the code and data associated with a single task.
 
-`Operation` is an `NSOperation` subclass which adds some very powerful concepts to it and extends the definition of readiness.
+`Operacja` is an `NSOperation` subclass which adds some very powerful concepts to it and extends the definition of readiness.
 
 - `0.0.x` versions contains code directly from Apple's [sample project](https://developer.apple.com/sample-code/wwdc/2015/downloads/Advanced-NSOperations.zip).
 - `0.2.x` and later versions contains community improvements.
@@ -29,14 +29,14 @@ Also take a look at [PSOperations](https://github.com/pluralsight/PSOperations).
 Before reading the **Usage** section, please go watch [Advanced NSOperations](https://developer.apple.com/videos/play/wwdc2015/226/) talk from Apple, it will help you to understand what's going on, especially if you're new to `NSOperation` and `NSOperationQueue`.
 
 ### Operations
-Operations are abstract distinctive pieces of work. Each operation must accomplish some task, and the only thing it cares about is that task. **Operacjas** introduces `Operation` - an `NSOperation` subclass which add some new concepts and redefines readyness state, and `OperationQueue` - `NSOperationQueue` subclass which supports this concepts.
+Operations are abstract distinctive pieces of work. Each operation must accomplish some task, and the only thing it cares about is that task. **Operacjas** introduces `Operacja` - an `NSOperation` subclass which add some new concepts and redefines readyness state, and `OperationQueue` - `NSOperationQueue` subclass which supports this concepts.
 
-##### Creation of `Operation`
-The best way to create an operation is to subclass `Operation`. Unlike `NSOperation`, here you only need to override new `execute()` method.
+##### Creation of `Operacja`
+The best way to create an operation is to subclass `Operacja`. Unlike `NSOperation`, here you only need to override new `execute()` method.
 
 ```swift
 // WARNING! The operation below is absolutely useless
-class LogOperation<T>: Operation {
+class LogOperation<T> : Operacja {
     
     private let value: T
     init(value: T) {
@@ -60,15 +60,15 @@ class LogOperation<T>: Operation {
 Then you just add your operation to the queue:
 
 ```swift
-let queue = OperationQueue()
+let queue = OperacjaQueue()
 let logOperation = LogOperation(value: "Test")
 queue.addOperation(logOperation)
 ```
 
-You can also use `BlockOperation` and create operation simply from the closure, like this:
+You can also use `BlockOperacja` and create operation simply from the closure, like this:
 
 ```swift
-let operation = BlockOperation {
+let operation = BlockOperacja {
     self.performSegueWithIdentifier("showEarthquake", sender: nil)
 }
 operationQueue.addOperation(operation)
@@ -87,7 +87,7 @@ second.addDependency(first)
 
 That means that `second` operation will not start before `first` operation enters it's `finished` state. Dependencies are also queue-independent, i.e. operations from different queues can depend on each other.
 
-If your operation is depending on `Operation` (not just `NSOperation`), you can also make this:
+If your operation is depending on `Operacja` (not just `NSOperation`), you can also make this:
 
 ```swift
 let first = OperationA()
@@ -128,17 +128,17 @@ You can observe operation lifecycle by assigning one or more *observers* to it. 
 
 ```swift
 // Example observer
-final class LogObserver: OperationObserver {
+final class LogObserver: OperacjaObserver {
     
-    func operationDidStart(operation: Operation) {
+    func operationDidStart(operation: Operacja) {
         debugPrint("\(operation) did start")
     }
     
-    func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    func operation(operation: Operacja, didProduceOperation newOperation: NSOperation) {
         debugPrint("\(operation) did produce \(newOperation)")
     }
     
-    func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+    func operationDidFinish(operation: Operacja, errors: [ErrorType]) {
         if errors.isEmpty {
             debugPrint("\(operation) did finish succesfully")
         } else {
@@ -156,7 +156,7 @@ operation.addObserver(logger)
 queue.addOperation(operation)
 ```
 
-It's a good practice to implement `OperationObserver` directly if you want your observer to be reusable. However, if you only want to observe individual `Operation`, consider using `.observe(_:)` method on an `Operation` object, which makes observing very easy:
+It's a good practice to implement `OperacjaObserver` directly if you want your observer to be reusable. However, if you only want to observe individual `Operacja`, consider using `.observe(_:)` method on an `Operacja` object, which makes observing very easy:
 
 ```swift
 let myOperation = MyOperation()
@@ -180,7 +180,7 @@ That creates a new observer and automatically assigns it to `myOperation`.
 Instead of using `didSuccess` and `didFail`, you can also use `didFinishWithErrors`, which is gonna be notified when operation finishes, no matter successfuly or not. Also keep in mind that if you specify `didFinishWithErrors`, `didSuccess` and `didFail` will be ignored. In most cases, using `didSuccess` and `didFail` is the best option.
 
 ### Operation conditions
-You can solve pretty complex problems with `NSOperation`s and dependencies, but `OperationCondition` takes that even further, allowing you to create very sophisticated workflows. You can create and assign any number of conditions to an `Operation` object. Conditions ensure you that some operation will be executed *only* if condition was satisfied. Take these situations as examples:
+You can solve pretty complex problems with `NSOperation`s and dependencies, but `OperacjaCondition` takes that even further, allowing you to create very sophisticated workflows. You can create and assign any number of conditions to an `Operacja` object. Conditions ensure you that some operation will be executed *only* if condition was satisfied. Take these situations as examples:
 
  - ~~Download file only if server is reachable~~ (see below)
  - Perform request only if user is logged in
@@ -191,7 +191,7 @@ Basically, your condition can do two things. First, it can *generate dependency*
 For example, some `LoggedInCondition` can generate `LoginOperation` which will present a login view if the user is not logged in. After `LoginOperation` is completed (i.e. user logs in or cancel), you can evaluate a condition to actually check if the user is logged in, and pass that result to determine whether your initial operation needs to be executed. Let's look at some code:
 
 ```swift
-struct LoggedInCondition: OperationCondition {
+struct LoggedInCondition: OperacjaCondition {
     
     // let's assume that we have some `LoginController` that controls the current login status
     let loginController: LoginController
@@ -200,7 +200,7 @@ struct LoggedInCondition: OperationCondition {
         self.loginController = loginController
     }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    func dependencyForOperation(operation: Operacja) -> NSOperation? {
     	// The actual implementation of `LoginOperation` is not the point here.
         return LoginOperation(loginController: self.loginController)
     }
@@ -210,7 +210,7 @@ struct LoggedInCondition: OperationCondition {
         case NotLoggedIn
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
     	// Here we checks whether the user is logged in and call the correspondent completion
         if loginController.loggedIn {
             completion(.Satisfied)
@@ -239,14 +239,14 @@ Of course, there are situations when you don't need to generate dependencies. In
 import PassKit
 
 /// A condition for verifying that Passbook exists and is accessible.
-struct PassbookCondition: OperationCondition {
+struct PassbookCondition: OperacjaCondition {
     
     static let name = "Passbook"
     static let isMutuallyExclusive = false
     
     init() { }
     
-    func dependencyForOperation(operation: Operation) -> NSOperation? {
+    func dependencyForOperation(operation: Operacja) -> NSOperation? {
         /*
             There's nothing you can do to make Passbook available if it's not
             on your device.
@@ -258,7 +258,7 @@ struct PassbookCondition: OperationCondition {
     	case PassLibraryIsNotAvailable
     }
     
-    func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
         if PKPassLibrary.isPassLibraryAvailable() {
             completion(.Satisfied)
         }
@@ -283,23 +283,23 @@ So, for example:
 
 ### Enqueuing modules
 
-`OperationQueueEnqueuingModule` is just a `typealias` for
+`OperacjaQueueEnqueuingModule` is just a `typealias` for
 
 ```swift
-(operation: Operation, queue: OperationQueue) -> Void
+(operation: Operacja, queue: OperacjaQueue) -> Void
 ```
 
-Basically, enqueuing module is a tool for adjusting your `OperationQueue`. Each module that you assign to queue will be called when `Operation` is being enqueued. The most obvious scenario here is logging: you can create some kind of `LogObserver` and assign it to every `Operation` on the queue:
+Basically, enqueuing module is a tool for adjusting your `OperacjaQueue`. Each module that you assign to queue will be called when `Operacja` is being enqueued. The most obvious scenario here is logging: you can create some kind of `LogObserver` and assign it to every `Operacja` on the queue:
 
 ```swift
-let queue = OperationQueue()
+let queue = OperacjaQueue()
 queue.addEnqueuingModule { operation, queue in
     let logger = LogObserver(queueName: queue.name)
     operation.addObserver(logger)
 }
 ```
 
-Now your logger will automatically observe any `Operation` on the queue and you will get nice visualized operations flow in your console.
+Now your logger will automatically observe any `Operacja` on the queue and you will get nice visualized operations flow in your console.
 
 Here is another example: you can create `NetworkObserver` which tracks operations and turns activity indicator on and off when appropriate (this is an example from [Advanced NSOperations][anso-url]). Then you can create `NetworkOperation` protocol, and do this to your queue:
 
@@ -316,7 +316,7 @@ Now every `NetworkOperation` will be treated appropriately, again - automaticall
 There're actually a lot of cool things you can do using enqueuing modules - use your creativity! 
 
 ### Mutual exclusivity
-There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *dependent* on another. **Operacjas** does it for you automatically. All you need to do is simply mark your `Operation` as being mutually exclusive in some `MutualExclusivityCategory`, which is a simple protocol:
+There are situations when you want to make sure that some kind of operations are not executed *simultaneously*. For example, we don't want two `LoadCoreDataStackOperation` running together, or we don't want one alert to be presented if there are some other alert that is currently presenting. Actually, the solution for this is very simple - if you don't want two operations to be executed simultaneously, you just make one *dependent* on another. **Operacjas** does it for you automatically. All you need to do is simply mark your `Operacja` as being mutually exclusive in some `MutualExclusivityCategory`, which is a simple protocol:
 
 ```swift
 public protocol MutualExclusivityCategory {
@@ -331,7 +331,7 @@ enum CoreData: String, MutualExclusivityCategory {
     case LoadStack
 }
 
-let loadStackOperation = Operation()
+let loadStackOperation = Operacja()
 loadStackOperation.setMutuallyExclusive(inCategory: CoreData.LoadStack)
 // Make sure to set exclusivity before enqueueing!
 queue.addOperation(loadStackOperation)
@@ -362,7 +362,7 @@ queue.addOperations(networkAlert, basicAlert)
 3. No failed dependencies condition (`NoFailedDependencies`) - kind of obvious one. Again, be careful - this will apply only to **failed** dependencies, not to the cancelled one. If you want that kind of behavior too, make sure to call `cancel(with: error)` instead of just `cancel()`.
 
 ### Tips and tricks
-- If your operation failed, simply call `finish(with error: ErrorType)` method instead of just `finish()` (you can also call conform your `Operation` to `Fallible`, and use super-sweet convenience method `finish(withError:)`, more on this [here](https://github.com/AdvancedOperations/Operations/pull/24)), that will indicate that even though your operation have entered the `finished` state, it wasn't able to do it's job.
+- If your operation failed, simply call `finish(with error: ErrorType)` method instead of just `finish()` (you can also call conform your `Operacja` to `Fallible`, and use super-sweet convenience method `finish(withError:)`, more on this [here](https://github.com/AdvancedOperations/Operations/pull/24)), that will indicate that even though your operation have entered the `finished` state, it wasn't able to do it's job.
 - Of course, you can add dependencies, conditions and observers at initialization.
 
 ## Installation
