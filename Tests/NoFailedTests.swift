@@ -1,6 +1,6 @@
 //
 //  NoFailedTests.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 15.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -8,13 +8,13 @@
 
 import Foundation
 import XCTest
-@testable import Operations
+@testable import Operacjas
 
 class NoFailedTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = OperacjaQueue()
     
-    class FailOperation: Operation, Fallible {
+    class FailOperacja: Operacja, Fallible {
         enum Error: ErrorType {
             case JustGoAway
         }
@@ -22,7 +22,7 @@ class NoFailedTests: XCTestCase {
             finish(withError: .JustGoAway)
         }
     }
-    class NoFailOperation: Operation {
+    class NoFailOperacja: Operacja {
         override func execute() {
             print("No fail")
             finish()
@@ -30,11 +30,11 @@ class NoFailedTests: XCTestCase {
     }
     
     func testNoFailed() {
-        let fail1 = FailOperation()
-        let noFail1 = NoFailOperation()
+        let fail1 = FailOperacja()
+        let noFail1 = NoFailOperacja()
         
         let expectation = expectationWithDescription("No Fail Main")
-        let noFailMain = NoFailOperation()
+        let noFailMain = NoFailOperacja()
         noFailMain.observe { (operation) in
             operation.didFinishWithErrors { errors in
                 XCTAssertTrue(!errors.isEmpty)
@@ -53,11 +53,11 @@ class NoFailedTests: XCTestCase {
     }
     
     func testNoFailedOne() {
-        let fail1 = FailOperation()
-        let noFail1 = NoFailOperation()
+        let fail1 = FailOperacja()
+        let noFail1 = NoFailOperacja()
         
         let expectation = expectationWithDescription("No Fail Main")
-        let noFailMain = NoFailOperation()
+        let noFailMain = NoFailOperacja()
         noFailMain.observe { (operation) in
             operation.didFinishWithErrors({ (errors) in
                 XCTAssertEqual(errors.count, 1)
@@ -75,7 +75,7 @@ class NoFailedTests: XCTestCase {
         waitForExpectationsWithTimeout(5.0, handler: nil)
     }
     
-    class FailOperationTwo: Operation, Fallible, ErrorInformer {
+    class FailOperationTwo: Operacja, Fallible, ErrorInformer {
         enum Error: ErrorType {
             case JustGoAway
             case JustSomeInfo
@@ -93,7 +93,7 @@ class NoFailedTests: XCTestCase {
     
     func testDecider() {
         let fot = FailOperationTwo()
-        let noFail = NoFailOperation()
+        let noFail = NoFailOperacja()
         let expectation = expectationWithDescription("No Fail Main")
         
         noFail.observe {

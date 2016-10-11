@@ -3,7 +3,7 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-The file shows how to make an OperationCondition that composes another OperationCondition.
+The file shows how to make an OperacjaCondition that composes another OperacjaCondition.
 */
 
 import Foundation
@@ -14,7 +14,7 @@ import Foundation
     the user's location, but you do not want to prompt them for permission if you
     do not already have it.
 */
-public struct SilentCondition<T: OperationCondition>: OperationCondition {
+public struct SilentCondition<T: OperacjaCondition>: OperacjaCondition {
     public let condition: T
     
     public static var name: String {
@@ -25,12 +25,12 @@ public struct SilentCondition<T: OperationCondition>: OperationCondition {
         self.condition = condition
     }
     
-    public func dependencyForOperation(operation: Operation) -> NSOperation? {
+    public func dependencyForOperation(operation: Operacja) -> NSOperation? {
         // Returning nil means we will never a dependency to be generated.
         return nil
     }
     
-    public func evaluateForOperation(operation: Operation, completion: OperationConditionResult -> Void) {
+    public func evaluateForOperation(operation: Operacja, completion: OperacjaConditionResult -> Void) {
         condition.evaluateForOperation(operation, completion: completion)
     }
 }

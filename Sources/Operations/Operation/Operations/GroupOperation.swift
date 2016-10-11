@@ -9,26 +9,26 @@ This file shows how operations can be composed together to form new operations.
 import Foundation
 
 /**
-    A subclass of `Operation` that executes zero or more operations as part of its
+    A subclass of `Operacja` that executes zero or more operations as part of its
     own execution. This class of operation is very useful for abstracting several
     smaller operations into a larger operation. As an example, the `GetEarthquakesOperation`
     is composed of both a `DownloadEarthquakesOperation` and a `ParseEarthquakesOperation`.
 
-    Additionally, `GroupOperation`s are useful if you establish a chain of dependencies,
+    Additionally, `GroupOperacja`s are useful if you establish a chain of dependencies,
     but part of the chain may "loop". For example, if you have an operation that
     requires the user to be authenticated, you may consider putting the "login"
     operation inside a group operation. That way, the "login" operation may produce
-    subsequent operations (still within the outer `GroupOperation`) that will all
+    subsequent operations (still within the outer `GroupOperacja`) that will all
     be executed before the rest of the operations in the initial chain of operations.
 */
-public class GroupOperation: Operation {
-    private let internalQueue = OperationQueue()
+public class GroupOperacja: Operacja {
+    private let internalQueue = OperacjaQueue()
     private let startingOperation = NSBlockOperation(block: {})
     private let finishingOperation = NSBlockOperation(block: {})
 
     private var aggregatedErrors = [ErrorType]()
     
-    public init(operations: [NSOperation], configureQueue: ((OperationQueue) -> Void)? = nil) {
+    public init(operations: [NSOperation], configureQueue: ((OperacjaQueue) -> Void)? = nil) {
         super.init()
         
         configureQueue?(internalQueue)
@@ -68,15 +68,15 @@ public class GroupOperation: Operation {
         // For use by subclassers.
     }
     
-    /// This method is called right before GroupOperation finishes it's execution. Do not try to add any more operations at this point.
+    /// This method is called right before GroupOperacja finishes it's execution. Do not try to add any more operations at this point.
     public func groupOperationWillFinish() {
         // For use by subclassers
     }
     
 }
 
-extension GroupOperation: OperationQueueDelegate {
-    public final func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation) {
+extension GroupOperacja: OperacjaQueueDelegate {
+    public final func operationQueue(operationQueue: OperacjaQueue, willAddOperation operation: NSOperation) {
         assert(!finishingOperation.finished && !finishingOperation.executing, "cannot add new operations to a group after the group has completed")
         
         /*
@@ -100,7 +100,7 @@ extension GroupOperation: OperationQueueDelegate {
         }
     }
     
-    public final func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
+    public final func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) {
         aggregatedErrors.appendContentsOf(errors)
         
         if operation === finishingOperation {

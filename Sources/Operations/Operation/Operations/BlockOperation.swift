@@ -3,28 +3,28 @@ Copyright (C) 2015 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
 
 Abstract:
-This code shows how to create a simple subclass of Operation.
+This code shows how to create a simple subclass of Operacja.
 */
 
 import Foundation
 
 /// A closure type that takes a closure as its parameter.
-public typealias OperationBlock = (Void -> Void) -> Void
+public typealias OperacjaBlock = (Void -> Void) -> Void
 
-/// A sublcass of `Operation` to execute a closure.
-public final class BlockOperation: Operation {
-    private let block: OperationBlock?
+/// A sublcass of `Operacja` to execute a closure.
+public final class BlockOperacja: Operacja {
+    private let block: OperacjaBlock?
     
     /**
         The designated initializer.
         
         - parameter block: The closure to run when the operation executes. This
             closure will be run on an arbitrary queue. The parameter passed to the
-            block **MUST** be invoked by your code, or else the `BlockOperation`
+            block **MUST** be invoked by your code, or else the `BlockOperacja`
             will never finish executing. If this parameter is `nil`, the operation
             will immediately finish.
     */
-    public init(block: OperationBlock? = nil) {
+    public init(block: OperacjaBlock? = nil) {
         self.block = block
         super.init()
     }

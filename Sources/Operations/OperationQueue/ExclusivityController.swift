@@ -10,15 +10,15 @@ import Foundation
 
 /**
     `ExclusivityController` is a singleton to keep track of all the in-flight
-    `Operation` instances that have declared themselves as requiring mutual exclusivity.
+    `Operacja` instances that have declared themselves as requiring mutual exclusivity.
     We use a singleton because mutual exclusivity must be enforced across the entire
-    app, regardless of the `OperationQueue` on which an `Operation` was executed.
+    app, regardless of the `OperacjaQueue` on which an `Operacja` was executed.
 */
 public class ExclusivityController {
     public static let sharedExclusivityController = ExclusivityController()
     
-    private let serialQueue = dispatch_queue_create("Operations.ExclusivityController", DISPATCH_QUEUE_SERIAL)
-    private var operations: [String: [Operation]] = [:]
+    private let serialQueue = dispatch_queue_create("Operacjas.ExclusivityController", DISPATCH_QUEUE_SERIAL)
+    private var operations: [String: [Operacja]] = [:]
     
     private init() {
         /*
@@ -28,7 +28,7 @@ public class ExclusivityController {
     }
     
     /// Registers an operation as being mutually exclusive
-    public func addOperation(operation: Operation, categories: [String]) {
+    public func addOperation(operation: Operacja, categories: [String]) {
         /*
             This needs to be a synchronous operation.
             If this were async, then we might not get around to adding dependencies
@@ -42,7 +42,7 @@ public class ExclusivityController {
     }
     
     /// Unregisters an operation from being mutually exclusive.
-    public func removeOperation(operation: Operation, categories: [String]) {
+    public func removeOperation(operation: Operacja, categories: [String]) {
         dispatch_async(serialQueue) {
             for category in categories {
                 self.noqueue_removeOperation(operation, category: category)
@@ -51,9 +51,9 @@ public class ExclusivityController {
     }
     
     
-    // MARK: Operation Management
+    // MARK: Operacja Management
     
-    private func noqueue_addOperation(operation: Operation, category: String) {
+    private func noqueue_addOperation(operation: Operacja, category: String) {
         var operationsWithThisCategory = operations[category] ?? []
         
         if let last = operationsWithThisCategory.last {
@@ -65,7 +65,7 @@ public class ExclusivityController {
         operations[category] = operationsWithThisCategory
     }
     
-    private func noqueue_removeOperation(operation: Operation, category: String) {
+    private func noqueue_removeOperation(operation: Operacja, category: String) {
         let matchingOperations = operations[category]
 
         if var operationsWithThisCategory = matchingOperations,

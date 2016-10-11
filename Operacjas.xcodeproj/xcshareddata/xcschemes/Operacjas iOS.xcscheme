@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE17C4371CD3CCD600708FC5"
-               BuildableName = "Operations.framework"
-               BlueprintName = "Operations iOS"
-               ReferencedContainer = "container:Operations.xcodeproj">
+               BuildableName = "Operacjas.framework"
+               BlueprintName = "Operacjas iOS"
+               ReferencedContainer = "container:Operacjas.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE17C4411CD3CCD700708FC5"
-               BuildableName = "OperationsTests.xctest"
-               BlueprintName = "Operations iOSTests"
-               ReferencedContainer = "container:Operations.xcodeproj">
+               BuildableName = "OperacjasTests.xctest"
+               BlueprintName = "Operacjas iOSTests"
+               ReferencedContainer = "container:Operacjas.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE17C4371CD3CCD600708FC5"
-            BuildableName = "Operations.framework"
-            BlueprintName = "Operations iOS"
-            ReferencedContainer = "container:Operations.xcodeproj">
+            BuildableName = "Operacjas.framework"
+            BlueprintName = "Operacjas iOS"
+            ReferencedContainer = "container:Operacjas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE17C4371CD3CCD600708FC5"
-            BuildableName = "Operations.framework"
-            BlueprintName = "Operations iOS"
-            ReferencedContainer = "container:Operations.xcodeproj">
+            BuildableName = "Operacjas.framework"
+            BlueprintName = "Operacjas iOS"
+            ReferencedContainer = "container:Operacjas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE17C4371CD3CCD600708FC5"
-            BuildableName = "Operations.framework"
-            BlueprintName = "Operations iOS"
-            ReferencedContainer = "container:Operations.xcodeproj">
+            BuildableName = "Operacjas.framework"
+            BlueprintName = "Operacjas iOS"
+            ReferencedContainer = "container:Operacjas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

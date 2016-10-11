@@ -1,19 +1,19 @@
 //
 //  QueueModuleTests.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 04.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
 import XCTest
-@testable import Operations
+@testable import Operacjas
 
 class QueueModuleTests: XCTestCase {
     
     func testBasicModule() {
-        let testQueue = OperationQueue()
-        let expectation = expectationWithDescription("Operation is running")
+        let testQueue = OperacjaQueue()
+        let expectation = expectationWithDescription("Operacja is running")
         testQueue.addEnqueuingModule { operation, queue in
             operation.observe {
                 $0.didSuccess {
@@ -22,7 +22,7 @@ class QueueModuleTests: XCTestCase {
                 }
             }
         }
-        let testPrinter = BlockOperation {
+        let testPrinter = BlockOperacja {
             print("I'm blocked :)")
         }
         testQueue.addOperation(testPrinter)

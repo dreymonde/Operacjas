@@ -1,6 +1,6 @@
 //
 //  MutualExclusivityCategory.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 08.07.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.

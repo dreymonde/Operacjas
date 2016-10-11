@@ -1,6 +1,6 @@
 //
 //  ObserverBuilder.swift
-//  Operations
+//  Operacjas
 //
 //  Created by Oleg Dreyman on 14.05.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct BuilderObserver: OperationObserver {
+public struct BuilderObserver: OperacjaObserver {
     
     private var start: (() -> ())?
     private var produce: ((NSOperation) -> ())?
@@ -37,15 +37,15 @@ public struct BuilderObserver: OperationObserver {
         self.error = handler
     }
     
-    public func operationDidStart(operation: Operation) {
+    public func operationDidStart(operation: Operacja) {
         self.start?()
     }
     
-    public func operation(operation: Operation, didProduceOperation newOperation: NSOperation) {
+    public func operation(operation: Operacja, didProduceOperation newOperation: NSOperation) {
         self.produce?(newOperation)
     }
     
-    public func operationDidFinish(operation: Operation, errors: [ErrorType]) {
+    public func operationDidFinish(operation: Operacja, errors: [ErrorType]) {
         if let finishHandler = finish {
             finishHandler(errors)
         } else {
@@ -59,7 +59,7 @@ public struct BuilderObserver: OperationObserver {
     
 }
 
-extension Operation {
+extension Operacja {
     
     public func observe(build: (inout operation: BuilderObserver) -> ()) {
         var builderObserver = BuilderObserver()

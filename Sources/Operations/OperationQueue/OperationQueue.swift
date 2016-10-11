@@ -9,46 +9,46 @@ This file contains an NSOperationQueue subclass.
 import Foundation
 
 /**
-    The delegate of an `OperationQueue` can respond to `Operation` lifecycle
+    The delegate of an `OperacjaQueue` can respond to `Operacja` lifecycle
     events by implementing these methods.
 
-    In general, implementing `OperationQueueDelegate` is not necessary; you would
-    want to use an `OperationObserver` instead. However, there are a couple of
-    situations where using `OperationQueueDelegate` can lead to simpler code.
-    For example, `GroupOperation` is the delegate of its own internal
-    `OperationQueue` and uses it to manage dependencies.
+    In general, implementing `OperacjaQueueDelegate` is not necessary; you would
+    want to use an `OperacjaObserver` instead. However, there are a couple of
+    situations where using `OperacjaQueueDelegate` can lead to simpler code.
+    For example, `GroupOperacja` is the delegate of its own internal
+    `OperacjaQueue` and uses it to manage dependencies.
 */
-public protocol OperationQueueDelegate: class {
-    func operationQueue(operationQueue: OperationQueue, willAddOperation operation: NSOperation)
-    func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
+public protocol OperacjaQueueDelegate: class {
+    func operationQueue(operationQueue: OperacjaQueue, willAddOperation operation: NSOperation)
+    func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType])
 }
 
-extension OperationQueueDelegate {
-    public func operationQueue(operationQueue: OperationQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
+extension OperacjaQueueDelegate {
+    public func operationQueue(operationQueue: OperacjaQueue, operationDidFinish operation: NSOperation, withErrors errors: [ErrorType]) { }
 }
 
 /// The block that is called when operation is enqueued.
-public typealias OperationQueueEnqueuingModule = (operation: Operation, queue: OperationQueue) -> Void
+public typealias OperacjaQueueEnqueuingModule = (operation: Operacja, queue: OperacjaQueue) -> Void
 
 /**
-    `OperationQueue` is an `NSOperationQueue` subclass that implements a large
-    number of "extra features" related to the `Operation` class:
+    `OperacjaQueue` is an `NSOperationQueue` subclass that implements a large
+    number of "extra features" related to the `Operacja` class:
     
     - Notifying a delegate of all operation completion
     - Extracting generated dependencies from operation conditions
     - Setting up dependencies to enforce mutual exclusivity
 */
-public class OperationQueue: NSOperationQueue {
+public class OperacjaQueue: NSOperationQueue {
     
     /// - Note: Consider not to use `delegate` with your queues.
     /// There are better approaches, for example, enqueueing modules and operation observers.
-    public weak var delegate: OperationQueueDelegate?
+    public weak var delegate: OperacjaQueueDelegate?
     
     public override func addOperation(operation: NSOperation) {
         dependOnVitals(operation)
-        if let operation = operation as? Operation {
+        if let operation = operation as? Operacja {
             
-            // Set up an observer to invoke the `OperationQueueDelegate` method.
+            // Set up an observer to invoke the `OperacjaQueueDelegate` method.
             operation.observe {
                 $0.didProduceAnotherOperation { [weak self] operation in
                     self?.addOperation(operation)
@@ -132,10 +132,10 @@ public class OperationQueue: NSOperationQueue {
         }
     }
     
-    private var modules: [OperationQueueEnqueuingModule] = []
+    private var modules: [OperacjaQueueEnqueuingModule] = []
     
-    /// Assigns a `module` which will be called when new `Operation`s are added to the queue.
-    public func addEnqueuingModule(module: OperationQueueEnqueuingModule) {
+    /// Assigns a `module` which will be called when new `Operacja`s are added to the queue.
+    public func addEnqueuingModule(module: OperacjaQueueEnqueuingModule) {
         modules.append(module)
     }
     

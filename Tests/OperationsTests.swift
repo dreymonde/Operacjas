@@ -1,17 +1,17 @@
 //
-//  OperationsTests.swift
-//  OperationsTests
+//  OperacjasTests.swift
+//  OperacjasTests
 //
 //  Created by Oleg Dreyman on 29.04.16.
 //  Copyright © 2016 AdvancedOperations. All rights reserved.
 //
 
 import XCTest
-@testable import Operations
+@testable import Operacjas
 
-class OperationsTests: XCTestCase {
+class OperacjasTests: XCTestCase {
     
-    let queue = OperationQueue()
+    let queue = OperacjaQueue()
     
     override func setUp() {
         super.setUp()
@@ -24,8 +24,8 @@ class OperationsTests: XCTestCase {
     }
     
     func testRegularBuilder() {
-        let expectation = expectationWithDescription("Operation waiting")
-        let operation = BlockOperation {
+        let expectation = expectationWithDescription("Operacja waiting")
+        let operation = BlockOperacja {
             print("here")
         }
         operation.observe {
@@ -44,8 +44,8 @@ class OperationsTests: XCTestCase {
     }
     
     func testBuilderWithFinished() {
-        let expectation = expectationWithDescription("Operation waiting")
-        let operation = BlockOperation {
+        let expectation = expectationWithDescription("Operacja waiting")
+        let operation = BlockOperacja {
             print("here")
         }
         operation.observe {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE17C4721CD3CD1100708FC5"
-               BuildableName = "Operations.framework"
-               BlueprintName = "Operations watchOS"
-               ReferencedContainer = "container:Operations.xcodeproj">
+               BuildableName = "Operacjas.framework"
+               BlueprintName = "Operacjas watchOS"
+               ReferencedContainer = "container:Operacjas.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,9 +46,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE17C4721CD3CD1100708FC5"
-            BuildableName = "Operations.framework"
-            BlueprintName = "Operations watchOS"
-            ReferencedContainer = "container:Operations.xcodeproj">
+            BuildableName = "Operacjas.framework"
+            BlueprintName = "Operacjas watchOS"
+            ReferencedContainer = "container:Operacjas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -64,9 +64,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE17C4721CD3CD1100708FC5"
-            BuildableName = "Operations.framework"
-            BlueprintName = "Operations watchOS"
-            ReferencedContainer = "container:Operations.xcodeproj">
+            BuildableName = "Operacjas.framework"
+            BlueprintName = "Operacjas watchOS"
+            ReferencedContainer = "container:Operacjas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
