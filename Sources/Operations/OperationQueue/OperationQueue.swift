@@ -139,6 +139,13 @@ open class OperacjaQueue : OperationQueue {
         modules.append(module)
     }
     
+    @nonobjc open func addEnqueuingModule(_ module: @escaping (_ operation: Operacja) -> Void) {
+        let module: OperacjaQueueEnqueuingModule = { operation, _ in
+            module(operation)
+        }
+        modules.append(module)
+    }
+    
     public struct EnqueuingOptions : OptionSet {
         public var rawValue: Int
         public init(rawValue: Int) {
