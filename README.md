@@ -393,8 +393,8 @@ See [#11](https://github.com/AdvancedOperations/Operations/issues/11)
 ## Why "Operacjas"?
 🇵🇱
 
-[travis-badge]: https://travis-ci.org/AdvancedOperations/Operations.svg?branch=master
-[travis-url]: https://travis-ci.org/AdvancedOperations/Operations
+[travis-badge]: https://travis-ci.org/dreymonde/Operacjas.svg?branch=master
+[travis-url]: https://travis-ci.org/dreymonde/Operacjas
 [swift-badge]: https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat
 [swift-url]: https://swift.org
 [platform-badge]: https://img.shields.io/badge/Platform-OS%20X-lightgray.svg?style=flat
