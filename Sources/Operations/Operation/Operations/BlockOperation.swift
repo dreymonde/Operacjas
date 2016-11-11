@@ -42,7 +42,7 @@ public final class BlockOperacja : Operacja {
             the designated initializer). The operation will be automatically ended
             after the `mainQueueBlock` is executed.
     */
-    static func onMain(_ block: @escaping () -> ()) -> BlockOperacja {
+    public static func onMain(_ block: @escaping () -> ()) -> BlockOperacja {
         return BlockOperacja { continuation in
             DispatchQueue.main.async {
                 block()
