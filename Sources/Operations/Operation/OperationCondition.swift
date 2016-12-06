@@ -34,7 +34,7 @@ public protocol OperacjaCondition {
     func dependency(for operation: Operacja) -> Operation?
     
     /// Evaluate the condition, to see if it has been satisfied or not.
-    func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void)
+    func evaluate(for operation: Operacja, completion: @escaping (OperacjaConditionResult) -> Void)
 }
 
 extension OperacjaCondition {

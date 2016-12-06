@@ -27,7 +27,7 @@ public struct NoFailedDependencies : OperacjaCondition {
         return nil
     }
     
-    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    public func evaluate(for operation: Operacja, completion: @escaping (OperacjaConditionResult) -> Void) {
         let operations = operation.dependencies.flatMap({ $0 as? Operacja })
         let failedOperations = operations.filter({
             if let errors = $0.errors {
@@ -62,7 +62,7 @@ internal struct NoFailedDependency : OperacjaCondition {
         return nil
     }
     
-    func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    func evaluate(for operation: Operacja, completion: @escaping (OperacjaConditionResult) -> Void) {
         guard var errors = dependency.errors else {
             completion(.failed(with: ErrorType.dependencyErrorsNil))
             return

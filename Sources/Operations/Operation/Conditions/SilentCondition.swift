@@ -30,7 +30,7 @@ public struct SilentCondition<T : OperacjaCondition> : OperacjaCondition {
         return nil
     }
     
-    public func evaluate(for operation: Operacja, completion: (OperacjaConditionResult) -> Void) {
+    public func evaluate(for operation: Operacja, completion: @escaping (OperacjaConditionResult) -> Void) {
         condition.evaluate(for: operation, completion: completion)
     }
 }
