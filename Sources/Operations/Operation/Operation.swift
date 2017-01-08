@@ -191,12 +191,12 @@ open class Operacja : Operation {
         }
     }
     
-    internal var exclusivityCategories: [MutualExclusivityCategory] = []
+    internal var exclusivityCategories: [String] = []
     
     /// Sets an operation as being mutually exclusive in `category`.
     ///
     /// - Warning: This method needs to be called before enqueuing.
-    public final func setMutuallyExclusive(in category: MutualExclusivityCategory) {
+    public final func setMutuallyExclusive(inCategory category: String) {
         assert(state < .evaluatingConditions, "Cannot modify conditions after execution has begun.")
         exclusivityCategories.append(category)
     }

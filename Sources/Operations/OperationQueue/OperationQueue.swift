@@ -72,7 +72,7 @@ open class OperacjaQueue : OperationQueue {
                 With condition dependencies added, we can now see if this needs
                 dependencies to enforce mutual exclusivity.
             */
-            let concurrencyCategories: [String] = operation.exclusivityCategories.map({ $0.categoryIdentifier })
+            let concurrencyCategories: [String] = operation.exclusivityCategories
 
             if !concurrencyCategories.isEmpty {
                 // Set up the mutual exclusivity dependencies.

@@ -47,10 +47,6 @@
 		BE6CFCBF1D2AA9C50064041E /* QueueModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CFCBE1D2AA9C50064041E /* QueueModuleTests.swift */; };
 		BE6CFCC01D2AA9C50064041E /* QueueModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CFCBE1D2AA9C50064041E /* QueueModuleTests.swift */; };
 		BE6CFCC11D2AA9C50064041E /* QueueModuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6CFCBE1D2AA9C50064041E /* QueueModuleTests.swift */; };
-		BE704A3F1D304BAD0076CACF /* MutualExclusivityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */; };
-		BE704A401D304BC60076CACF /* MutualExclusivityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */; };
-		BE704A411D304BC60076CACF /* MutualExclusivityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */; };
-		BE704A421D304BC70076CACF /* MutualExclusivityCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */; };
 		BE889E511D38C7CF003567AE /* NoFailedDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE889E501D38C7CE003567AE /* NoFailedDependencies.swift */; };
 		BE889E521D38C7DA003567AE /* NoFailedDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE889E501D38C7CE003567AE /* NoFailedDependencies.swift */; };
 		BE889E531D38C7DB003567AE /* NoFailedDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE889E501D38C7CE003567AE /* NoFailedDependencies.swift */; };
@@ -139,7 +135,6 @@
 		BE47728D1CE71BEC00FF8DAC /* ObserverBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverBuilder.swift; sourceTree = "<group>"; };
 		BE6B109D1CF0E75F00616E32 /* NoCancelledDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoCancelledDependencies.swift; sourceTree = "<group>"; };
 		BE6CFCBE1D2AA9C50064041E /* QueueModuleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueModuleTests.swift; sourceTree = "<group>"; };
-		BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualExclusivityCategory.swift; sourceTree = "<group>"; };
 		BE889E501D38C7CE003567AE /* NoFailedDependencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFailedDependencies.swift; sourceTree = "<group>"; };
 		BE889E551D38E814003567AE /* MutualExclusivityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutualExclusivityTests.swift; sourceTree = "<group>"; };
 		BE889E571D38E853003567AE /* NoFailedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoFailedTests.swift; sourceTree = "<group>"; };
@@ -294,7 +289,6 @@
 			children = (
 				BEFD74D31CD630CD0066A71B /* OperationQueue.swift */,
 				BEFD74CE1CD630BA0066A71B /* ExclusivityController.swift */,
-				BE704A3E1D304BAD0076CACF /* MutualExclusivityCategory.swift */,
 			);
 			path = OperationQueue;
 			sourceTree = "<group>";
@@ -624,7 +618,6 @@
 				BE6B109E1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74CF1CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE47728E1CE71BEC00FF8DAC /* ObserverBuilder.swift in Sources */,
-				BE704A3F1D304BAD0076CACF /* MutualExclusivityCategory.swift in Sources */,
 				BEFD74FF1CD64D3C0066A71B /* BlockOperation.swift in Sources */,
 				BE17C4A41CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E51CD639000066A71B /* SilentCondition.swift in Sources */,
@@ -659,7 +652,6 @@
 				BE6B109F1CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D01CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE47728F1CE71E6500FF8DAC /* ObserverBuilder.swift in Sources */,
-				BE704A401D304BC60076CACF /* MutualExclusivityCategory.swift in Sources */,
 				BEFD75001CD64D3C0066A71B /* BlockOperation.swift in Sources */,
 				BE17C4A51CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E61CD639000066A71B /* SilentCondition.swift in Sources */,
@@ -694,7 +686,6 @@
 				BE6B10A01CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D11CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE4772901CE71E6600FF8DAC /* ObserverBuilder.swift in Sources */,
-				BE704A411D304BC60076CACF /* MutualExclusivityCategory.swift in Sources */,
 				BEFD75011CD64D3C0066A71B /* BlockOperation.swift in Sources */,
 				BE17C4A61CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E71CD639000066A71B /* SilentCondition.swift in Sources */,
@@ -717,7 +708,6 @@
 				BE6B10A11CF0E75F00616E32 /* NoCancelledDependencies.swift in Sources */,
 				BEFD74D21CD630BA0066A71B /* ExclusivityController.swift in Sources */,
 				BE4772911CE71E6700FF8DAC /* ObserverBuilder.swift in Sources */,
-				BE704A421D304BC70076CACF /* MutualExclusivityCategory.swift in Sources */,
 				BEFD75021CD64D3C0066A71B /* BlockOperation.swift in Sources */,
 				BE17C4A71CD3CEFE00708FC5 /* OperationCondition.swift in Sources */,
 				BEFD74E81CD639000066A71B /* SilentCondition.swift in Sources */,
