@@ -15,22 +15,18 @@ class MutualExclusivityTests: XCTestCase {
     let queue = OperacjaQueue()
     
     func testMutually() {
-        enum Category: String, MutualExclusivityCategory {
-            case A
-            case B
-        }
         
         let operationA = BlockOperacja.onMain {
             print("First")
         }
-        operationA.setMutuallyExclusive(in: Category.A)
+        operationA.setMutuallyExclusive(inCategory: "A")
         
         let expectation = self.expectation(description: "Waiting for second operation")
         let operationB = BlockOperacja.onMain {
             print("Second")
             expectation.fulfill()
         }
-        operationB.setMutuallyExclusive(in: Category.A)
+        operationB.setMutuallyExclusive(inCategory: "A")
         operationB.observe { operation in
             operation.didStart {
                 if !operationA.isFinished {
